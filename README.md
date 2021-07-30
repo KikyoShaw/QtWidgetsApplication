@@ -1,2 +1,3 @@
-# QtWidgetsApplication
 平时一些练手的Qt小功能工具合集
+
+QtWidgetsApplication：rollingBox, 实现日期滚动选择控件，并根据所选日期自动获取年龄和星座
