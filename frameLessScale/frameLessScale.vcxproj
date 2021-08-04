@@ -11,12 +11,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F50A71E4-E5E7-41D8-8881-6011F47A536D}</ProjectGuid>
+    <ProjectGuid>{3C116840-FAB4-4F2B-8FDD-2AF753448D1C}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">10.0.17763.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">10.0.17763.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
-    <ProjectName>rollingBox</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="Configuration">
@@ -56,21 +55,21 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
-    <OutDir>$(SolutionDir)$(Configuration)\rollingBox</OutDir>
+    <OutDir>$(SolutionDir)$(Configuration)\frameLessScale</OutDir>
     <IntDir>$(Configuration)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">
-    <OutDir>$(SolutionDir)$(Configuration)\rollingBox</OutDir>
+    <OutDir>$(SolutionDir)$(Configuration)\frameLessScale</OutDir>
     <IntDir>$(Configuration)</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)QtWidgetsApplication;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)frameLessScale;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)QtWidgetsApplication;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)frameLessScale;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="Configuration">
@@ -100,15 +99,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="rollingBox.cpp" />
-    <QtRcc Include="QtWidgetsApplication.qrc" />
-    <QtUic Include="QtWidgetsApplication.ui" />
-    <QtMoc Include="QtWidgetsApplication.h" />
-    <ClCompile Include="QtWidgetsApplication.cpp" />
+    <QtRcc Include="frameLessScale.qrc" />
+    <QtUic Include="frameLessScale.ui" />
+    <QtMoc Include="frameLessScale.h" />
+    <ClCompile Include="DragShadow.cpp" />
+    <ClCompile Include="frameless.cpp" />
+    <ClCompile Include="frameLessScale.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="rollingBox.h" />
+    <QtMoc Include="DragShadow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="frameless.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
