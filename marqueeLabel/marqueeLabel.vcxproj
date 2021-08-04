@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3C116840-FAB4-4F2B-8FDD-2AF753448D1C}</ProjectGuid>
+    <ProjectGuid>{221A72F7-C16A-4FD3-9790-B1203320F6D6}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">10.0.17763.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">10.0.17763.0</WindowsTargetPlatformVersion>
@@ -55,21 +55,19 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
-    <OutDir>$(SolutionDir)$(Configuration)\frameLessScale\</OutDir>
-    <IntDir>$(Configuration)</IntDir>
+    <OutDir>$(SolutionDir)$(Configuration)\marqueelabel\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">
-    <OutDir>$(SolutionDir)$(Configuration)\frameLessScale\</OutDir>
-    <IntDir>$(Configuration)</IntDir>
+    <OutDir>$(SolutionDir)$(Configuration)\marqueelabel\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)frameLessScale;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)marqueeLabel;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)frameLessScale;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)marqueeLabel;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="Configuration">
@@ -99,19 +97,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <QtRcc Include="frameLessScale.qrc" />
-    <QtUic Include="frameLessScale.ui" />
-    <QtMoc Include="frameLessScale.h" />
-    <ClCompile Include="DragShadow.cpp" />
-    <ClCompile Include="frameless.cpp" />
-    <ClCompile Include="frameLessScale.cpp" />
+    <ClCompile Include="vmarqueelabel.cpp" />
+    <QtRcc Include="marqueeLabel.qrc" />
+    <QtUic Include="marqueeLabel.ui" />
+    <QtMoc Include="marqueeLabel.h" />
+    <ClCompile Include="marqueeLabel.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="DragShadow.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="frameless.h" />
+    <QtMoc Include="vmarqueelabel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
