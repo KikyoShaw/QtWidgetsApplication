@@ -409,7 +409,7 @@ color: #FFFFFF;
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../QtWidgetsApplication.qrc"/>
+  <include location="QtWidgetsApplication.qrc"/>
  </resources>
  <connections/>
 </ui>
