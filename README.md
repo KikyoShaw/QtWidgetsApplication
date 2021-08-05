@@ -7,3 +7,5 @@ rollingBox | 实现日期滚动选择控件，并根据所选日期自动获取�
 frameLessScale | 无边框窗口实现八个方位缩放
 
 marqueeLabel | 跑马灯文字移动控件
+
+carouselLabel | 图片轮播控件
