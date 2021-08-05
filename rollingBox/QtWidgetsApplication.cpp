@@ -22,8 +22,6 @@ QtWidgetsApplication::QtWidgetsApplication(QWidget *parent)
 
 	connect(ui.pushButton_close, &QPushButton::clicked, this, &QtWidgetsApplication::close);
 	connect(ui.pushButton_sure, &QPushButton::clicked, this, &QtWidgetsApplication::sltGetDate);
-
-	getAge(0,0,0);
 }
 
 QtWidgetsApplication::~QtWidgetsApplication()
