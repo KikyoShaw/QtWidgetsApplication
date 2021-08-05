@@ -9,3 +9,7 @@ frameLessScale | 无边框窗口实现八个方位缩放
 marqueeLabel | 跑马灯文字移动控件
 
 carouselLabel | 图片轮播控件
+
+DockWin | 窗口停留合并和独立拆分
+
+chatMessageWidget | 模仿qq聊天窗口
