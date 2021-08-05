@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/qrc">
+        <file>image/1.jpg</file>
+        <file>image/2.jpg</file>
+        <file>image/3.jpg</file>
+        <file>image/4.jpg</file>
+        <file>image/5.jpg</file>
+        <file>image/6.jpg</file>
+        <file>image/7.jpg</file>
+        <file>image/8.jpg</file>
+        <file>image/9.jpg</file>
+        <file>image/10.jpg</file>
+        <file>image/11.jpg</file>
+        <file>image/12.jpg</file>
+        <file>image/bg.jpg</file>
+        <file>image/ic_gb.png</file>
+        <file>image/ic_zxh.png</file>
+        <file>image/lt_ic_zdh.png</file>
+    </qresource>
+</RCC>

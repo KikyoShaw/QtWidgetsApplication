@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "carouselLabel", "carouselLa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DockWin", "DockWin\DockWin.vcxproj", "{58292888-EDBD-4EC2-ABEA-C28056D3C564}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chatMessageWidget", "chatMessageWidget\chatMessageWidget.vcxproj", "{2AE079A4-A4EC-417F-A4F8-0D31B83E3123}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -39,6 +41,10 @@ Global
 		{58292888-EDBD-4EC2-ABEA-C28056D3C564}.Debug|x86.Build.0 = Debug|Win32
 		{58292888-EDBD-4EC2-ABEA-C28056D3C564}.Release|x86.ActiveCfg = Release|Win32
 		{58292888-EDBD-4EC2-ABEA-C28056D3C564}.Release|x86.Build.0 = Release|Win32
+		{2AE079A4-A4EC-417F-A4F8-0D31B83E3123}.Debug|x86.ActiveCfg = Debug|Win32
+		{2AE079A4-A4EC-417F-A4F8-0D31B83E3123}.Debug|x86.Build.0 = Debug|Win32
+		{2AE079A4-A4EC-417F-A4F8-0D31B83E3123}.Release|x86.ActiveCfg = Release|Win32
+		{2AE079A4-A4EC-417F-A4F8-0D31B83E3123}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

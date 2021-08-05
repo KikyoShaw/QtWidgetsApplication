@@ -23,16 +23,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="DockWin.qrc">
+    <QtRcc Include="chatMessageWidget.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-    <QtUic Include="DockWin.ui">
+    <QtUic Include="chatMessageWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtMoc Include="DockWin.h">
+    <QtMoc Include="chatMessageWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClCompile Include="DockWin.cpp">
+    <ClCompile Include="chatMessageWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -40,5 +40,41 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="chatMessageItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imageTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="logoItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="chatMessageItem.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="testWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="logoItem.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="chatMessageItem.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="logoItem.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="imageTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

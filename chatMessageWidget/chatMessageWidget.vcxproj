@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{58292888-EDBD-4EC2-ABEA-C28056D3C564}</ProjectGuid>
+    <ProjectGuid>{2AE079A4-A4EC-417F-A4F8-0D31B83E3123}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">10.0.17763.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">10.0.17763.0</WindowsTargetPlatformVersion>
@@ -55,10 +55,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
-    <OutDir>$(SolutionDir)$(Configuration)\DockWin\</OutDir>
+    <OutDir>$(SolutionDir)$(Configuration)\chatMessageWidget\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">
-    <OutDir>$(SolutionDir)$(Configuration)\DockWin\</OutDir>
+    <OutDir>$(SolutionDir)$(Configuration)\chatMessageWidget\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="Configuration">
     <ClCompile>
@@ -87,11 +87,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <QtRcc Include="DockWin.qrc" />
-    <QtUic Include="DockWin.ui" />
-    <QtMoc Include="DockWin.h" />
-    <ClCompile Include="DockWin.cpp" />
+    <ClCompile Include="imageTool.cpp" />
+    <ClCompile Include="logoItem.cpp" />
+    <ClCompile Include="testWidget.cpp" />
+    <QtRcc Include="chatMessageWidget.qrc" />
+    <QtUic Include="chatMessageItem.ui" />
+    <QtUic Include="chatMessageWidget.ui" />
+    <QtMoc Include="chatMessageWidget.h" />
+    <ClCompile Include="chatMessageItem.cpp" />
+    <ClCompile Include="chatMessageWidget.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="logoItem.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="chatMessageItem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="testWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="imageTool.h" />
+    <QtMoc Include="logoItem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
