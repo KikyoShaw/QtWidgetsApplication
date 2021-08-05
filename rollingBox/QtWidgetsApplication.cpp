@@ -3,7 +3,7 @@
 #include <QDate>
 
 QtWidgetsApplication::QtWidgetsApplication(QWidget *parent)
-    : QWidget(parent), m_year(1989), m_month(6), m_day(15)
+    : QWidget(parent), m_year(1989), m_month(6), m_day(1)
 {
     ui.setupUi(this);
 
@@ -22,6 +22,8 @@ QtWidgetsApplication::QtWidgetsApplication(QWidget *parent)
 
 	connect(ui.pushButton_close, &QPushButton::clicked, this, &QtWidgetsApplication::close);
 	connect(ui.pushButton_sure, &QPushButton::clicked, this, &QtWidgetsApplication::sltGetDate);
+
+	getAge(0,0,0);
 }
 
 QtWidgetsApplication::~QtWidgetsApplication()
@@ -60,6 +62,7 @@ void QtWidgetsApplication::initRollingBox()
 	ui.widget_year->setValue(m_year);
 	connect(ui.widget_year, &RollingBox::sigCurrentValueChange, this, [=](int nYear) {
 		m_year = nYear;
+		setDay(m_year, m_month);
 		setAge();
 		setLineEdit();
 	});
@@ -69,15 +72,18 @@ void QtWidgetsApplication::initRollingBox()
 	ui.widget_month->setValue(m_month);
 	connect(ui.widget_month, &RollingBox::sigCurrentValueChange, this, [=](int nMonth) {
 		m_month = nMonth;
+		setDay(m_year, m_month);
 		setAstro();
+		setAge();
 		setLineEdit();
 	});
 	//日
-	ui.widget_day->setRang(1, 30);
+	setDay(m_year, m_month);
 	ui.widget_day->setValue(m_day);
 	connect(ui.widget_day, &RollingBox::sigCurrentValueChange, this, [=](int nDay) {
 		m_day = nDay;
 		setAstro();
+		setAge();
 		setLineEdit();
 	});
 }
@@ -106,10 +112,11 @@ void QtWidgetsApplication::setAstro()
 
 void QtWidgetsApplication::setAge()
 {
-	QDate birthday(m_year, m_month, m_day);
+	/*QDate birthday(m_year, m_month, m_day);
 	QDate today = QDate::currentDate();
 	int daysold = birthday.daysTo(today);
-	int age = daysold / 365;
+	int age = daysold / 365;*/
+	int age = getAge(m_year, m_month, m_day);
 	ui.label_age->setText(QStringLiteral("年龄：%1").arg(QString::number(age)));
 }
 
@@ -118,6 +125,98 @@ void QtWidgetsApplication::setLineEdit()
 	ui.lineEdit_day->setText(QString::number(m_day));
 	ui.lineEdit_month->setText(QString::number(m_month));
 	ui.lineEdit_year->setText(QString::number(m_year));
+}
+
+bool QtWidgetsApplication::isLoopYear(int year)
+{
+	return (((0 == (year % 4)) && (0 != (year % 100))) || (0 == (year % 400)));
+}
+
+int QtWidgetsApplication::getMonthDays(int year, int month)
+{
+	int countDay = 0;
+	int loopDay = isLoopYear(year) ? 1 : 0;
+
+	switch (month) {
+	case 1:
+		countDay = 31;
+		break;
+	case 2:
+		countDay = 28 + loopDay;
+		break;
+	case 3:
+		countDay = 31;
+		break;
+	case 4:
+		countDay = 30;
+		break;
+	case 5:
+		countDay = 31;
+		break;
+	case 6:
+		countDay = 30;
+		break;
+	case 7:
+		countDay = 31;
+		break;
+	case 8:
+		countDay = 31;
+		break;
+	case 9:
+		countDay = 30;
+		break;
+	case 10:
+		countDay = 31;
+		break;
+	case 11:
+		countDay = 30;
+		break;
+	case 12:
+		countDay = 31;
+		break;
+	default:
+		countDay = 30;
+		break;
+	}
+
+	return countDay;
+}
+
+int QtWidgetsApplication::getYearDays(int year)
+{
+	int countDay = 0;
+	int loopDay = isLoopYear(year) ? 1 : 0;
+	countDay = 365 + loopDay;
+	return countDay;
+}
+
+int QtWidgetsApplication::getAge(int year, int month, int day)
+{
+	//获取当前年月日
+	QDate today = QDate::currentDate();
+	auto _year = today.year();
+	auto _month = today.month();
+	auto _day = today.day();
+
+	//计算年龄
+	//计算规则：比较年的同时确定月份在当前月份之前，如果在之后，代表加一岁
+	//月份相同，则需要计算天数，天数在之后，同样需要加一岁
+	int age = _year - year;
+	if (_month < month) {
+		age += 1;
+	}
+	else if (_month == month) {
+		if (_day < day) {
+			age += 1;
+		}
+	}
+	return age;
+}
+
+void QtWidgetsApplication::setDay(int year, int month)
+{
+	int day = getMonthDays(year, month);
+	ui.widget_day->setRang(1, day);
 }
 
 void QtWidgetsApplication::sltGetDate()

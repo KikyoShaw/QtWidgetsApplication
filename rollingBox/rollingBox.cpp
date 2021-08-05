@@ -18,8 +18,12 @@ void RollingBox::setRang(int nMin, int nMax)
 {
 	m_nMin = nMin;
 	m_nMax = nMax;
-	m_nCurrentValue = m_nCurrentValue > m_nMax ? m_nMax : m_nCurrentValue;
-	m_nCurrentValue = m_nCurrentValue < m_nMin ? m_nMin : m_nCurrentValue;
+	if (m_nCurrentValue > m_nMax) {
+		setValue(m_nMax);
+	}
+	update();
+	//m_nCurrentValue = m_nCurrentValue > m_nMax ? m_nMax : m_nCurrentValue;
+	//m_nCurrentValue = m_nCurrentValue < m_nMin ? m_nMin : m_nCurrentValue;
 }
 
 void RollingBox::wheelEvent(QWheelEvent *event)
@@ -123,6 +127,11 @@ void RollingBox::paintText(QPainter *pPainter, int nValue, int nOffSet, int nFon
 	pPainter->setFont(font);
 	int textHeight = pPainter->fontMetrics().height();
 	int initY = height() / 2 + nOffSet - textHeight / 2 - 2;
-	pPainter->drawText(QRect(0, initY, width(), textHeight), Qt::AlignCenter, QString::number(nValue));
+	//ф╢╫сндвж
+	auto _text = QString::number(nValue);
+	if (nValue < 10) {
+		_text = QString("0%1").arg(_text);
+	}
+	pPainter->drawText(QRect(0, initY, width(), textHeight), Qt::AlignCenter, _text);
 	pPainter->restore();
 }

@@ -28,6 +28,21 @@ private:
 	
 	void setLineEdit();
 
+	//计算是否闰年
+	bool isLoopYear(int year);
+
+	//计算指定年月该月共多少天
+	int getMonthDays(int year, int month);
+
+	//计算指定年有多少天
+	int getYearDays(int year);
+
+	//计算年龄
+	int getAge(int year, int month, int day);
+
+	//设置天数
+	void setDay(int year, int month);
+
 private:
     Ui::QtWidgetsApplicationClass ui;
 	//星座

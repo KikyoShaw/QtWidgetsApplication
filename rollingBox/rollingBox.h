@@ -16,7 +16,7 @@ public:
 	//获取中间值
 	inline int getValue() { return m_nCurrentValue; }
 	//设置中间值
-	inline void setValue(int nValue) { m_nCurrentValue = nValue; }
+	inline void setValue(int nValue) { m_nCurrentValue = nValue;}
 	//设置滚动的步长
 	inline void setStep(int nStep) { m_nStep = nStep; }
 	//设置显示个数
