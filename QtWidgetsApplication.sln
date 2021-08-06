@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chatMessageWidget", "chatMe
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "floatingWin", "floatingWin\floatingWin.vcxproj", "{F0A100CC-7742-48C0-831A-7785E7F9F33F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "moveWidget", "moveWidget\moveWidget.vcxproj", "{D0A0F25D-A309-40F5-8DE5-D553CFEAC882}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -51,6 +53,10 @@ Global
 		{F0A100CC-7742-48C0-831A-7785E7F9F33F}.Debug|x86.Build.0 = Debug|Win32
 		{F0A100CC-7742-48C0-831A-7785E7F9F33F}.Release|x86.ActiveCfg = Release|Win32
 		{F0A100CC-7742-48C0-831A-7785E7F9F33F}.Release|x86.Build.0 = Release|Win32
+		{D0A0F25D-A309-40F5-8DE5-D553CFEAC882}.Debug|x86.ActiveCfg = Debug|Win32
+		{D0A0F25D-A309-40F5-8DE5-D553CFEAC882}.Debug|x86.Build.0 = Debug|Win32
+		{D0A0F25D-A309-40F5-8DE5-D553CFEAC882}.Release|x86.ActiveCfg = Release|Win32
+		{D0A0F25D-A309-40F5-8DE5-D553CFEAC882}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

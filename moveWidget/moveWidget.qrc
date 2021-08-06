@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/moveWidget">
+        <file>qrc/Qt.png</file>
+    </qresource>
+</RCC>
