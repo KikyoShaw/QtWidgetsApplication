@@ -13,3 +13,7 @@ carouselLabel | 图片轮播控件
 DockWin | 窗口停留合并和独立拆分
 
 chatMessageWidget | 模仿qq聊天窗口
+
+floatingWin | 模拟qq停留在桌面边缘时自动隐藏
+
+moveWidget | 子窗口在父窗口内移动
