@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="qrc:/qwebchannel.js"></script>
+        <script type="text/javascript">
+            //BEGIN SETUP
+            function output(message) {
+                var output = document.getElementById("output");
+                output.innerHTML = output.innerHTML + message + "\n";
+            }
+
+            window.onload = function() {
+                output("Hello JS");
+
+                new QWebChannel(qt.webChannelTransport,
+                    function(channel) {
+
+                        // make MainWindow object accessible globally
+                        window.MainWindow = channel.objects.MainWindow;
+
+                        document.getElementById("send").onclick = function() {
+                            var input = document.getElementById("input");
+                            var text = input.value;
+                            if (!text) {
+                                return;
+                            }
+
+                            output("JS: " + text);
+                            input.value = "";
+                               MainWindow.JsToCpp(text, function(returnValue) {
+                                   // This callback will be invoked when JsToCpp has a return value. Keep in mind that
+                                   // the communication is asynchronous, hence the need for this callback.
+                                   //output("Response: " + returnValue);
+                               });
+                        }
+
+                        MainWindow.CppToJs.connect(function(message) {
+                            output("Qt: " + message);
+                        });
+                    }
+                );
+
+                output("Connected to WebChannel, ready to send/receive messages!");
+            }
+            //END SETUP
+        </script>
+        <style type="text/css">
+            html {
+                height: 100%;
+                width: 100%;
+            }
+            #input {
+                width: 240px;
+				height: 24px;
+                margin: 0 6px 0 0;
+            }
+            #send {
+                width: 90px;
+				height: 30px;
+                margin: 0;
+            }
+            #output {
+                width: 360px;
+                height: 604px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Web</h1>
+        <textarea id="output"></textarea><br/>
+        <input id="input" />
+        <input type="submit" id="send" value="send to Qt" onclick="javascript:click();" />
+    </body>
+</html>
