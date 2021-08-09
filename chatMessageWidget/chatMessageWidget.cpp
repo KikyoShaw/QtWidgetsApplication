@@ -7,7 +7,7 @@ chatMessageWidget::chatMessageWidget(QWidget *parent)
     : QWidget(parent)
 {
     ui.setupUi(this);
-	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+	setWindowFlags(Qt::FramelessWindowHint/* | Qt::WindowStaysOnTopHint*/);
 	setAttribute(Qt::WA_TranslucentBackground);
 	connect(ui.listWidget, &QListWidget::itemSelectionChanged, this, &chatMessageWidget::sltItemSelect);
 }

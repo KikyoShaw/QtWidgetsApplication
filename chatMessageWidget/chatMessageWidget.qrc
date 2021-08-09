@@ -16,5 +16,7 @@
         <file>image/ic_gb.png</file>
         <file>image/ic_zxh.png</file>
         <file>image/lt_ic_zdh.png</file>
+        <file>image/ico_emoji.png</file>
+        <file>image/ico_photo.png</file>
     </qresource>
 </RCC>

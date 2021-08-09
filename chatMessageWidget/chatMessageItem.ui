@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>675</width>
-    <height>609</height>
+    <width>714</width>
+    <height>699</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -65,13 +65,13 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>120</height>
+          <height>100</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>120</height>
+          <height>100</height>
          </size>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
@@ -122,9 +122,6 @@
 font-family: 微软雅黑;
 color: rgb(0, 170, 0);</string>
               </property>
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
              </widget>
             </item>
             <item>
@@ -133,9 +130,6 @@ color: rgb(0, 170, 0);</string>
                <string notr="true">font-size: 12px;
 font-family: 微软雅黑;
 color: #212426;</string>
-              </property>
-              <property name="text">
-               <string>TextLabel</string>
               </property>
              </widget>
             </item>
@@ -273,13 +267,24 @@ border-bottom: 1px solid rgba(255, 255, 255, 14%);
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>673</width>
-           <height>347</height>
+           <width>712</width>
+           <height>397</height>
           </rect>
          </property>
          <property name="styleSheet">
           <string notr="true">border:none;</string>
          </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="spacing">
+           <number>20</number>
+          </property>
+          <property name="leftMargin">
+           <number>24</number>
+          </property>
+          <property name="rightMargin">
+           <number>24</number>
+          </property>
+         </layout>
         </widget>
        </widget>
       </item>
@@ -288,16 +293,138 @@ border-bottom: 1px solid rgba(255, 255, 255, 14%);
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>140</height>
+          <height>200</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>140</height>
+          <height>200</height>
          </size>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QWidget" name="widget_emoji" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>36</height>
+            </size>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="pushButtonEmoji">
+              <property name="minimumSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="toolTip">
+               <string>表情</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton
+{
+	border-image: url(:/qrc/image/ico_emoji.png);
+}
+
+/*
+QPushButton::hover
+{	
+	background-color: #EDEDED;
+}
+
+QPushButton::checked
+{	
+	background-color: #EDEDED;
+}*/</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_photo">
+              <property name="minimumSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="toolTip">
+               <string>发送图片</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton
+{
+	border-image: url(:/qrc/image/ico_photo.png);
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>633</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
          <item>
           <widget class="QTextEdit" name="textEdit">
            <property name="styleSheet">
@@ -305,6 +432,9 @@ border-bottom: 1px solid rgba(255, 255, 255, 14%);
 border:none;
 font-size:14px;
 color:black;</string>
+           </property>
+           <property name="placeholderText">
+            <string>说点什么吧？</string>
            </property>
           </widget>
          </item>
@@ -333,6 +463,18 @@ color: #212426;
 }</string>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
              <spacer name="horizontalSpacer">
               <property name="orientation">

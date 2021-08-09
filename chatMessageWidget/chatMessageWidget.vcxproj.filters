@@ -52,6 +52,9 @@
     <ClCompile Include="logoItem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="chatMessageBrowser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="chatMessageItem.h">
@@ -61,6 +64,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="logoItem.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="chatMessageBrowser.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

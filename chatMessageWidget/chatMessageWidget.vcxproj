@@ -87,6 +87,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="chatMessageBrowser.cpp" />
     <ClCompile Include="imageTool.cpp" />
     <ClCompile Include="logoItem.cpp" />
     <ClCompile Include="testWidget.cpp" />
@@ -106,6 +107,7 @@
     <QtMoc Include="testWidget.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="chatMessageBrowser.h" />
     <ClInclude Include="imageTool.h" />
     <QtMoc Include="logoItem.h" />
   </ItemGroup>
