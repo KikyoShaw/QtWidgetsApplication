@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "moveWidget", "moveWidget\mo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JsWithCpp", "JsWithCpp\JsWithCpp.vcxproj", "{EAA01CB2-D4B4-4E07-8159-A7A3F236AE4D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "heartProgress", "heartProgress\heartProgress.vcxproj", "{69654974-8DB1-4EED-B62D-02715CA0339B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -63,6 +65,10 @@ Global
 		{EAA01CB2-D4B4-4E07-8159-A7A3F236AE4D}.Debug|x86.Build.0 = Debug|Win32
 		{EAA01CB2-D4B4-4E07-8159-A7A3F236AE4D}.Release|x86.ActiveCfg = Release|Win32
 		{EAA01CB2-D4B4-4E07-8159-A7A3F236AE4D}.Release|x86.Build.0 = Release|Win32
+		{69654974-8DB1-4EED-B62D-02715CA0339B}.Debug|x86.ActiveCfg = Debug|Win32
+		{69654974-8DB1-4EED-B62D-02715CA0339B}.Debug|x86.Build.0 = Debug|Win32
+		{69654974-8DB1-4EED-B62D-02715CA0339B}.Release|x86.ActiveCfg = Release|Win32
+		{69654974-8DB1-4EED-B62D-02715CA0339B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
