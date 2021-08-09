@@ -17,3 +17,5 @@ chatMessageWidget | 模仿qq聊天窗口
 floatingWin | 模拟qq停留在桌面边缘时自动隐藏
 
 moveWidget | 子窗口在父窗口内移动
+
+JsWithCpp | Qt与Js交互
