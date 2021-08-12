@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/clickedAnimation">
+        <file>qrc/icon_sz2.png</file>
+    </qresource>
+</RCC>

@@ -18,4 +18,6 @@ private:
 	chatMessageWidget m_chat;
 	int dataNum;
 	QPushButton *m_test = nullptr;
+
+	QWidget *m_widget = nullptr;
 };
