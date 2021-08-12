@@ -21,3 +21,5 @@ moveWidget | 子窗口在父窗口内移动
 JsWithCpp | Qt与Js交互
 
 heartProgress | QProgress样式美化
+
+clickedAnimation | 点击水波动特效 | 新增引导点击动画特效
