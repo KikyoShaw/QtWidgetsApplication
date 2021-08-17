@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/SysteamTrayTest">
+        <file>qrc/1.jpg</file>
+        <file>qrc/ic_gb.png</file>
+        <file>qrc/Qt.png</file>
+    </qresource>
+</RCC>
