@@ -4,6 +4,7 @@
 #include <QSettings>
 #include <QTimer>
 #include "SystemTrayWarn.h"
+#include <QDebug>
 
 constexpr char* Property_timerId = "timerId";
 
@@ -25,6 +26,16 @@ SysteamTrayTest::SysteamTrayTest(QWidget *parent)
 		m_timer->setInterval(300);
 		m_timer->setProperty(Property_timerId, true);
 		connect(m_timer, &QTimer::timeout, this, &SysteamTrayTest::sltTimeout);
+	}
+
+	//初始化动画类
+	m_variantAnimation = new QVariantAnimation(this);
+	if (m_variantAnimation) {
+		m_variantAnimation->setStartValue(0);
+		m_variantAnimation->setEndValue(2);
+		m_variantAnimation->setLoopCount(-1);
+		m_variantAnimation->setDuration(500);
+		connect(m_variantAnimation, &QVariantAnimation::valueChanged, this, &SysteamTrayTest::sltVariantChanged);
 	}
 
 	connect(ui.pushButton, &QPushButton::clicked, this, &SysteamTrayTest::sltExitOrMinToTray);
@@ -58,13 +69,24 @@ void SysteamTrayTest::sltExitOrMinToTray()
 void SysteamTrayTest::sltButtonToggled(bool check)
 {
 	if (check) {
-		if (m_timer) {
+		/*if (m_timer) {
 			m_timer->start();
+		}*/
+		qInfo() << "111";
+		if (m_variantAnimation) {
+			if (QAbstractAnimation::Running != m_variantAnimation->state()) {
+				m_variantAnimation->start();
+			}
 		}
 	}
 	else {
-		if (m_timer) {
+		/*if (m_timer) {
 			m_timer->stop();
+		}*/
+		if (m_variantAnimation) {
+			if (QAbstractAnimation::Stopped != m_variantAnimation->state()) {
+				m_variantAnimation->stop();
+			}
 		}
 		systeamTrayManager.changeTrayIcon(":/SysteamTrayTest/qrc/Qt.png");
 	}
@@ -75,6 +97,18 @@ void SysteamTrayTest::sltTimeout()
 	bool result = m_timer->property(Property_timerId).toBool();
 	m_timer->setProperty(Property_timerId, !result);
 	if (result) {
+		systeamTrayManager.changeTrayIcon(":/SysteamTrayTest/qrc/1.png");
+	}
+	else {
+		systeamTrayManager.changeTrayIcon(":/SysteamTrayTest/qrc/Qt.png");
+	}
+}
+
+void SysteamTrayTest::sltVariantChanged(QVariant value)
+{
+	auto result = value.toInt();
+	qInfo() << result;
+	if (0 == result) {
 		systeamTrayManager.changeTrayIcon(":/SysteamTrayTest/qrc/1.png");
 	}
 	else {

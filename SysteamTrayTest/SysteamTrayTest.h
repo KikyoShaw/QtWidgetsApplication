@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QtWidgets/QWidget>
+#include <QVariantAnimation>
 #include "ui_SysteamTrayTest.h"
 
 class QTimer;
@@ -18,6 +19,8 @@ private slots:
 	void sltButtonToggled(bool check);
 	void sltTimeout();
 
+	void sltVariantChanged(QVariant value);
+
 private:
 	virtual void mouseMoveEvent(QMouseEvent *event);
 	virtual void mousePressEvent(QMouseEvent *event);
@@ -32,4 +35,6 @@ private:
 	bool m_isMove;
 
 	QTimer *m_timer = nullptr;
+
+	QVariantAnimation* m_variantAnimation = nullptr;
 };
