@@ -21,6 +21,9 @@ public:
 	//在系统托盘上设置数据
 	void setUserInfoOnTray();
 
+	//更换系统托盘上icon
+	void changeTrayIcon(const QString& fileName);
+
 	//打开二次弹窗
 	void openSystemTrayWarn();
 

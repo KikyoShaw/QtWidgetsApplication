@@ -7,5 +7,6 @@
         <file>qrc/ico_gb_xz.png</file>
         <file>qrc/ico_gx_nor.png</file>
         <file>qrc/ico_gx_sel.png</file>
+        <file>qrc/1.png</file>
     </qresource>
 </RCC>

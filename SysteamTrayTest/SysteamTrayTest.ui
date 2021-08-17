@@ -65,6 +65,32 @@
        <string notr="true">border-image: url(:/SysteamTrayTest/qrc/ic_gb.png);</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_test">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>120</y>
+        <width>80</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: #5D3EFF;
+border-radius: 14px;
+font-size: 12px;
+font-family: 微软雅黑;
+color: #FFFFFF;</string>
+      </property>
+      <property name="text">
+       <string>托盘闪烁</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
     </widget>
    </item>
   </layout>

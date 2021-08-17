@@ -49,6 +49,14 @@ void SysteamTrayManager::setUserInfoOnTray()
 	m_tray.setToolTip(tip);
 }
 
+void SysteamTrayManager::changeTrayIcon(const QString & fileName)
+{
+	if (!QFile::exists(fileName)) {
+		return;
+	}
+	m_tray.setIcon(QIcon(fileName));
+}
+
 void SysteamTrayManager::openSystemTrayWarn()
 {
 	if (m_systemTrayWarn) {
