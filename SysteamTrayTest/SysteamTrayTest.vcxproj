@@ -87,15 +87,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="SystemTrayWarn.cpp" />
     <QtRcc Include="SysteamTrayTest.qrc" />
     <QtUic Include="SysteamTrayTest.ui" />
     <QtMoc Include="SysteamTrayTest.h" />
     <ClCompile Include="SysteamTrayManager.cpp" />
     <ClCompile Include="SysteamTrayTest.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="SystemTrayWarn.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="SysteamTrayManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="SystemTrayWarn.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

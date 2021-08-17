@@ -1,6 +1,7 @@
 #include "SysteamTrayManager.h"
 #include <QAction>
 #include <QApplication>
+#include "SystemTrayWarn.h"
 
 SysteamTrayManager & SysteamTrayManager::getInstance()
 {
@@ -11,6 +12,11 @@ SysteamTrayManager & SysteamTrayManager::getInstance()
 SysteamTrayManager::SysteamTrayManager(QObject *parent)
 	: QObject(parent)
 {
+	m_systemTrayWarn = QSharedPointer<SystemTrayWarn>(new SystemTrayWarn());
+	if (m_systemTrayWarn) {
+		m_systemTrayWarn->hide();
+		connect(m_systemTrayWarn.data(), &SystemTrayWarn::sigMinToTray, this, &SysteamTrayManager::sigMinToTray);
+	}
 }
 
 SysteamTrayManager::~SysteamTrayManager()
@@ -41,6 +47,14 @@ void SysteamTrayManager::setUserInfoOnTray()
 {
 	QString tip = QStringLiteral("CSDN£º%1\nGithub£º%2").arg("https://blog.csdn.net/qq_36651243").arg("https://github.com/KikyoShaw");
 	m_tray.setToolTip(tip);
+}
+
+void SysteamTrayManager::openSystemTrayWarn()
+{
+	if (m_systemTrayWarn) {
+		m_systemTrayWarn->show();
+		m_systemTrayWarn->activateWindow();
+	}
 }
 
 void SysteamTrayManager::sltTrayExit()

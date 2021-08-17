@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>systemTrayWarn</class>
+ <widget class="QWidget" name="systemTrayWarn">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>364</width>
+    <height>216</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>提示</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="frame_trayWarn">
+     <property name="minimumSize">
+      <size>
+       <width>364</width>
+       <height>216</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>364</width>
+       <height>216</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#frame_trayWarn
+{
+	background: rgba(0, 0, 0);
+	border-radius: 20px;
+}
+
+QRadioButton
+{
+	font-size: 14px;
+	color: #FFFFFF;
+	font-family: 微软雅黑;
+}
+
+QRadioButton::indicator
+{  
+    width: 16px;  
+    height: 16px; 
+
+}  
+  
+QRadioButton::indicator:unchecked
+{  
+	border-image: url(:/SysteamTrayTest/qrc/ico_gb_wxz.png);
+}  
+  
+QRadioButton::indicator:checked
+{  
+	border-image: url(:/SysteamTrayTest/qrc/ico_gb_xz.png);
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QRadioButton" name="radioButton_TrayMin">
+      <property name="geometry">
+       <rect>
+        <x>66</x>
+        <y>28</y>
+        <width>151</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>  最小化到系统托盘</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_TrayExit">
+      <property name="geometry">
+       <rect>
+        <x>66</x>
+        <y>70</y>
+        <width>151</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>  退出程序</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_trayClose">
+      <property name="geometry">
+       <rect>
+        <x>66</x>
+        <y>120</y>
+        <width>88</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>88</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>88</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#pushButton_trayClose{
+	border-radius: 15px;
+	border: 1px solid #5D3EFF;
+	font-size: 14px;
+	font-family: 微软雅黑;
+	color: #FFFFFF;
+}</string>
+      </property>
+      <property name="text">
+       <string>取消</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_traySure">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>120</y>
+        <width>88</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>88</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>88</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#pushButton_traySure
+{
+background: #5D3EFF;
+border-radius: 15px;
+font-size: 14px;
+font-family: 微软雅黑;
+color: #FFFFFF;
+}</string>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_trayCheck">
+      <property name="geometry">
+       <rect>
+        <x>145</x>
+        <y>170</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QCheckBox
+{
+font-size: 12px;
+color: rgba(255,255,255,0.6);
+font-family: 微软雅黑;
+}
+
+QCheckBox::indicator
+{  
+    width: 18px;  
+    height: 18px; 
+}  
+  
+QCheckBox::indicator:unchecked
+{  
+	border-image: url(:/SysteamTrayTest/qrc/ico_gx_nor.png);
+}  
+  
+QCheckBox::indicator:checked
+{  
+	border-image: url(:/SysteamTrayTest/qrc/ico_gx_sel.png);
+}</string>
+      </property>
+      <property name="text">
+       <string>不再提醒</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="SysteamTrayTest.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -4,8 +4,8 @@
 #include <QMenu>
 #include <QSystemTrayIcon>
 
-class QSystemTrayIcon;
 class QAction;
+class SystemTrayWarn;
 
 class SysteamTrayManager : public QObject
 {
@@ -21,12 +21,16 @@ public:
 	//在系统托盘上设置数据
 	void setUserInfoOnTray();
 
+	//打开二次弹窗
+	void openSystemTrayWarn();
+
 private slots:
 	void sltTrayExit();
 	void sltTrayActivated(QSystemTrayIcon::ActivationReason reason);
 
 signals:
 	void sigTrayToOpen();
+	void sigMinToTray();
 
 private:
 	//系统托盘对象
@@ -39,6 +43,9 @@ private:
 	//退出
 	QAction* m_pActionExit = nullptr;
 	//TODO
+
+	//二次提醒弹窗
+	QSharedPointer<SystemTrayWarn> m_systemTrayWarn = nullptr;
 
 private:
 	SysteamTrayManager(QObject *parent = Q_NULLPTR);

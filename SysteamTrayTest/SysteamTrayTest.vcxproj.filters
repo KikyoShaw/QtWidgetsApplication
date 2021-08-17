@@ -43,10 +43,21 @@
     <ClCompile Include="SysteamTrayManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SystemTrayWarn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="SysteamTrayManager.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="SystemTrayWarn.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="SystemTrayWarn.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
 </Project>

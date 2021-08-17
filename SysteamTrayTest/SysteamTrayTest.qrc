@@ -3,5 +3,9 @@
         <file>qrc/1.jpg</file>
         <file>qrc/ic_gb.png</file>
         <file>qrc/Qt.png</file>
+        <file>qrc/ico_gb_wxz.png</file>
+        <file>qrc/ico_gb_xz.png</file>
+        <file>qrc/ico_gx_nor.png</file>
+        <file>qrc/ico_gx_sel.png</file>
     </qresource>
 </RCC>
