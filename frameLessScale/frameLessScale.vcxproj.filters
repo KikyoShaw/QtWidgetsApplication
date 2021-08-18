@@ -46,12 +46,18 @@
     <ClCompile Include="frameless.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="framelesswidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="DragShadow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="frameless.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="framelesswidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

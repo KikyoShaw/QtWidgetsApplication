@@ -2,7 +2,7 @@
 #include <QMouseEvent>
 
 frameLessScale::frameLessScale(QWidget *parent)
-    : QWidget(parent)
+    : FramelessWidget(parent)
 {
     ui.setupUi(this);
 	setWindowFlags(Qt::FramelessWindowHint);

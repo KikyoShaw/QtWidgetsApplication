@@ -1,9 +1,10 @@
 #pragma once
 
 #include <QtWidgets/QWidget>
+#include "framelesswidget.h"
 #include "ui_frameLessScale.h"
 
-class frameLessScale : public QWidget
+class frameLessScale : public FramelessWidget
 {
     Q_OBJECT
 

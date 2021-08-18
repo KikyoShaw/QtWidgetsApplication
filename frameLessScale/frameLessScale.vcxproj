@@ -105,6 +105,7 @@
     <ClCompile Include="DragShadow.cpp" />
     <ClCompile Include="frameless.cpp" />
     <ClCompile Include="frameLessScale.cpp" />
+    <ClCompile Include="framelesswidget.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="frameless.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="framelesswidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
