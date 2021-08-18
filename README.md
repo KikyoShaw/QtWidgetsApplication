@@ -25,3 +25,5 @@ heartProgress | QProgress样式美化
 clickedAnimation | 点击水波动特效 | 新增引导点击动画特效
 
 SysteamTrayTest | 系统托盘(窗口交互) | 窗口关闭提示(记录配置文件) | 系统托盘闪烁
+
+DragObject | 窗口中通用控件移动类
