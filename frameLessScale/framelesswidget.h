@@ -37,6 +37,10 @@ private:
     int padding;
     bool moveEnable;
     bool resizeEnable;
+	//是否支持垂直拉伸
+	bool m_topBottomEnable;
+	//是否支持水平拉伸
+	bool m_leftRightEnable;
 
     //标题栏控件
     QWidget *titleBar;
@@ -61,6 +65,10 @@ public:
     void setPadding(int padding);
     void setMoveEnable(bool moveEnable);
     void setResizeEnable(bool resizeEnable);
+	//设置支持垂直拉伸权限
+	void setTopBottomEnable(bool enable);
+	//设置支持水平拉伸权限
+	void setLeftRightEnable(bool enable);
 
     //设置标题栏控件
     void setTitleBar(QWidget *titleBar);

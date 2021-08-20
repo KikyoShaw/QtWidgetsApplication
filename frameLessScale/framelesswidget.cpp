@@ -10,7 +10,8 @@
 
 #define TIMEMS qPrintable(QTime::currentTime().toString("HH:mm:ss zzz"))
 
-FramelessWidget::FramelessWidget(QWidget *parent) : QWidget(parent)
+FramelessWidget::FramelessWidget(QWidget *parent) 
+	: QWidget(parent), m_topBottomEnable(true), m_leftRightEnable(true)
 {
     padding = 8;
     moveEnable = true;
@@ -288,21 +289,37 @@ bool FramelessWidget::nativeEvent(const QByteArray &eventType, void *message, lo
             *result = 0;
             if (resizeEnable) {
                 if (left && top) {
-                    *result = HTTOPLEFT;
+					if (m_topBottomEnable && m_leftRightEnable) {
+						*result = HTTOPLEFT;
+					}
                 } else if (left && bottom) {
-                    *result = HTBOTTOMLEFT;
+					if (m_topBottomEnable && m_leftRightEnable) {
+						*result = HTBOTTOMLEFT;
+					}
                 } else if (right && top) {
-                    *result = HTTOPRIGHT;
+					if (m_topBottomEnable && m_leftRightEnable) {
+						*result = HTTOPRIGHT;
+					}
                 } else if (right && bottom) {
-                    *result = HTBOTTOMRIGHT;
+					if (m_topBottomEnable && m_leftRightEnable) {
+						*result = HTBOTTOMRIGHT;
+					}
                 } else if (left) {
-                    *result = HTLEFT;
+					if (m_leftRightEnable) {
+						*result = HTLEFT;
+					}
                 } else if (right) {
-                    *result = HTRIGHT;
+					if (m_leftRightEnable) {
+						*result = HTRIGHT;
+					}
                 } else if (top) {
-                    *result = HTTOP;
+					if (m_topBottomEnable) {
+						*result = HTTOP;
+					}
                 } else if (bottom) {
-                    *result = HTBOTTOM;
+					if (m_topBottomEnable) {
+						*result = HTBOTTOM;
+					}
                 }
             }
 
@@ -361,10 +378,18 @@ void FramelessWidget::setResizeEnable(bool resizeEnable)
     this->resizeEnable = resizeEnable;
 }
 
+void FramelessWidget::setTopBottomEnable(bool enable)
+{
+	this->m_topBottomEnable = enable;
+}
+
+void FramelessWidget::setLeftRightEnable(bool enable)
+{
+	this->m_leftRightEnable = enable;
+}
+
 void FramelessWidget::setTitleBar(QWidget *titleBar)
 {
     this->titleBar = titleBar;
     this->titleBar->installEventFilter(this);
 }
-
-

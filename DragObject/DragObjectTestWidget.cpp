@@ -1,5 +1,6 @@
 #include "DragObjectTestWidget.h"
 #include "DragObject.h"
+#include <QTimer>
 
 DragObjectTestWidget::DragObjectTestWidget(QWidget *parent)
     : QWidget(parent)
@@ -25,6 +26,14 @@ DragObjectTestWidget::DragObjectTestWidget(QWidget *parent)
 	if (d4) {
 		d4->setWidget(ui.lcdNumber);
 	}
+
+	connect(ui.pushButton, &QPushButton::clicked, this, [=]() {
+
+		QTimer::singleShot(1000, [=]() {
+			close();
+		});
+
+	});
 
 }
 
