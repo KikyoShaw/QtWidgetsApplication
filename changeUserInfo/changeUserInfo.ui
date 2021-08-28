@@ -1,25 +1,332 @@
-<UI version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>changeUserInfoClass</class>
- <widget class="QWidget" name="changeUserInfoClass" >
-  <property name="objectName" >
-   <string notr="true">changeUserInfoClass</string>
-  </property>
-  <property name="geometry" >
+ <widget class="QWidget" name="changeUserInfoClass">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>670</width>
+    <height>828</height>
    </rect>
   </property>
-  <property name="windowTitle" >
-   <string>changeUserInfo</string>
-  </property>$centralwidget$
+  <property name="minimumSize">
+   <size>
+    <width>670</width>
+    <height>828</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>670</width>
+    <height>828</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>修改个人资料页</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true">#frame
+{
+	background: #152034;
+	border-radius: 6px;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="pushButton_close">
+      <property name="geometry">
+       <rect>
+        <x>636</x>
+        <y>16</y>
+        <width>14</width>
+        <height>14</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="toolTip">
+       <string>关闭</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/changeUserInfo/qrc/ico_yyf_14_gb.png);</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_min">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>16</y>
+        <width>14</width>
+        <height>14</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="toolTip">
+       <string>最小化</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/changeUserInfo/qrc/ico_zkt_18_sx.png);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>303</x>
+        <y>24</y>
+        <width>64</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 16px;
+font-family: 微软雅黑;
+color: #FFFFFF;</string>
+      </property>
+      <property name="text">
+       <string>编辑资料</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>52</y>
+        <width>28</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 14px;
+font-family: 微软雅黑;
+color: #FFFFFF;</string>
+      </property>
+      <property name="text">
+       <string>头像</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="widget_photo" native="true">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>82</y>
+        <width>630</width>
+        <height>94</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>630</width>
+        <height>94</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>630</width>
+        <height>94</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#widget_photo
+{
+	background: #0B1527;
+	border-radius: 6px;
+}</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>192</y>
+        <width>56</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 14px;
+font-family: 微软雅黑;
+color: #FFFFFF;</string>
+      </property>
+      <property name="text">
+       <string>基本资料</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="widget_baseinfo" native="true">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>222</y>
+        <width>630</width>
+        <height>236</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>630</width>
+        <height>236</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>630</width>
+        <height>236</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#widget_baseinfo
+{
+	background: #0B1527;
+	border-radius: 6px;
+}</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>474</y>
+        <width>56</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 14px;
+font-family: 微软雅黑;
+color: #FFFFFF;</string>
+      </property>
+      <property name="text">
+       <string>个人信息</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="widget_userinfo" native="true">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>504</y>
+        <width>630</width>
+        <height>236</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>630</width>
+        <height>236</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>630</width>
+        <height>236</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#widget_userinfo
+{
+	background: #0B1527;
+	border-radius: 6px;
+}</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_ok">
+      <property name="geometry">
+       <rect>
+        <x>213</x>
+        <y>760</y>
+        <width>245</width>
+        <height>46</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>245</width>
+        <height>46</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>245</width>
+        <height>46</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>-1</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">	font-size:16px;
+	font-family:微软雅黑;
+	color:rgba(29,30,49,1);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #00F88F, stop:1 #01E9D9); 
+	border-radius:23px;</string>
+      </property>
+      <property name="text">
+       <string>保存</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources>
-   <include location="changeUserInfo.qrc"/>
+  <include location="changeUserInfo.qrc"/>
  </resources>
  <connections/>
-</UI>
+</ui>

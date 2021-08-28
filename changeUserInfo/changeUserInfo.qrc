@@ -1,4 +1,6 @@
 <RCC>
-    <qresource prefix="changeUserInfo">
+    <qresource prefix="/changeUserInfo">
+        <file>qrc/ico_yyf_14_gb.png</file>
+        <file>qrc/ico_zkt_18_sx.png</file>
     </qresource>
 </RCC>
