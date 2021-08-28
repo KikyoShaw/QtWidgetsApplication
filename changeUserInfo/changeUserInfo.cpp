@@ -5,6 +5,7 @@
 #include <QImageReader>
 #include <QFileDialog>
 #include "LabelToast.h"
+#include "emotionWidget.h"
 
 #define MAXIMGNUM 8
 
@@ -188,6 +189,7 @@ void changeUserInfo::mousePressEvent(QMouseEvent * event)
 		m_bMove = true;
 		m_point = event->globalPos() - frameGeometry().topLeft();
 	}
+	ui.widget_baseinfo->clearUI();
 	QWidget::mousePressEvent(event);
 }
 

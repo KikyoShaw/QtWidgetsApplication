@@ -97,10 +97,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="emotionWidget.cpp" />
     <ClCompile Include="imageTool.cpp" />
     <ClCompile Include="LabelToast.cpp" />
     <ClCompile Include="logoItem.cpp" />
     <ClCompile Include="userInfoWidget.cpp" />
+    <ClCompile Include="vLabel.cpp" />
+    <ClCompile Include="vLineEdit.cpp" />
     <QtRcc Include="changeUserInfo.qrc" />
     <QtUic Include="baseInfoWidget.ui" />
     <QtUic Include="changeUserInfo.ui" />
@@ -108,6 +111,7 @@
     <ClCompile Include="baseInfoWidget.cpp" />
     <ClCompile Include="changeUserInfo.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="emotionWidget.ui" />
     <QtUic Include="LabelToast.ui" />
     <QtUic Include="logoItem.ui" />
     <QtUic Include="userInfoWidget.ui" />
@@ -125,7 +129,10 @@
     <QtMoc Include="LabelToast.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="emotionWidget.h" />
     <ClInclude Include="imageTool.h" />
+    <QtMoc Include="vLabel.h" />
+    <QtMoc Include="vLineEdit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

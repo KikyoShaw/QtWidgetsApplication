@@ -55,6 +55,15 @@
     <ClCompile Include="imageTool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="vLineEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vLabel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="emotionWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="baseInfoWidget.ui">
@@ -69,6 +78,9 @@
     <QtUic Include="LabelToast.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="emotionWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="baseInfoWidget.h">
@@ -81,6 +93,15 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="LabelToast.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="vLineEdit.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="vLabel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="emotionWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

@@ -66,7 +66,7 @@ QLineEdit
 	border-radius: 6px;
 	font-size: 12px;
 	font-family: 微软雅黑;
-	color: #FFFFFF;
+	color: rgba(255,255,255,0.5);
 	padding-left:10px;
 }
 
@@ -76,7 +76,7 @@ QLineEdit
 	border-radius: 6px;
 	font-size: 12px;
 	font-family: 微软雅黑;
-	color: #FFFFFF;
+	color: rgba(255,255,255,0.5);
 	padding-left:10px;
 }
 
@@ -230,7 +230,7 @@ QRadioButton::indicator:checked
        <string>昵称</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_job">
+     <widget class="vLineEdit" name="lineEdit_job">
       <property name="geometry">
        <rect>
         <x>414</x>
@@ -238,6 +238,9 @@ QRadioButton::indicator:checked
         <width>200</width>
         <height>28</height>
        </rect>
+      </property>
+      <property name="text">
+       <string>1111</string>
       </property>
       <property name="readOnly">
        <bool>false</bool>
@@ -264,7 +267,7 @@ color: rgba(255,255,255,0.5);</string>
        <string>0/8</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_nickName">
+     <widget class="vLineEdit" name="lineEdit_nickName">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -272,6 +275,13 @@ color: rgba(255,255,255,0.5);</string>
         <width>200</width>
         <height>28</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+</string>
+      </property>
+      <property name="text">
+       <string>十三先生</string>
       </property>
       <property name="readOnly">
        <bool>false</bool>
@@ -318,7 +328,7 @@ color: rgba(255,255,255,0.5);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_emotion">
+     <widget class="vLabel" name="label_emotion">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -327,14 +337,17 @@ color: rgba(255,255,255,0.5);</string>
         <height>28</height>
        </rect>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
       <property name="text">
-       <string/>
+       <string>111</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_birth">
+     <widget class="vLabel" name="label_birth">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -343,17 +356,32 @@ color: rgba(255,255,255,0.5);</string>
         <height>28</height>
        </rect>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
       <property name="text">
-       <string/>
+       <string>1111</string>
       </property>
      </widget>
     </widget>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>vLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header location="global">vLineEdit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>vLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">vLabel.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="changeUserInfo.qrc"/>
  </resources>
