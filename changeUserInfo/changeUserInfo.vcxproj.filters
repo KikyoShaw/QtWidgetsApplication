@@ -46,12 +46,27 @@
     <ClCompile Include="userInfoWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="logoItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LabelToast.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imageTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="baseInfoWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="userInfoWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="logoItem.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="LabelToast.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -62,5 +77,16 @@
     <QtMoc Include="userInfoWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="logoItem.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="LabelToast.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="imageTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

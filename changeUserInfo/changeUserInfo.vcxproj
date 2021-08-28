@@ -97,6 +97,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="imageTool.cpp" />
+    <ClCompile Include="LabelToast.cpp" />
+    <ClCompile Include="logoItem.cpp" />
     <ClCompile Include="userInfoWidget.cpp" />
     <QtRcc Include="changeUserInfo.qrc" />
     <QtUic Include="baseInfoWidget.ui" />
@@ -105,6 +108,8 @@
     <ClCompile Include="baseInfoWidget.cpp" />
     <ClCompile Include="changeUserInfo.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="LabelToast.ui" />
+    <QtUic Include="logoItem.ui" />
     <QtUic Include="userInfoWidget.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +117,15 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="userInfoWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="logoItem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="LabelToast.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="imageTool.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

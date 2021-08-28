@@ -331,7 +331,7 @@ color: rgba(255,255,255,0.5);</string>
        <string notr="true"/>
       </property>
       <property name="text">
-       <string>2222</string>
+       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="label_birth">
@@ -347,7 +347,7 @@ color: rgba(255,255,255,0.5);</string>
        <string notr="true"/>
       </property>
       <property name="text">
-       <string>1111</string>
+       <string/>
       </property>
      </widget>
     </widget>

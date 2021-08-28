@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>logoitem</class>
+ <widget class="QWidget" name="logoitem">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>92</width>
+    <height>66</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>66</width>
+    <height>66</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>92</width>
+    <height>66</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QPushButton" name="pushButton_addLogo">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>66</width>
+     <height>66</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>66</width>
+     <height>66</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>66</width>
+     <height>66</height>
+    </size>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: rgba(255,255,255,0.1);
+border-radius: 6px;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_icon">
+   <property name="geometry">
+    <rect>
+     <x>27</x>
+     <y>27</y>
+     <width>13</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/changeUserInfo/qrc/ylf_icon_wsm.png);</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_logo">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>66</width>
+     <height>66</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>66</width>
+     <height>66</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>66</width>
+     <height>66</height>
+    </size>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="changeUserInfo.qrc"/>
+ </resources>
+ <connections/>
+</ui>
