@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>userInfo</class>
+ <widget class="QWidget" name="userInfo">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>630</width>
+    <height>236</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>630</width>
+    <height>236</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>630</width>
+    <height>236</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true">#frame
+{
+	background: #0B1527;
+	border-radius: 6px;
+}
+
+QLabel
+{
+	font-size: 13px;
+	font-family: 微软雅黑;
+ 	color: #FFFFFF;
+}
+
+QLineEdit
+{
+	background: rgba(255,255,255,0.1);
+	border-radius: 6px;
+	font-size: 12px;
+	font-family: 微软雅黑;
+	color: #FFFFFF;
+	padding-left:10px;
+}
+
+#label_unoin,#label_game
+{
+	background: rgba(255,255,255,0.1);
+	border-radius: 6px;
+	font-size: 12px;
+	font-family: 微软雅黑;
+	color: #FFFFFF;
+	padding-left:10px;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>16</x>
+        <y>187</y>
+        <width>52</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>所在公会</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>16</x>
+        <y>127</y>
+        <width>78</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>喜欢玩的游戏</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>16</x>
+        <y>26</y>
+        <width>52</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>个人签名</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_gameNum">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>128</y>
+        <width>21</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 12px;
+font-family: 微软雅黑;
+color: rgba(255,255,255,0.5);</string>
+      </property>
+      <property name="text">
+       <string>0/3</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_unoin">
+      <property name="geometry">
+       <rect>
+        <x>106</x>
+        <y>179</y>
+        <width>508</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QWidget" name="widget_textEdit" native="true">
+      <property name="geometry">
+       <rect>
+        <x>104</x>
+        <y>26</y>
+        <width>510</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>510</width>
+        <height>68</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>510</width>
+        <height>68</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#widget_textEdit
+{
+background: rgba(255,255,255,0.1);
+border-radius: 6px;
+}</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>9</number>
+       </property>
+       <property name="bottomMargin">
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QTextEdit" name="textEdit_slogn">
+         <property name="styleSheet">
+          <string notr="true">border:none;
+background-color:transparent;
+font-size: 12px;
+font-family: 微软雅黑;
+color: #FFFFFF;</string>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="placeholderText">
+          <string>填写可以吸引别人的关注哦</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_textNum">
+         <property name="styleSheet">
+          <string notr="true">font-size: 12px;
+font-family: 微软雅黑;
+color: rgba(255,255,255,0.5);</string>
+         </property>
+         <property name="text">
+          <string>0/40</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="label_game">
+      <property name="geometry">
+       <rect>
+        <x>104</x>
+        <y>121</y>
+        <width>510</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <zorder>label_6</zorder>
+     <zorder>label_2</zorder>
+     <zorder>label</zorder>
+     <zorder>label_unoin</zorder>
+     <zorder>widget_textEdit</zorder>
+     <zorder>label_gameNum</zorder>
+     <zorder>label_game</zorder>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="changeUserInfo.qrc"/>
+ </resources>
+ <connections/>
+</ui>

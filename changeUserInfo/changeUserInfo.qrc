@@ -2,5 +2,7 @@
     <qresource prefix="/changeUserInfo">
         <file>qrc/ico_yyf_14_gb.png</file>
         <file>qrc/ico_zkt_18_sx.png</file>
+        <file>qrc/ico_gb_wxz.png</file>
+        <file>qrc/ico_gb_xz.png</file>
     </qresource>
 </RCC>

@@ -145,6 +145,14 @@ color: #FFFFFF;</string>
         <height>20</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>-1</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">font-size: 14px;
 font-family: 微软雅黑;
@@ -192,6 +200,14 @@ color: #FFFFFF;</string>
         <height>20</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>-1</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">font-size: 14px;
 font-family: 微软雅黑;
@@ -201,7 +217,7 @@ color: #FFFFFF;</string>
        <string>基本资料</string>
       </property>
      </widget>
-     <widget class="QWidget" name="widget_baseinfo" native="true">
+     <widget class="BaseInfoWidget" name="widget_baseinfo" native="true">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -239,6 +255,14 @@ color: #FFFFFF;</string>
         <height>20</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>-1</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">font-size: 14px;
 font-family: 微软雅黑;
@@ -248,7 +272,7 @@ color: #FFFFFF;</string>
        <string>个人信息</string>
       </property>
      </widget>
-     <widget class="QWidget" name="widget_userinfo" native="true">
+     <widget class="UserInfoWidget" name="widget_userinfo" native="true">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -325,6 +349,20 @@ color: #FFFFFF;</string>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>BaseInfoWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">baseInfoWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>UserInfoWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">userInfoWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="changeUserInfo.qrc"/>
  </resources>

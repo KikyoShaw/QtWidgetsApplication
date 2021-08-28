@@ -60,6 +60,16 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\changeUserInfo\</OutDir>
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)changeUserInfo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)changeUserInfo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="Configuration">
     <ClCompile>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
@@ -87,11 +97,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="userInfoWidget.cpp" />
     <QtRcc Include="changeUserInfo.qrc" />
+    <QtUic Include="baseInfoWidget.ui" />
     <QtUic Include="changeUserInfo.ui" />
     <QtMoc Include="changeUserInfo.h" />
+    <ClCompile Include="baseInfoWidget.cpp" />
     <ClCompile Include="changeUserInfo.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="userInfoWidget.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="baseInfoWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="userInfoWidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

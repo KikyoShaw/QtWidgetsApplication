@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>baseInfo</class>
+ <widget class="QWidget" name="baseInfo">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>630</width>
+    <height>236</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>630</width>
+    <height>236</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>630</width>
+    <height>236</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true">#frame
+{
+	background: #0B1527;
+	border-radius: 6px;
+}
+
+QLabel
+{
+	font-size: 13px;
+	font-family: 微软雅黑;
+ 	color: #FFFFFF;
+}
+
+QLineEdit
+{
+	background: rgba(255,255,255,0.1);
+	border-radius: 6px;
+	font-size: 12px;
+	font-family: 微软雅黑;
+	color: #FFFFFF;
+	padding-left:10px;
+}
+
+#label_birth,#label_emotion
+{
+	background: rgba(255,255,255,0.1);
+	border-radius: 6px;
+	font-size: 12px;
+	font-family: 微软雅黑;
+	color: #FFFFFF;
+	padding-left:10px;
+}
+
+QRadioButton
+{
+font-size: 12px;
+font-family: 微软雅黑;
+color: #FFFFFF;
+}
+
+QRadioButton::indicator
+{  
+    width: 16px;  
+    height: 16px; 
+
+}  
+  
+QRadioButton::indicator:unchecked
+{  
+	border-image: url(:/changeUserInfo/qrc/ico_gb_wxz.png);
+}  
+  
+QRadioButton::indicator:checked
+{  
+	border-image: url(:/changeUserInfo/qrc/ico_gb_xz.png);
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>366</x>
+        <y>84</y>
+        <width>26</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>地标</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>16</x>
+        <y>136</y>
+        <width>52</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>出生日期</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_waid">
+      <property name="geometry">
+       <rect>
+        <x>414</x>
+        <y>26</y>
+        <width>200</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>16</x>
+        <y>84</y>
+        <width>26</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>性别</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>366</x>
+        <y>188</y>
+        <width>26</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>职业</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>16</x>
+        <y>188</y>
+        <width>52</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>情感状态</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>366</x>
+        <y>32</y>
+        <width>39</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>青青号</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_city">
+      <property name="geometry">
+       <rect>
+        <x>414</x>
+        <y>78</y>
+        <width>200</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="placeholderText">
+       <string>请前往手机APP开启定位哦</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>16</x>
+        <y>32</y>
+        <width>26</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>昵称</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_job">
+      <property name="geometry">
+       <rect>
+        <x>414</x>
+        <y>182</y>
+        <width>200</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>你在从事什么职业</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_jobNum">
+      <property name="geometry">
+       <rect>
+        <x>585</x>
+        <y>190</y>
+        <width>21</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 12px;
+font-family: 微软雅黑;
+color: rgba(255,255,255,0.5);</string>
+      </property>
+      <property name="text">
+       <string>0/8</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_nickName">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>26</y>
+        <width>200</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>最多最多可输入十二个汉字</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_man">
+      <property name="geometry">
+       <rect>
+        <x>87</x>
+        <y>82</y>
+        <width>40</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>男</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_woman">
+      <property name="geometry">
+       <rect>
+        <x>163</x>
+        <y>82</y>
+        <width>40</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>女</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_emotion">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>182</y>
+        <width>200</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>2222</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_birth">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>130</y>
+        <width>534</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>1111</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="changeUserInfo.qrc"/>
+ </resources>
+ <connections/>
+</ui>
