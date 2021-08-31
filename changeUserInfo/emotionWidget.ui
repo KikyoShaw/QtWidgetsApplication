@@ -63,11 +63,19 @@ QPushButton
 QPushButton:unchecked
 { 
 	color: #FFFFFF; 
+	background-color:transparent;
 }  
   
 QPushButton:checked
 {  
 	color: #01EEC3;
+	background: rgba(234, 234, 234, 0.06);
+}
+
+QPushButton:hover
+{
+	color: #01EEC3;
+	background: rgba(234, 234, 234, 0.06);
 }</string>
      </property>
      <property name="frameShape">

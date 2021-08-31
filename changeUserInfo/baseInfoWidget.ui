@@ -89,8 +89,8 @@ color: #FFFFFF;
 
 QRadioButton::indicator
 {  
-    width: 16px;  
-    height: 16px; 
+    width: 14px;  
+    height: 14px; 
 
 }  
   
@@ -364,6 +364,56 @@ color: rgba(255,255,255,0.5);</string>
       </property>
       <property name="text">
        <string>1111</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_birthIcon">
+      <property name="geometry">
+       <rect>
+        <x>592</x>
+        <y>137</y>
+        <width>14</width>
+        <height>14</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/changeUserInfo/qrc/icon_zk.png);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_emotionIcon">
+      <property name="geometry">
+       <rect>
+        <x>258</x>
+        <y>189</y>
+        <width>14</width>
+        <height>14</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/changeUserInfo/qrc/icon_zk.png);</string>
       </property>
      </widget>
     </widget>

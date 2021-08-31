@@ -5,6 +5,15 @@
 
 class QButtonGroup;
 
+enum EmotionValue
+{
+	E_Secret = 1, //保密
+	E_Single = 2, //单身
+	E_InLove = 3, //热恋中
+	E_Married = 4, //已婚
+	E_SameSex = 5, //同性
+};
+
 class EmotionWidget : public QWidget
 {
 	Q_OBJECT
@@ -14,6 +23,9 @@ public:
 
 private:
 	void initButtonGroup();
+
+signals:
+	void sigSelectIndex(int emotion);
 
 private slots:
 	void sltButtonToggled(QAbstractButton * button, bool toggled);

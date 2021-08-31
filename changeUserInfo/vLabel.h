@@ -11,7 +11,7 @@ public:
 
 signals:
 	void sigRightMouseClicked();
-	void sigFocusOut();
+	void sigFocusState(bool state);
 
 private:
 	virtual void mousePressEvent(QMouseEvent *event);

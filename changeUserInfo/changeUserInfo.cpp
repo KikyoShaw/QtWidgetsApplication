@@ -190,6 +190,7 @@ void changeUserInfo::mousePressEvent(QMouseEvent * event)
 		m_point = event->globalPos() - frameGeometry().topLeft();
 	}
 	ui.widget_baseinfo->clearUI();
+	ui.widget_userinfo->clearUI();
 	QWidget::mousePressEvent(event);
 }
 

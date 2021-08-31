@@ -5,6 +5,7 @@
 
 class QButtonGroup;
 class EmotionWidget;
+class BirthInfoWidget;
 
 enum SEX
 {
@@ -30,6 +31,13 @@ private:
 private slots:
 	void sltButtonToggled(QAbstractButton * button, bool toggled);
 	void sltOpenEmotionWidget();
+	void sltOpenBirthInfoWidget();
+	void sltEmotioneFocusState(bool state);
+	void sltBirthFocusState(bool state);
+	//设置情感选项
+	void sltSetEmotion(int emotion);
+	//设置出生年月日
+	void sltSetBirthInfo(int year, int month, int day);
 
 private:
 	virtual	bool eventFilter(QObject *obj, QEvent *event);
@@ -37,7 +45,9 @@ private:
 private:
 	Ui::baseInfo ui;
 	//男女按钮管理器
-	QButtonGroup *m_RButtonGroup = nullptr;
+	QButtonGroup *m_RButtonGroup = Q_NULLPTR;
 	//情感状态下拉框
 	EmotionWidget *m_emotionWidget = Q_NULLPTR;
+	//出生年月下拉框
+	BirthInfoWidget *m_birthInfoWidget = Q_NULLPTR;
 };

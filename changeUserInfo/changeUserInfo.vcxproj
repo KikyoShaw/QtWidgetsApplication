@@ -97,21 +97,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="birthInfoWidget.cpp" />
     <ClCompile Include="emotionWidget.cpp" />
+    <ClCompile Include="gameInfoWidget.cpp" />
     <ClCompile Include="imageTool.cpp" />
     <ClCompile Include="LabelToast.cpp" />
     <ClCompile Include="logoItem.cpp" />
+    <ClCompile Include="pinyin.cpp" />
+    <ClCompile Include="rollingBox.cpp" />
     <ClCompile Include="userInfoWidget.cpp" />
     <ClCompile Include="vLabel.cpp" />
     <ClCompile Include="vLineEdit.cpp" />
     <QtRcc Include="changeUserInfo.qrc" />
     <QtUic Include="baseInfoWidget.ui" />
+    <QtUic Include="birthInfoWidget.ui" />
     <QtUic Include="changeUserInfo.ui" />
     <QtMoc Include="changeUserInfo.h" />
     <ClCompile Include="baseInfoWidget.cpp" />
     <ClCompile Include="changeUserInfo.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="emotionWidget.ui" />
+    <QtUic Include="gameInfoWidget.ui" />
     <QtUic Include="LabelToast.ui" />
     <QtUic Include="logoItem.ui" />
     <QtUic Include="userInfoWidget.ui" />
@@ -129,7 +135,12 @@
     <QtMoc Include="LabelToast.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="pinyin.h" />
+    <ClInclude Include="vutility.h" />
+    <QtMoc Include="rollingBox.h" />
     <QtMoc Include="emotionWidget.h" />
+    <QtMoc Include="birthInfoWidget.h" />
+    <QtMoc Include="gameInfoWidget.h" />
     <ClInclude Include="imageTool.h" />
     <QtMoc Include="vLabel.h" />
     <QtMoc Include="vLineEdit.h" />

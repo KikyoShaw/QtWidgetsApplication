@@ -237,7 +237,7 @@ color: rgba(255,255,255,0.5);</string>
        </item>
       </layout>
      </widget>
-     <widget class="QLabel" name="label_game">
+     <widget class="vLabel" name="label_game">
       <property name="geometry">
        <rect>
         <x>104</x>
@@ -246,11 +246,39 @@ color: rgba(255,255,255,0.5);</string>
         <height>28</height>
        </rect>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_gameIcon">
+      <property name="geometry">
+       <rect>
+        <x>592</x>
+        <y>128</y>
+        <width>14</width>
+        <height>14</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/changeUserInfo/qrc/icon_zk.png);</string>
       </property>
      </widget>
      <zorder>label_6</zorder>
@@ -260,10 +288,18 @@ color: rgba(255,255,255,0.5);</string>
      <zorder>widget_textEdit</zorder>
      <zorder>label_gameNum</zorder>
      <zorder>label_game</zorder>
+     <zorder>label_gameIcon</zorder>
     </widget>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>vLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">vLabel.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="changeUserInfo.qrc"/>
  </resources>

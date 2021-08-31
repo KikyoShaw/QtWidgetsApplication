@@ -5,5 +5,8 @@
         <file>qrc/ico_gb_wxz.png</file>
         <file>qrc/ico_gb_xz.png</file>
         <file>qrc/ylf_icon_wsm.png</file>
+        <file>qrc/icon_sq.png</file>
+        <file>qrc/icon_zk.png</file>
+        <file>qrc/iconly_light_outline_search.png</file>
     </qresource>
 </RCC>

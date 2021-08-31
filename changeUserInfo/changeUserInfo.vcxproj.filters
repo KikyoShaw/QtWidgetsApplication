@@ -64,6 +64,18 @@
     <ClCompile Include="emotionWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="birthInfoWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rollingBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameInfoWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pinyin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="baseInfoWidget.ui">
@@ -79,6 +91,12 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="emotionWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="birthInfoWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="gameInfoWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -104,9 +122,24 @@
     <QtMoc Include="emotionWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="birthInfoWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="rollingBox.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="gameInfoWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imageTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pinyin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vutility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
