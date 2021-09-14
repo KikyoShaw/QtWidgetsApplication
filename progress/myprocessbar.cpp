@@ -7,7 +7,6 @@
 MyProcessBar::MyProcessBar(QWidget *parent) 
 	: QProgressBar(parent)
 {
-
     m_timer = new QTimer(this);
 	if (m_timer) {
 		connect(m_timer, &QTimer::timeout, this, &MyProcessBar::sltTimerOut);

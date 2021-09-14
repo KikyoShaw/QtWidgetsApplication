@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/animationTest">
+        <file>qrc/th-c1.png</file>
+        <file>qrc/th-c2.png</file>
+        <file>qrc/th-c3.png</file>
+        <file>qrc/th-c4.png</file>
+        <file>qrc/th-c5.png</file>
+        <file>qrc/th-c6.png</file>
+        <file>qrc/th-c7.png</file>
+        <file>qrc/th-c8.png</file>
+        <file>qrc/th-c9.png</file>
+        <file>qrc/th-c10.png</file>
+        <file>qrc/th-c11.png</file>
+        <file>qrc/th-c12.png</file>
+        <file>qrc/th-c13.png</file>
+    </qresource>
+</RCC>
