@@ -87,11 +87,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="popAnimation.cpp" />
     <QtRcc Include="animationTest.qrc" />
     <QtUic Include="animationTest.ui" />
     <QtMoc Include="animationTest.h" />
     <ClCompile Include="animationTest.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="popAnimation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
