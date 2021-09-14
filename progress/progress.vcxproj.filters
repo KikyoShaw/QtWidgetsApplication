@@ -49,6 +49,12 @@
     <ClCompile Include="QRoundProgressBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="animationprocessbar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vProgressBars.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="vProgressBar.h">
@@ -58,6 +64,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="QRoundProgressBar.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="animationprocessbar.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="vProgressBars.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

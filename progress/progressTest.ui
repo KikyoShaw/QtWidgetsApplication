@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>649</width>
-    <height>417</height>
+    <width>654</width>
+    <height>438</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>220</y>
+     <y>270</y>
      <width>75</width>
      <height>41</height>
     </rect>
@@ -35,7 +35,7 @@
    <property name="geometry">
     <rect>
      <x>260</x>
-     <y>220</y>
+     <y>270</y>
      <width>75</width>
      <height>41</height>
     </rect>
@@ -47,9 +47,9 @@
   <widget class="vProgressBar" name="progressBar">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>140</y>
-     <width>300</width>
+     <x>20</x>
+     <y>130</y>
+     <width>580</width>
      <height>32</height>
     </rect>
    </property>
@@ -61,7 +61,7 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>310</y>
+     <y>360</y>
      <width>331</width>
      <height>19</height>
     </rect>
@@ -78,7 +78,7 @@
     <rect>
      <x>20</x>
      <y>80</y>
-     <width>581</width>
+     <width>580</width>
      <height>32</height>
     </rect>
    </property>
@@ -90,10 +90,36 @@
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>140</y>
+     <y>240</y>
      <width>171</width>
      <height>141</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="AnimationProcessBar" name="progressBar_animation">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>580</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>24</number>
+   </property>
+  </widget>
+  <widget class="vProgressBars" name="progressBar_radius">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>180</y>
+     <width>580</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>90</number>
    </property>
   </widget>
  </widget>
@@ -114,6 +140,16 @@
    <extends>QWidget</extends>
    <header location="global">qroundprogressbar.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>AnimationProcessBar</class>
+   <extends>QProgressBar</extends>
+   <header location="global">animationprocessbar.h</header>
+  </customwidget>
+  <customwidget>
+   <class>vProgressBars</class>
+   <extends>QProgressBar</extends>
+   <header location="global">vProgressBars.h</header>
   </customwidget>
  </customwidgets>
  <resources>
