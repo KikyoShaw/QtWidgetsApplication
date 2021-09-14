@@ -31,3 +31,6 @@ DragObject | 窗口中通用控件移动类
 progress | 画笔绘制进度条 | 进度条动效 | 圆形进度条
 
 changeUserInfo | UI交互美化
+
+animation | 图片控件天花散花爆开
+
