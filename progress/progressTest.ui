@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>649</width>
+    <height>417</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,7 +50,7 @@
      <x>70</x>
      <y>140</y>
      <width>300</width>
-     <height>40</height>
+     <height>32</height>
     </rect>
    </property>
    <property name="value">
@@ -73,6 +73,29 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
+  <widget class="MyProcessBar" name="progressBar_new">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>581</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>24</number>
+   </property>
+  </widget>
+  <widget class="QRoundProgressBar" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>140</y>
+     <width>171</width>
+     <height>141</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -80,6 +103,17 @@
    <class>vProgressBar</class>
    <extends>QProgressBar</extends>
    <header location="global">vProgressBar.h</header>
+  </customwidget>
+  <customwidget>
+   <class>MyProcessBar</class>
+   <extends>QProgressBar</extends>
+   <header location="global">myprocessbar.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QRoundProgressBar</class>
+   <extends>QWidget</extends>
+   <header location="global">qroundprogressbar.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

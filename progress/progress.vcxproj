@@ -97,6 +97,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="myprocessbar.cpp" />
+    <ClCompile Include="QRoundProgressBar.cpp" />
     <ClCompile Include="vProgressBar.cpp" />
     <QtRcc Include="progressTest.qrc" />
     <QtUic Include="progressTest.ui" />
@@ -106,6 +108,12 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="vProgressBar.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="myprocessbar.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="QRoundProgressBar.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
