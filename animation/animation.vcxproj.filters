@@ -43,9 +43,15 @@
     <ClCompile Include="popAnimation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="rotationLabel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="popAnimation.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="rotationLabel.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

@@ -14,10 +14,14 @@ public:
 	~animationTest();
 
 private slots:
-	void sltStartAnimation();
+	void sltStartPopAnimation();
+	void sltStartHideAnimation();
+	void sltStartOpacityAnimation();
 
 private:
     Ui::animationTestClass ui;
 	//动画特效
 	QPropertyAnimation *m_pAnimation = Q_NULLPTR;
+	//窗口关闭动画特效
+	QPropertyAnimation *m_pOpacityAnimation = Q_NULLPTR;
 };
