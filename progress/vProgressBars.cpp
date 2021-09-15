@@ -2,16 +2,31 @@
 #include <QPainter>
 #include "qmath.h"
 #include <QDebug>
+#include <QVariantAnimation>
 
 vProgressBars::vProgressBars(QWidget *parent)
-	: QProgressBar(parent)
+	: QProgressBar(parent), m_nAtIndex(1.0)
 {
-
+	m_vAnimation = new QVariantAnimation(this);
+	if (m_vAnimation) {
+		m_vAnimation->setDuration(2000);
+		m_vAnimation->setKeyValueAt(0, 0.0);
+		m_vAnimation->setKeyValueAt(0.5, 0.5);
+		m_vAnimation->setKeyValueAt(1, 1.0);
+		m_vAnimation->setLoopCount(-1);
+		m_vAnimation->start();
+		connect(m_vAnimation, &QVariantAnimation::valueChanged, this, &vProgressBars::sltAtIndexChanged);
+	}
 }
 
 vProgressBars::~vProgressBars()
 {
+}
 
+void vProgressBars::sltAtIndexChanged(QVariant value)
+{
+	m_nAtIndex = value.toDouble();
+	update();
 }
 
 void vProgressBars::paintEvent(QPaintEvent * event)
@@ -71,6 +86,7 @@ void vProgressBars::paintEvent(QPaintEvent * event)
 	//进度条部分颜色
 	QLinearGradient linearGradient(QPoint(0,0), QPoint(x_move, 0));
 	linearGradient.setColorAt(1, QColor(255, 66, 213));
+	linearGradient.setColorAt(m_nAtIndex, QColor(255, 66, 213));
 	linearGradient.setColorAt(0.0, QColor(43, 74, 255));
 	painter.fillPath(draw_path, QBrush(linearGradient));
 }
