@@ -10,18 +10,6 @@
     <height>840</height>
    </rect>
   </property>
-  <property name="minimumSize">
-   <size>
-    <width>1110</width>
-    <height>840</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>1110</width>
-    <height>840</height>
-   </size>
-  </property>
   <property name="windowTitle">
    <string>animationTest</string>
   </property>
@@ -79,7 +67,7 @@ color: #212426;
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>530</x>
+        <x>580</x>
         <y>10</y>
         <width>75</width>
         <height>32</height>
@@ -95,7 +83,7 @@ color: #212426;
      <widget class="QPushButton" name="pushButton2">
       <property name="geometry">
        <rect>
-        <x>440</x>
+        <x>490</x>
         <y>10</y>
         <width>75</width>
         <height>32</height>
@@ -111,7 +99,7 @@ color: #212426;
      <widget class="QPushButton" name="pushButton3">
       <property name="geometry">
        <rect>
-        <x>350</x>
+        <x>400</x>
         <y>10</y>
         <width>75</width>
         <height>32</height>
@@ -127,7 +115,7 @@ color: #212426;
      <widget class="QPushButton" name="pushButton4">
       <property name="geometry">
        <rect>
-        <x>620</x>
+        <x>670</x>
         <y>10</y>
         <width>75</width>
         <height>32</height>
@@ -173,7 +161,7 @@ border-image: url(:/animationTest/qrc/th-c11.png);</string>
      <widget class="QPushButton" name="pushButton5">
       <property name="geometry">
        <rect>
-        <x>260</x>
+        <x>220</x>
         <y>10</y>
         <width>75</width>
         <height>32</height>
@@ -184,6 +172,68 @@ border-image: url(:/animationTest/qrc/th-c11.png);</string>
       </property>
       <property name="text">
        <string>阴影动画</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_curvilinear">
+      <property name="geometry">
+       <rect>
+        <x>920</x>
+        <y>500</y>
+        <width>100</width>
+        <height>100</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/animationTest/qrc/th-c12.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton6">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>10</y>
+        <width>75</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>曲线运动</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_shadowEffect_2">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>210</y>
+        <width>100</width>
+        <height>100</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius:50px;
+border-image: url(:/animationTest/qrc/th-c4.png);</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton7">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>10</y>
+        <width>75</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>头像闪烁</string>
       </property>
      </widget>
     </widget>
