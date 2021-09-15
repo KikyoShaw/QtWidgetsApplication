@@ -28,9 +28,9 @@ SysteamTrayTest | 系统托盘(窗口交互) | 窗口关闭提示(记录配置�
 
 DragObject | 窗口中通用控件移动类
 
-progress | 画笔绘制进度条 | 进度条动效 | 圆形进度条
+progress | 画笔绘制进度条 | 进度条动效 | 圆形进度条 | 多彩进度条
 
-changeUserInfo | UI交互美化
+changeUserInfo | UI交互美化示例
 
-animation | 图片控件天女散花爆开
+animation | 图片控件天女散花爆开 | 图片旋转动效 | 窗口关闭特效 | 图片移动特效
 
