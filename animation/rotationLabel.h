@@ -16,7 +16,7 @@ public:
 	void startRotationAnimation();
 
 private slots:
-	void sltRaduisChanged(QVariant value);
+	void sltMatrixChanged(QVariant value);
 
 private:
 	void paintEvent(QPaintEvent *event);

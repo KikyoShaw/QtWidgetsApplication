@@ -12,7 +12,7 @@ rotationLabel::rotationLabel(QWidget *parent /* = Q_NULLPTR */)
 		m_vAnimation->setStartValue(0);
 		m_vAnimation->setEndValue(360);
 		m_vAnimation->setLoopCount(-1);
-		connect(m_vAnimation, &QVariantAnimation::valueChanged, this, &rotationLabel::sltRaduisChanged);
+		connect(m_vAnimation, &QVariantAnimation::valueChanged, this, &rotationLabel::sltMatrixChanged);
 	}
 }
 
@@ -38,7 +38,7 @@ void rotationLabel::startRotationAnimation()
 	m_vAnimation->start();
 }
 
-void rotationLabel::sltRaduisChanged(QVariant value)
+void rotationLabel::sltMatrixChanged(QVariant value)
 {
 	// 不断修改旋转角度,并重绘
 	m_matrixNum = value.toInt();
