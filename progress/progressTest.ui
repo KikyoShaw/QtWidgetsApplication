@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>654</width>
-    <height>438</height>
+    <width>630</width>
+    <height>640</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>630</width>
+    <height>640</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>630</width>
+    <height>640</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>progressTest</string>
@@ -16,13 +28,23 @@
   <property name="styleSheet">
    <string notr="true">#progressTestClass{
 	background-color: rgb(0, 0, 0);
-}</string>
+}
+
+QPushButton
+{
+background: #01EEC3;
+border-radius: 16px;
+font-size: 12px;
+font-family: 微软雅黑;
+color: #212426;
+}
+</string>
   </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>270</y>
+     <x>50</x>
+     <y>460</y>
      <width>75</width>
      <height>41</height>
     </rect>
@@ -34,14 +56,14 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>270</y>
+     <x>140</x>
+     <y>460</y>
      <width>75</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>_</string>
+    <string>-</string>
    </property>
   </widget>
   <widget class="vProgressBar" name="progressBar">
@@ -60,9 +82,9 @@
   <widget class="QSlider" name="horizontalSlider">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>360</y>
-     <width>331</width>
+     <x>20</x>
+     <y>550</y>
+     <width>580</width>
      <height>19</height>
     </rect>
    </property>
@@ -89,7 +111,7 @@
   <widget class="QRoundProgressBar" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>430</x>
      <y>240</y>
      <width>171</width>
      <height>141</height>
@@ -122,6 +144,26 @@
     <number>90</number>
    </property>
   </widget>
+  <widget class="vWaterProgressBar" name="widget_water" native="true">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>240</y>
+     <width>171</width>
+     <height>141</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="vWaterProgressBar" name="widget_water_2" native="true">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>240</y>
+     <width>171</width>
+     <height>141</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -150,6 +192,12 @@
    <class>vProgressBars</class>
    <extends>QProgressBar</extends>
    <header location="global">vProgressBars.h</header>
+  </customwidget>
+  <customwidget>
+   <class>vWaterProgressBar</class>
+   <extends>QWidget</extends>
+   <header location="global">vwaterprogressbar.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

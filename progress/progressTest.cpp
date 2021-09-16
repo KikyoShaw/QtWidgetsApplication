@@ -13,6 +13,8 @@ progressTest::progressTest(QWidget *parent)
 		ui.progressBar_new->setValue(num);
 		ui.progressBar_animation->setValue(num);
 		ui.widget->setValue(num);
+		ui.widget_water->setValue(num);
+		ui.widget_water_2->setValue(num);
 	});
 
 	connect(ui.pushButton_2, &QPushButton::clicked, this, [=]() {
@@ -23,6 +25,8 @@ progressTest::progressTest(QWidget *parent)
 		ui.progressBar_new->setValue(num);
 		ui.progressBar_animation->setValue(num);
 		ui.widget->setValue(num);
+		ui.widget_water->setValue(num);
+		ui.widget_water_2->setValue(num);
 	});
 
 	auto value = ui.horizontalSlider->value();
@@ -42,6 +46,15 @@ progressTest::progressTest(QWidget *parent)
 	ui.widget->setValue(value);
 	ui.widget->setStyleSheet("background-color: rgb(0, 0, 0);");
 	connect(ui.horizontalSlider, &QSlider::valueChanged, ui.widget, QOverload<int>::of(&QRoundProgressBar::setValue));
+
+	ui.widget_water->setRange(0, 100);
+	ui.widget_water->setValue(value);
+	connect(ui.horizontalSlider, &QSlider::valueChanged, ui.widget_water, &vWaterProgressBar::setValue);
+
+	ui.widget_water_2->setRange(0, 100);
+	ui.widget_water_2->setValue(value);
+	ui.widget_water_2->setPercentStyle(PercentStyle_Type::PercentStyle_Rect);
+	connect(ui.horizontalSlider, &QSlider::valueChanged, ui.widget_water_2, &vWaterProgressBar::setValue);
 }
 
 progressTest::~progressTest()
