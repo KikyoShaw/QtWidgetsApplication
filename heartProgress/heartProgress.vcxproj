@@ -97,20 +97,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="WaterProgressBar.cpp" />
-    <ClCompile Include="WaterProgressBarTest.cpp" />
     <QtRcc Include="heartProgress.qrc" />
     <QtUic Include="heartProgress.ui" />
     <QtMoc Include="heartProgress.h" />
     <ClCompile Include="heartProgress.cpp" />
     <ClCompile Include="main.cpp" />
-    <QtUic Include="WaterProgressBarTest.ui" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="WaterProgressBar.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="WaterProgressBarTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
