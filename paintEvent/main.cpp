@@ -1,10 +1,10 @@
-#include "heartProgress.h"
+#include "paintEvent.h"
 #include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    heartProgress w;
+    paintEvent w;
     w.show();
     return a.exec();
 }

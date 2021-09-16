@@ -23,16 +23,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="heartProgress.qrc">
+    <QtRcc Include="paintEvent.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-    <QtUic Include="heartProgress.ui">
+    <QtUic Include="paintEvent.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtMoc Include="heartProgress.h">
+    <QtMoc Include="paintEvent.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClCompile Include="heartProgress.cpp">
+    <ClCompile Include="paintEvent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
