@@ -4,7 +4,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    paintEvent w;
+    paintEvents w;
     w.show();
     return a.exec();
 }

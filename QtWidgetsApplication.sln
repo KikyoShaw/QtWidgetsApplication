@@ -21,8 +21,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "moveWidget", "moveWidget\mo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JsWithCpp", "JsWithCpp\JsWithCpp.vcxproj", "{EAA01CB2-D4B4-4E07-8159-A7A3F236AE4D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "heartProgress", "heartProgress\heartProgress.vcxproj", "{69654974-8DB1-4EED-B62D-02715CA0339B}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "clickedAnimation", "clickedAnimation\clickedAnimation.vcxproj", "{2FF7CACA-16F6-479F-BC3E-F9EE72AF17F9}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SysteamTrayTest", "SysteamTrayTest\SysteamTrayTest.vcxproj", "{F71CBDE7-0CDC-4AAB-BF46-B5996ABCA092}"
@@ -36,6 +34,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "animation", "animation\animation.vcxproj", "{3DC81C55-9724-4449-B12A-84BE0523B8B7}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pinyin", "pinyin\pinyin.vcxproj", "{15B20346-D569-4A72-9FF2-358039B4FF14}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "paintEvent", "paintEvent\paintEvent.vcxproj", "{22D004C8-88BA-44F7-BEAC-D8CB343EB0F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,10 +79,6 @@ Global
 		{EAA01CB2-D4B4-4E07-8159-A7A3F236AE4D}.Debug|x86.Build.0 = Debug|Win32
 		{EAA01CB2-D4B4-4E07-8159-A7A3F236AE4D}.Release|x86.ActiveCfg = Release|Win32
 		{EAA01CB2-D4B4-4E07-8159-A7A3F236AE4D}.Release|x86.Build.0 = Release|Win32
-		{69654974-8DB1-4EED-B62D-02715CA0339B}.Debug|x86.ActiveCfg = Debug|Win32
-		{69654974-8DB1-4EED-B62D-02715CA0339B}.Debug|x86.Build.0 = Debug|Win32
-		{69654974-8DB1-4EED-B62D-02715CA0339B}.Release|x86.ActiveCfg = Release|Win32
-		{69654974-8DB1-4EED-B62D-02715CA0339B}.Release|x86.Build.0 = Release|Win32
 		{2FF7CACA-16F6-479F-BC3E-F9EE72AF17F9}.Debug|x86.ActiveCfg = Debug|Win32
 		{2FF7CACA-16F6-479F-BC3E-F9EE72AF17F9}.Debug|x86.Build.0 = Debug|Win32
 		{2FF7CACA-16F6-479F-BC3E-F9EE72AF17F9}.Release|x86.ActiveCfg = Release|Win32
@@ -111,6 +107,10 @@ Global
 		{15B20346-D569-4A72-9FF2-358039B4FF14}.Debug|x86.Build.0 = Debug|Win32
 		{15B20346-D569-4A72-9FF2-358039B4FF14}.Release|x86.ActiveCfg = Release|Win32
 		{15B20346-D569-4A72-9FF2-358039B4FF14}.Release|x86.Build.0 = Release|Win32
+		{22D004C8-88BA-44F7-BEAC-D8CB343EB0F1}.Debug|x86.ActiveCfg = Debug|Win32
+		{22D004C8-88BA-44F7-BEAC-D8CB343EB0F1}.Debug|x86.Build.0 = Debug|Win32
+		{22D004C8-88BA-44F7-BEAC-D8CB343EB0F1}.Release|x86.ActiveCfg = Release|Win32
+		{22D004C8-88BA-44F7-BEAC-D8CB343EB0F1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
