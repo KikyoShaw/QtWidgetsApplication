@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/bubbe">
+        <file>qrc/chat_bubble_1.png</file>
+        <file>qrc/chat_bubble_2.png</file>
+        <file>qrc/chat_bubble_3.png</file>
+        <file>qrc/chat_bubble_4.png</file>
+        <file>qrc/chat_bubble_5.png</file>
+        <file>qrc/chat_bubble_6.png</file>
+        <file>qrc/chat_bubble_10.png</file>
+        <file>qrc/chat_bubble_12.png</file>
+        <file>qrc/chat_bubble_15.png</file>
+        <file>qrc/chat_bubble_16.png</file>
+        <file>qrc/chat_bubble_17.png</file>
+        <file>qrc/chat_bubble_18.png</file>
+        <file>qrc/chat_bubble_19.png</file>
+        <file>qrc/chat_bubble_21.png</file>
+        <file>qrc/chat_bubble_22.png</file>
+        <file>qrc/chat_bubble_23.png</file>
+        <file>qrc/chat_bubble_27.png</file>
+        <file>qrc/chat_bubble_28.png</file>
+        <file>qrc/chat_bubble_29.png</file>
+    </qresource>
+</RCC>

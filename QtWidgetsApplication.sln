@@ -39,6 +39,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "paintEvent", "paintEvent\pa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GraphicsEffect", "GraphicsEffect\GraphicsEffect.vcxproj", "{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chatBubbe", "chatBubbe\chatBubbe.vcxproj", "{D91A5C65-A1CE-4155-ACA4-8D545376BB2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -157,6 +159,12 @@ Global
 		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Release|x64.Build.0 = Release|x64
 		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Release|x86.ActiveCfg = Release|Win32
 		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Release|x86.Build.0 = Release|Win32
+		{D91A5C65-A1CE-4155-ACA4-8D545376BB2D}.Debug|x64.ActiveCfg = Debug|Win32
+		{D91A5C65-A1CE-4155-ACA4-8D545376BB2D}.Debug|x86.ActiveCfg = Debug|Win32
+		{D91A5C65-A1CE-4155-ACA4-8D545376BB2D}.Debug|x86.Build.0 = Debug|Win32
+		{D91A5C65-A1CE-4155-ACA4-8D545376BB2D}.Release|x64.ActiveCfg = Release|Win32
+		{D91A5C65-A1CE-4155-ACA4-8D545376BB2D}.Release|x86.ActiveCfg = Release|Win32
+		{D91A5C65-A1CE-4155-ACA4-8D545376BB2D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
