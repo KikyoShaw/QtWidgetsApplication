@@ -46,6 +46,9 @@
     <ClCompile Include="rotationLabel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="combo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="popAnimation.h">
@@ -54,5 +57,13 @@
     <QtMoc Include="rotationLabel.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="combo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="combo.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
 </Project>

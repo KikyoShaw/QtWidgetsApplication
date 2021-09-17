@@ -180,6 +180,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="combo.cpp" />
     <ClCompile Include="popAnimation.cpp" />
     <ClCompile Include="rotationLabel.cpp" />
     <QtRcc Include="animationTest.qrc" />
@@ -187,12 +188,16 @@
     <QtMoc Include="animationTest.h" />
     <ClCompile Include="animationTest.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="combo.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="popAnimation.h" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="rotationLabel.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="combo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

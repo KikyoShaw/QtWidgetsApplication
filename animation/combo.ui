@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>comBo</class>
+ <widget class="QWidget" name="comBo">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>150</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>25</x>
+     <y>25</y>
+     <width>350</width>
+     <height>100</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="animationTest.qrc"/>
+ </resources>
+ <connections/>
+</ui>

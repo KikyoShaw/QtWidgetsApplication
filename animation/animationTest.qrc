@@ -14,4 +14,17 @@
         <file>qrc/th-c12.png</file>
         <file>qrc/th-c13.png</file>
     </qresource>
+    <qresource prefix="/number">
+        <file>qrc/number/z0.png</file>
+        <file>qrc/number/z1.png</file>
+        <file>qrc/number/z2.png</file>
+        <file>qrc/number/z3.png</file>
+        <file>qrc/number/z4.png</file>
+        <file>qrc/number/z5.png</file>
+        <file>qrc/number/z6.png</file>
+        <file>qrc/number/z7.png</file>
+        <file>qrc/number/z8.png</file>
+        <file>qrc/number/z9.png</file>
+        <file>qrc/number/zx.png</file>
+    </qresource>
 </RCC>

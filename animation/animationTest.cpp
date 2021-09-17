@@ -31,6 +31,7 @@ animationTest::animationTest(QWidget *parent)
 	connect(ui.pushButton5, &QPushButton::clicked, this, &animationTest::sltStartShadowEffectAnimation);
 	connect(ui.pushButton6, &QPushButton::clicked, this, &animationTest::sltStartCurAnimation);
 	connect(ui.pushButton7, &QPushButton::clicked, this, &animationTest::sltStartOpacityEffectAnimation);
+	connect(ui.pushButton8, &QPushButton::clicked, ui.widget_comBo, &ComBo::startComBoAnimation);
 }
 
 animationTest::~animationTest()
