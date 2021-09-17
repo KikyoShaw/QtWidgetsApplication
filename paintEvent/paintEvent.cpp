@@ -106,6 +106,12 @@ void paintEvents::paintColorText(QPainter * painter)
 	QFont font = painter->font();
 	font.setPixelSize(200);
 
+	/*
+	QLinearGradient：显示从起点到终点的渐变
+	QRadialGradient：以圆心为中心显示渐变
+	QConicalGradient：围绕一个中心点显示渐变
+	*/
+
 	QRadialGradient g(width() / 2, height() / 2, 100);
 	g.setSpread(QGradient::ReflectSpread);
 	//double s = 6;
@@ -116,6 +122,15 @@ void paintEvents::paintColorText(QPainter * painter)
 	//g.setColorAt(4 / s, Qt::magenta);
 	//g.setColorAt(5 / s, Qt::cyan);
 	//g.setColorAt(6 / s, Qt::white);
+
+	// 设置显示模式
+	/*
+	QGradient::PadSpread
+	QGradient::RepeatSpread
+	QGradient::ReflectSpread
+	*/
+	//g.setSpread(QGradient::PadSpread);
+
 	if (0 == m_nAtIndex) {
 		g.setColorAt(1, Qt::yellow);
 		g.setColorAt(0, Qt::yellow);
