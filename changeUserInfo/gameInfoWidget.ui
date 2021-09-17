@@ -49,31 +49,6 @@
 	background: #152034;
 	border: 1px solid rgba(0,0,0,0.3);
 	border-radius: 6px;
-}
-
-QRadioButton
-{
-	font-size: 12px;
-	font-family: 微软雅黑;
-	color: #FFFFFF;
-	padding-right:20px;
-}
-
-QRadioButton::indicator
-{  
-	width:14px;
-	padding-left:380px; 
-
-}  
-  
-QRadioButton::indicator:unchecked
-{  
-	image: url(:/changeUserInfo/qrc/ico_gb_wxz.png);
-}  
-  
-QRadioButton::indicator:checked
-{  
-	image: url(:/changeUserInfo/qrc/ico_gb_xz.png);
 }</string>
      </property>
      <property name="frameShape">
@@ -209,7 +184,177 @@ QRadioButton::indicator:checked
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="widget_main" native="true"/>
+       <widget class="QStackedWidget" name="stackedWidget">
+        <property name="styleSheet">
+         <string notr="true">#page_gameList,#page_search
+{
+	background-color: transparent;
+	border: none;
+}</string>
+        </property>
+        <widget class="QWidget" name="page_gameList">
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QScrollArea" name="scrollArea_game">
+            <property name="styleSheet">
+             <string notr="true">QScrollArea { border:none; background: transparent; }
+QScrollArea &gt; QWidget &gt; QWidget { background: transparent; }
+QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollAreaWidgetContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>508</width>
+               <height>322</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel
+{
+	background: rgba(234, 234, 234, 0.03);
+	font-size: 14px;
+	font-family: 微软雅黑;
+	color: #FFFFFF;
+	padding-left:20px;
+}</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_game">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_search">
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QScrollArea" name="scrollArea_search">
+            <property name="styleSheet">
+             <string notr="true">QScrollArea { border:none; background: transparent; }
+QScrollArea &gt; QWidget &gt; QWidget { background: transparent; }
+QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollAreaWidgetContent">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>100</width>
+               <height>30</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel
+{
+	background: rgba(234, 234, 234, 0.03);
+	font-size: 14px;
+	font-family: 微软雅黑;
+	color: #FFFFFF;
+	padding-left:20px;
+}</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_search">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+               </layout>
+              </item>
+              <item>
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>317</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -218,6 +363,8 @@ QRadioButton::indicator:checked
  </widget>
  <resources>
   <include location="changeUserInfo.qrc"/>
+  <include location="changeUserInfo.qrc"/>
+  <include location="../../qrc/Resource.qrc"/>
  </resources>
  <connections/>
 </ui>

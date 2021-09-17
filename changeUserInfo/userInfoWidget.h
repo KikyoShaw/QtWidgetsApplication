@@ -20,11 +20,15 @@ private:
 
 private slots:
 	void sltOpenGameInfoWidget();
-	void sltGameFocusState(bool state);
+	void sltSlognFocusState(bool state);
+	void sltChangeGameLabel(bool state);
 	void sltSetMaxLengthAndGetLength();
+	void sltSetSelectGameName(const QString & name, bool toggled);
 
 private:
 	Ui::userInfo ui;
 	//游戏下拉框列表
 	GameInfoWidget *m_gameInfoWidget = Q_NULLPTR;
+	//游戏存储
+	QStringList m_gameList;
 };

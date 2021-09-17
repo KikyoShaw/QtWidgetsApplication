@@ -215,7 +215,7 @@ static char firstLetterArray[] =
 "whxgzxwznnqzjzjjqjccchykxbzszcnjtllcqxynjnckycynccqnxyewyczdcjycchyjlbtzyycqwlpgpyllgktltlgkgqbgychj"
 "xy";
 
-char firstPinYinLetter(const QString &str)
+QString firstPinYinLetter(const QString &str)
 {
 	if (str.isEmpty()) {
 		return '#';

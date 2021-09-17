@@ -103,6 +103,11 @@ void changeUserInfo::clearLogoItem()
 
 void changeUserInfo::sltReadLocalImage()
 {
+	auto size = m_pixMapVec.size();
+	if (8 <= size) {
+		showToast(QStringLiteral("最多上传8张图"));
+		return;
+	}
 	qInfo() << QStringLiteral("修改个人资料页: 上传本地图片");
 	//打开文件夹中的图片文件
 	auto OpenFile = QFileDialog::getOpenFileName(this,

@@ -22,14 +22,18 @@ void vLabel::mousePressEvent(QMouseEvent * event)
 
 void vLabel::focusInEvent(QFocusEvent * event)
 {
-	this->setStyleSheet("color: rgba(255,255,255,1);background-color:transparent;border: 1px solid #01EEC3;");
+	if (m_isOpen) {
+		this->setStyleSheet("color: rgba(255,255,255,1);background-color:transparent;border: 1px solid #01EEC3;");
+		emit sigFocusState(true);
+	}
 	QLabel::focusInEvent(event);
-	emit sigFocusState(true);
 }
 
 void vLabel::focusOutEvent(QFocusEvent * event)
 {
-	this->setStyleSheet("color: rgba(255,255,255,0.5);");
+	if (m_isOpen) {
+		this->setStyleSheet("color: rgba(255,255,255,0.5);");
+		emit sigFocusState(false);
+	}
 	QLabel::focusOutEvent(event);
-	emit sigFocusState(false);
 }

@@ -76,6 +76,15 @@
     <ClCompile Include="pinyin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="vTextEdits.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vGameButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="likeGameConfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="baseInfoWidget.ui">
@@ -97,6 +106,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="gameInfoWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="vGameButton.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -131,15 +143,21 @@
     <QtMoc Include="gameInfoWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="vTextEdits.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="vGameButton.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="likeGameConfig.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imageTool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="pinyin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vutility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

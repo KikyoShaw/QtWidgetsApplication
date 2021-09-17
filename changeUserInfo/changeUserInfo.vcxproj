@@ -185,12 +185,15 @@
     <ClCompile Include="gameInfoWidget.cpp" />
     <ClCompile Include="imageTool.cpp" />
     <ClCompile Include="LabelToast.cpp" />
+    <ClCompile Include="likeGameConfig.cpp" />
     <ClCompile Include="logoItem.cpp" />
     <ClCompile Include="pinyin.cpp" />
     <ClCompile Include="rollingBox.cpp" />
     <ClCompile Include="userInfoWidget.cpp" />
+    <ClCompile Include="vGameButton.cpp" />
     <ClCompile Include="vLabel.cpp" />
     <ClCompile Include="vLineEdit.cpp" />
+    <ClCompile Include="vTextEdits.cpp" />
     <QtRcc Include="changeUserInfo.qrc" />
     <QtUic Include="baseInfoWidget.ui" />
     <QtUic Include="birthInfoWidget.ui" />
@@ -204,6 +207,7 @@
     <QtUic Include="LabelToast.ui" />
     <QtUic Include="logoItem.ui" />
     <QtUic Include="userInfoWidget.ui" />
+    <QtUic Include="vGameButton.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="baseInfoWidget.h" />
@@ -218,8 +222,10 @@
     <QtMoc Include="LabelToast.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="likeGameConfig.h" />
     <ClInclude Include="pinyin.h" />
-    <ClInclude Include="vutility.h" />
+    <QtMoc Include="vGameButton.h" />
+    <QtMoc Include="vTextEdits.h" />
     <QtMoc Include="rollingBox.h" />
     <QtMoc Include="emotionWidget.h" />
     <QtMoc Include="birthInfoWidget.h" />

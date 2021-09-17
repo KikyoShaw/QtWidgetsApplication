@@ -137,6 +137,9 @@ QRadioButton::indicator:checked
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_waid">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>414</x>
@@ -144,6 +147,9 @@ QRadioButton::indicator:checked
         <width>200</width>
         <height>28</height>
        </rect>
+      </property>
+      <property name="text">
+       <string>1939484341</string>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -198,10 +204,13 @@ QRadioButton::indicator:checked
        </rect>
       </property>
       <property name="text">
-       <string>青青号</string>
+       <string>账号</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_city">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>414</x>
@@ -209,6 +218,9 @@ QRadioButton::indicator:checked
         <width>200</width>
         <height>28</height>
        </rect>
+      </property>
+      <property name="text">
+       <string>广东广州</string>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -240,7 +252,7 @@ QRadioButton::indicator:checked
        </rect>
       </property>
       <property name="text">
-       <string>1111</string>
+       <string/>
       </property>
       <property name="readOnly">
        <bool>false</bool>
@@ -277,8 +289,7 @@ color: rgba(255,255,255,0.5);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">
-</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>十三先生</string>
@@ -344,7 +355,7 @@ color: rgba(255,255,255,0.5);</string>
        <string notr="true"/>
       </property>
       <property name="text">
-       <string>111</string>
+       <string>保密</string>
       </property>
      </widget>
      <widget class="vLabel" name="label_birth">
@@ -363,7 +374,7 @@ color: rgba(255,255,255,0.5);</string>
        <string notr="true"/>
       </property>
       <property name="text">
-       <string>1111</string>
+       <string>2020年10月10日</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_birthIcon">

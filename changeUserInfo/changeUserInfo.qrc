@@ -9,4 +9,7 @@
         <file>qrc/icon_zk.png</file>
         <file>qrc/iconly_light_outline_search.png</file>
     </qresource>
+    <qresource prefix="/qss">
+        <file>qrc/qss/whiteScrollbar.qss</file>
+    </qresource>
 </RCC>

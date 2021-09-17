@@ -1,8 +1,8 @@
 #ifndef PINYIN_H
 #define PINYIN_H
 
-#include "vutility.h"
+#include <QString>
 
-char VUTILITY_LIBRARY_EXPORT firstPinYinLetter(const QString &str);
+QString firstPinYinLetter(const QString &str);
 
 #endif // PINYIN_H

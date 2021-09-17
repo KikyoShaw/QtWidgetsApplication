@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>vGameItem</class>
+ <widget class="QCheckBox" name="vGameItem">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>508</width>
+    <height>36</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>508</width>
+    <height>36</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>508</width>
+    <height>36</height>
+   </size>
+  </property>
+  <property name="cursor">
+   <cursorShape>PointingHandCursor</cursorShape>
+  </property>
+  <property name="windowTitle">
+   <string>game</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QCheckBox
+{
+	padding-right:20px;
+}
+
+QCheckBox::indicator
+{  
+	width:14px;
+
+} 
+
+QCheckBox::indicator:unchecked
+{  
+	image: url(:/changeUserInfo/qrc/ico_gb_wxz.png);
+}  
+  
+QCheckBox::indicator:checked
+{  
+	image: url(:/changeUserInfo/qrc/ico_gb_xz.png);
+}</string>
+  </property>
+  <property name="autoExclusive">
+   <bool>false</bool>
+  </property>
+  <widget class="QLabel" name="label_text">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>0</y>
+     <width>441</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">	font-size: 12px;
+	font-family: 微软雅黑;
+	color: #FFFFFF;
+	padding-left:20px;
+	border:none;
+	background-color:transparent;</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="changeUserInfo.qrc"/>
+ </resources>
+ <connections/>
+</ui>

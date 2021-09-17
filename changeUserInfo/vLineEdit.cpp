@@ -3,7 +3,7 @@
 vLineEdit::vLineEdit(QWidget *parent /* = Q_NULLPTR */)
 	:QLineEdit(parent)
 {
-
+	this->setContextMenuPolicy(Qt::NoContextMenu);
 }
 
 vLineEdit::~vLineEdit()

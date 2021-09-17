@@ -78,6 +78,15 @@ QLineEdit
 	font-family: 微软雅黑;
 	color: #FFFFFF;
 	padding-left:10px;
+}
+
+#textEdit_slogn
+{
+border:none;
+background-color:transparent;
+font-size: 12px;
+font-family: 微软雅黑;
+color: #FFFFFF;
 }</string>
      </property>
      <property name="frameShape">
@@ -185,7 +194,9 @@ color: rgba(255,255,255,0.5);</string>
 {
 background: rgba(255,255,255,0.1);
 border-radius: 6px;
-}</string>
+}
+
+</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <property name="spacing">
@@ -201,13 +212,9 @@ border-radius: 6px;
         <number>6</number>
        </property>
        <item>
-        <widget class="QTextEdit" name="textEdit_slogn">
+        <widget class="vTextEdits" name="textEdit_slogn">
          <property name="styleSheet">
-          <string notr="true">border:none;
-background-color:transparent;
-font-size: 12px;
-font-family: 微软雅黑;
-color: #FFFFFF;</string>
+          <string notr="true"/>
          </property>
          <property name="verticalScrollBarPolicy">
           <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -298,6 +305,11 @@ color: rgba(255,255,255,0.5);</string>
    <class>vLabel</class>
    <extends>QLabel</extends>
    <header location="global">vLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>vTextEdits</class>
+   <extends>QTextEdit</extends>
+   <header location="global">vtextedits.h</header>
   </customwidget>
  </customwidgets>
  <resources>
