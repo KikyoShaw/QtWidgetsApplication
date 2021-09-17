@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/GraphicsEffect">
+        <file>qrc/2.png</file>
+        <file>qrc/3.png</file>
+        <file>qrc/4.png</file>
+        <file>qrc/1.png</file>
+    </qresource>
+</RCC>
