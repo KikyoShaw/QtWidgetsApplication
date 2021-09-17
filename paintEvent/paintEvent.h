@@ -5,6 +5,7 @@
 
 class QPainter;
 class QVariantAnimation;
+class QPropertyAnimation;
 
 class paintEvents : public QWidget
 {
@@ -15,6 +16,7 @@ public:
 
 private slots:
 	void sltAtIndexChanged(QVariant value);
+	void sltValueChanged(QVariant value);
 
 private:
 	virtual void paintEvent(QPaintEvent *event);
@@ -23,6 +25,9 @@ private:
 
 	void paintColorText(QPainter *painter);
 
+	void paintAnimationText(QPainter *painter);
+
+	void paintAnimationText2(QPainter *painter);
 
 private:
     Ui::paintEventClass ui;
@@ -30,4 +35,8 @@ private:
 	double m_nAtIndex;
 	//控制颜色进度动画
 	QVariantAnimation *m_vAnimation = Q_NULLPTR;
+	//透明度
+	int m_nAlpha;
+	//动画类
+	QPropertyAnimation *m_pAnimation = Q_NULLPTR;
 };

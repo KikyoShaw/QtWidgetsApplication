@@ -1,9 +1,17 @@
 #include "paintEvent.h"
 #include <QPainter>
 #include <QVariantAnimation>
+#include <QPropertyAnimation>
+
+static QVector<QColor> Color_Value = {
+	Qt::yellow,
+	Qt::green,
+	Qt::blue,
+	Qt::red,
+};
 
 paintEvents::paintEvents(QWidget *parent)
-    : QWidget(parent)
+    : QWidget(parent), m_nAlpha(255), m_nAtIndex(0)
 {
     ui.setupUi(this);
 
@@ -16,12 +24,31 @@ paintEvents::paintEvents(QWidget *parent)
 		m_vAnimation->start();
 		connect(m_vAnimation, &QVariantAnimation::valueChanged, this, &paintEvents::sltAtIndexChanged);
 	}
+
+	m_pAnimation = new QPropertyAnimation();
+	if (m_pAnimation) {
+		m_pAnimation->setTargetObject(this);
+		m_pAnimation->setPropertyName("alpha");
+		m_pAnimation->setDuration(1000);
+		m_pAnimation->setKeyValueAt(0, 255);
+		m_pAnimation->setKeyValueAt(0.5, 50);
+		m_pAnimation->setKeyValueAt(1, 255);
+		m_pAnimation->setLoopCount(-1);
+		m_pAnimation->start();
+		connect(m_pAnimation, &QVariantAnimation::valueChanged, this, &paintEvents::sltValueChanged);
+	}
 }
 
 void paintEvents::sltAtIndexChanged(QVariant value)
 {
 	m_nAtIndex = value.toDouble();
 	update();
+}
+
+void paintEvents::sltValueChanged(QVariant value)
+{
+	m_nAlpha = value.toInt();
+	this->update();
 }
 
 void paintEvents::paintEvent(QPaintEvent * event)
@@ -36,7 +63,13 @@ void paintEvents::paintEvent(QPaintEvent * event)
 	//paintHeart(&painter);
 
 	//绘制特殊文本
-	paintColorText(&painter);
+	//paintColorText(&painter);
+
+	//流光文字
+	paintAnimationText(&painter);
+
+	//文字闪烁
+	//paintAnimationText2(&painter);
 }
 
 void paintEvents::paintHeart(QPainter * painter)
@@ -120,4 +153,36 @@ void paintEvents::paintColorText(QPainter * painter)
 
 	painter->setOpacity(0.1);
 	painter->fillRect(rect, g);
+}
+
+void paintEvents::paintAnimationText(QPainter * painter)
+{
+	if (Q_NULLPTR == painter)
+		return;
+
+	auto text = QStringLiteral("十三先生");
+	QFont font(QStringLiteral("华文彩云"));
+	font.setPixelSize(30);
+	painter->setFont(font);
+	int x = 150;
+	for (int i = 0; i < text.size(); i++) {
+		auto color = Color_Value.value(i);
+		painter->setPen(QPen(color));
+		QString each = text[i];
+		painter->drawText(x, 150, each);
+		x += 30;
+	}
+}
+
+void paintEvents::paintAnimationText2(QPainter * painter)
+{
+	if (Q_NULLPTR == painter)
+		return;
+
+	auto text = QStringLiteral("十三先生");
+	QFont font(QStringLiteral("华文彩云"));
+	font.setPixelSize(30);
+	painter->setFont(font);
+	painter->setPen(QPen(QColor(128, 0, 128, m_nAlpha)));
+	painter->drawText(150, 150,text);
 }

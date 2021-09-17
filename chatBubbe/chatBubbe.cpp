@@ -5,3 +5,7 @@ chatBubbe::chatBubbe(QWidget *parent)
 {
     ui.setupUi(this);
 }
+
+chatBubbe::~chatBubbe()
+{
+}
