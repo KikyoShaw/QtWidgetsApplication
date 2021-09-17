@@ -30,9 +30,12 @@ progress | 画笔绘制进度条 | 进度条动效 | 圆形进度条 | 多彩进
 
 changeUserInfo | UI交互美化示例
 
-animation | 图片控件天女散花爆开 | 旋转动效 | 窗口关闭特效 | 移动特效 | 阴影特效 | 闪烁特效
+animation | 爆开特效 | 旋转动效 | 窗口关闭特效 | 移动特效 | 阴影特效 | 闪烁特效
 
 pinyin | 获取中文首字母和字母
 
+GraphicsEffect | 透明度 | 模糊度 | 上色 | 阴影
+
+chatBubbe | 气泡
 
 
