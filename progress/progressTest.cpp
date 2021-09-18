@@ -15,6 +15,7 @@ progressTest::progressTest(QWidget *parent)
 		ui.widget->setValue(num);
 		ui.widget_water->setValue(num);
 		ui.widget_water_2->setValue(num);
+		ui.widget_battery->setValue(num);
 	});
 
 	connect(ui.pushButton_2, &QPushButton::clicked, this, [=]() {
@@ -27,6 +28,7 @@ progressTest::progressTest(QWidget *parent)
 		ui.widget->setValue(num);
 		ui.widget_water->setValue(num);
 		ui.widget_water_2->setValue(num);
+		ui.widget_battery->setValue(num);
 	});
 
 	auto value = ui.horizontalSlider->value();
@@ -55,6 +57,10 @@ progressTest::progressTest(QWidget *parent)
 	ui.widget_water_2->setValue(value);
 	ui.widget_water_2->setPercentStyle(PercentStyle_Type::PercentStyle_Rect);
 	connect(ui.horizontalSlider, &QSlider::valueChanged, ui.widget_water_2, &vWaterProgressBar::setValue);
+
+	ui.widget_battery->setRange(0, 100);
+	ui.widget_battery->setValue(value);
+	connect(ui.horizontalSlider, &QSlider::valueChanged, ui.widget_battery, QOverload<int>::of(&BatteryProgressBar::setValue));
 }
 
 progressTest::~progressTest()

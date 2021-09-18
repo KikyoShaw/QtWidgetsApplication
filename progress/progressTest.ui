@@ -44,7 +44,7 @@ color: #212426;
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>460</y>
+     <y>490</y>
      <width>75</width>
      <height>41</height>
     </rect>
@@ -57,7 +57,7 @@ color: #212426;
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>460</y>
+     <y>490</y>
      <width>75</width>
      <height>41</height>
     </rect>
@@ -83,7 +83,7 @@ color: #212426;
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>550</y>
+     <y>580</y>
      <width>580</width>
      <height>19</height>
     </rect>
@@ -164,6 +164,16 @@ color: #212426;
     </rect>
    </property>
   </widget>
+  <widget class="BatteryProgressBar" name="widget_battery" native="true">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>430</y>
+     <width>321</width>
+     <height>121</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -197,6 +207,12 @@ color: #212426;
    <class>vWaterProgressBar</class>
    <extends>QWidget</extends>
    <header location="global">vwaterprogressbar.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>BatteryProgressBar</class>
+   <extends>QWidget</extends>
+   <header location="global">batteryprogressbar.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -58,6 +58,9 @@
     <ClCompile Include="vWaterProgressBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="batteryprogressbar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="vProgressBar.h">
@@ -76,6 +79,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="vWaterProgressBar.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="batteryprogressbar.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
