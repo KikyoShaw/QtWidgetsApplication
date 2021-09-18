@@ -4,6 +4,7 @@
 #include <QVariant>
 
 class QVariantAnimation;
+class QPainter;
 
 class vpkProgressBar : public QProgressBar
 {
@@ -18,6 +19,8 @@ private slots:
 
 protected:
 	void paintEvent(QPaintEvent *event);
+	void paintProgress(QPainter *painter);
+	void paintText(QPainter *painter);
 
 private:
 	//ÑÕÉ«½ø¶È

@@ -35,14 +35,34 @@ void vpkProgressBar::paintEvent(QPaintEvent * event)
 	// 抗锯齿 + 平滑边缘处理
 	painter.setRenderHints(QPainter::Antialiasing, true);
 	painter.setRenderHints(QPainter::SmoothPixmapTransform, true);
-	painter.setPen(Qt::transparent);
 
-	painter.setBrush(QBrush(QColor(Qt::blue)));
-	painter.drawRect(0, 0, width(), height());
+	//绘制进度
+	paintProgress(&painter);
 
+	//绘制文字
+	paintText(&painter);
+}
+
+void vpkProgressBar::paintProgress(QPainter * painter)
+{
+	painter->setPen(Qt::transparent);
+	painter->setBrush(QBrush(QColor(Qt::blue)));
+	painter->drawRect(0, 0, width(), height());
 	double percent = static_cast<double>(value()) / static_cast<double>(maximum());
 	//double percent = static_cast<double>(m_nAtIndex) / static_cast<double>(maximum());
 	double x_move = (percent * width());
-	painter.setBrush(QBrush(Qt::red));
-	painter.drawRect(x_move, 0, width(), height());
+	painter->setBrush(QBrush(Qt::red));
+	painter->drawRect(x_move, 0, width(), height());
+}
+
+void vpkProgressBar::paintText(QPainter * painter)
+{
+	auto leftText = QStringLiteral("十三先生");
+	auto rightText = QStringLiteral("桑桑");
+	QFont font(QStringLiteral("微软雅黑"));
+	font.setPixelSize(12);
+	painter->setFont(font);
+	painter->setPen(Qt::white);
+	painter->drawText(QRect(20, 8, width(), height()), leftText);
+	painter->drawText(QRect(-20, 8, width(), height()), Qt::AlignRight, rightText);
 }
