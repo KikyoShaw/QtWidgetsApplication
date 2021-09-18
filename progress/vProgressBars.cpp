@@ -10,6 +10,8 @@ vProgressBars::vProgressBars(QWidget *parent)
 	m_vAnimation = new QVariantAnimation(this);
 	if (m_vAnimation) {
 		m_vAnimation->setDuration(2000);
+		//m_vAnimation->setStartValue(0);
+		//m_vAnimation->setEndValue(100);
 		m_vAnimation->setKeyValueAt(0, 0.0);
 		m_vAnimation->setKeyValueAt(0.5, 0.5);
 		m_vAnimation->setKeyValueAt(1, 1.0);
@@ -26,6 +28,9 @@ vProgressBars::~vProgressBars()
 void vProgressBars::sltAtIndexChanged(QVariant value)
 {
 	m_nAtIndex = value.toDouble();
+	//int index = static_cast<int>(this->value()) / static_cast<int>(this->maximum());
+	//index = qMin(value.toInt(), index);
+	//m_nAtIndex = static_cast<double>(index);
 	update();
 }
 
@@ -81,12 +86,13 @@ void vProgressBars::paintEvent(QPaintEvent * event)
 		draw_path.arcTo(QRect(static_cast<int>(percent*width() - radius * 2), 0, radius * 2, radius * 2), 0, 90);
 		draw_path.lineTo(radius * 2, 0);
 	}
+	//painter.fillPath(draw_path, QColor(QColor(43, 74, 255)));
 	//整个进度条颜色
 	//QLinearGradient linearGradient(rect.topLeft(), rect.topRight());
 	//进度条部分颜色
-	QLinearGradient linearGradient(QPoint(0,0), QPoint(x_move, 0));
-	linearGradient.setColorAt(1, QColor(255, 66, 213));
-	linearGradient.setColorAt(m_nAtIndex, QColor(255, 66, 213));
+	QLinearGradient linearGradient(QPoint(0, 0), QPoint(x_move, 0));
+	linearGradient.setColorAt(1.0, QColor(255, 66, 213));
+	linearGradient.setColorAt(m_nAtIndex, QColor(43, 74, 255));
 	linearGradient.setColorAt(0.0, QColor(43, 74, 255));
 	painter.fillPath(draw_path, QBrush(linearGradient));
 }

@@ -88,8 +88,8 @@ void MyProcessBar::paintEvent(QPaintEvent *event)
 		auto maxValue = this->maximum();
         double _width = static_cast<double>(m_currvalue)/static_cast<double>(maxValue)*rect.width();
         QLinearGradient gradient(0,0,_width, rect.height());
-		gradient.setColorAt(1, QColor(255, 66, 213));
-		gradient.setColorAt(0.0, QColor(43, 74, 255));
+		gradient.setColorAt(1, QColor(255, 66, 213, 100));
+		gradient.setColorAt(0.0, QColor(43, 74, 255, 100));
         painter.setBrush(gradient);
         QRectF rect2 = QRectF(rect.topLeft(),QSize(static_cast<int>(_width),static_cast<int>(rect.height())));
         painter.drawRoundedRect(rect2, radius, radius);
