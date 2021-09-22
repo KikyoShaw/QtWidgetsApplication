@@ -31,6 +31,7 @@ private:
 	void paintColorText(QPainter *painter);
 	void paintColorText2(QPainter *painter);
 	void paintColorText3(QPainter *painter);
+	void paintColorText4(QPainter *painter);
 	void paintAnimationText(QPainter *painter);
 	void paintAnimationText2(QPainter *painter);
 	void paintAnimationText3(QPainter *painter);

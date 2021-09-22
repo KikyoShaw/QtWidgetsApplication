@@ -2,6 +2,7 @@
 #include <QPainter>
 #include <QVariantAnimation>
 #include <QPropertyAnimation>
+#include <QStyle>
 
 static QVector<QColor> Color_Value = {
 	Qt::yellow,
@@ -104,7 +105,10 @@ void paintEvents::paintEvent(QPaintEvent * event)
 	//paintColorText2(&painter);
 
 	//艺术字体
-	paintColorText3(&painter);
+	//paintColorText3(&painter);
+
+	//
+	paintColorText4(&painter);
 
 	//流光文字
 	//paintAnimationText(&painter);
@@ -323,6 +327,41 @@ void paintEvents::paintColorText3(QPainter * painter)
 	//for .debug
 	//painter->drawText(rect, text, option);
 	painter->restore();
+}
+
+void paintEvents::paintColorText4(QPainter * painter)
+{
+	if (Q_NULLPTR == painter)
+		return;
+
+	auto text = QStringLiteral("忘川之畔，与君长相憩");
+	auto myOpt = QTextOption(Qt::AlignCenter);
+	QFont font(QStringLiteral("微软雅黑"));
+	font.setPixelSize(30);
+	painter->setFont(font);
+	QRect sRect = painter->fontMetrics().boundingRect(QRect(150,150,width(),height()), myOpt.flags(), text);
+	// 将渐变填充的范围设置成文字所在的范围
+	QLinearGradient l(sRect.x(), sRect.y(), sRect.x() + sRect.width(),
+		sRect.y() + sRect.height());
+
+	// 设置彩虹色渐变效果，彩虹由赤橙黄绿青蓝紫的颜色组成
+	// 因此我们除去起始点为红色，每隔1/6就设置一种颜色
+	l.setColorAt(0, Qt::red);
+	l.setColorAt(1.0 / 6, QColor(255, 97, 0));
+	l.setColorAt(2.0 / 6, QColor(255, 255, 0));
+	l.setColorAt(3.0 / 6, Qt::green);
+	l.setColorAt(4.0 / 6, Qt::cyan);
+	l.setColorAt(5.0 / 6, Qt::blue);
+	l.setColorAt(1, QColor(255, 0, 255));
+
+	// 这里并不使用painter，只需要QStyle即可实现效果
+	// QPalette::Text为文本显示效果的role
+	auto role = QPalette::Text;
+	QPalette palette = this->palette();
+	palette.setBrush(role, QBrush(l));
+	// 注意最后一个参数role，只有设置了它才能让QStyle正确地绘制自定义的文本显示效果
+	QApplication::style()->drawItemText(painter, sRect, Qt::AlignCenter,
+		palette, true, text, role);
 }
 
 void paintEvents::paintAnimationText(QPainter * painter)
