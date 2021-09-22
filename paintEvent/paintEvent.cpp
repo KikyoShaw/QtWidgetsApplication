@@ -273,12 +273,16 @@ void paintEvents::paintColorText3(QPainter * painter)
 	font.setBold(true);
 	painter->save();
 	painter->setFont(font);
-	QPen oldPen = painter->pen();
-	QPen strokePen = QPen(strokeColor, strokeWidth);
 	QStringList textList = getTextLinesByRectSize(painter->fontMetrics(), text, rect.size());
 	int fontHeight = painter->fontMetrics().height();
 	int lineHeight = painter->fontMetrics().lineSpacing();
 	for (int i = 0; i < textList.count(); i++){
+		QPen oldPen = painter->pen();
+		QPen strokePen = QPen(strokeColor, strokeWidth);
+		if (i < m_nAtIndex) {
+			strokePen = QPen(QColor(255, 20, 147), strokeWidth);
+			oldPen = QPen(Qt::green);
+		}
 		QString textLine = textList[i];
 		QRect textLineBoundingRect = painter->fontMetrics().boundingRect(rect, option.flags(), textLine);
 		QSize textLineSize = textLineBoundingRect.size();
