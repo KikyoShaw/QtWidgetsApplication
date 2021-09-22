@@ -65,6 +65,9 @@ void paintEvents::paintEvent(QPaintEvent * event)
 	//绘制特殊文本
 	//paintColorText(&painter);
 
+	//绘制文字光晕特效
+	paintColorText2(&painter);
+
 	//流光文字
 	//paintAnimationText(&painter);
 
@@ -72,7 +75,7 @@ void paintEvents::paintEvent(QPaintEvent * event)
 	//paintAnimationText2(&painter);
 
 	//文字颜色渐变动画
-	paintAnimationText3(&painter);
+	//paintAnimationText3(&painter);
 }
 
 void paintEvents::paintHeart(QPainter * painter)
@@ -171,6 +174,50 @@ void paintEvents::paintColorText(QPainter * painter)
 
 	painter->setOpacity(0.1);
 	painter->fillRect(rect, g);
+}
+
+void paintEvents::paintColorText2(QPainter * painter)
+{
+	if (Q_NULLPTR == painter)
+		return;
+
+	auto text = QStringLiteral("十三先生");
+	QColor pColor(255, 20, 147);
+	QFont font(QStringLiteral("微软雅黑"));
+	font.setPixelSize(30);
+	font.setWeight(QFont::Black);
+	QFontMetrics fm(font);
+	int textflags = Qt::AlignLeft | Qt::TextExpandTabs;
+	QSize textsize = fm.size(textflags, text);
+	//边缘留白
+	int margin = 8;
+	textsize.setWidth(textsize.width() + 2 * margin);
+	textsize.setHeight(textsize.height() + 2 * margin);
+	//文字处理
+	QPainterPath pp(QPointF(margin, margin));
+	qreal px = margin, py = margin + fm.ascent();
+	foreach(const QString& line, text) {
+		pp.addText(px, py, font, line);
+		py += fm.lineSpacing();
+	}
+	//填充文字区域，做出光晕效果
+	QPainterPathStroker pps;
+	pps.setCapStyle(Qt::RoundCap);
+	//pps.setJoinStyle(Qt::MiterJoin);
+	pps.setWidth(3);
+	QPainterPath path = pps.createStroke(pp).united(pp).simplified();
+	QColor glow_color = QColor(255 - pColor.red(), 255 - pColor.green(), 255 - pColor.blue()).lighter(168);
+	//绘制光晕
+	QPixmap textpixmap(textsize);
+	textpixmap.fill(QColor(0, 0, 0, 0));
+	painter->begin(&textpixmap);
+	painter->setFont(font);
+	painter->fillPath(path, glow_color);
+	painter->setPen(glow_color.lighter(88));
+	painter->drawPath(path);
+	painter->setPen(pColor);
+	painter->drawText(QRect(margin, margin, textpixmap.width(), textpixmap.height()), textflags, text);
+	painter->end();
 }
 
 void paintEvents::paintAnimationText(QPainter * painter)

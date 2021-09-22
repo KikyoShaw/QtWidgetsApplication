@@ -22,13 +22,10 @@ private:
 	virtual void paintEvent(QPaintEvent *event);
 
 	void paintHeart(QPainter *painter);
-
 	void paintColorText(QPainter *painter);
-
+	void paintColorText2(QPainter *painter);
 	void paintAnimationText(QPainter *painter);
-
 	void paintAnimationText2(QPainter *painter);
-
 	void paintAnimationText3(QPainter *painter);
 
 private:
