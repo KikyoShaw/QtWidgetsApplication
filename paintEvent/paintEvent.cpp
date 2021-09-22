@@ -12,7 +12,8 @@ static QVector<QColor> Color_Value = {
 };
 
 paintEvents::paintEvents(QWidget *parent)
-    : QWidget(parent), m_nAlpha(255), m_nAtIndex(0)
+    : QWidget(parent), m_nAlpha(255)
+	, m_nAtIndex(0), m_nAtIndex1(0)
 {
     ui.setupUi(this);
 
@@ -24,6 +25,16 @@ paintEvents::paintEvents(QWidget *parent)
 		m_vAnimation->setLoopCount(-1);
 		m_vAnimation->start();
 		connect(m_vAnimation, &QVariantAnimation::valueChanged, this, &paintEvents::sltAtIndexChanged);
+	}
+
+	m_vAnimation2 = new QVariantAnimation(this);
+	if (m_vAnimation2) {
+		m_vAnimation2->setDuration(1000);
+		m_vAnimation2->setStartValue(0);
+		m_vAnimation2->setEndValue(2);
+		m_vAnimation2->setLoopCount(-1);
+		m_vAnimation2->start();
+		connect(m_vAnimation2, &QVariantAnimation::valueChanged, this, &paintEvents::sltAtIndex1Changed);
 	}
 
 	m_pAnimation = new QPropertyAnimation();
@@ -43,6 +54,12 @@ paintEvents::paintEvents(QWidget *parent)
 void paintEvents::sltAtIndexChanged(QVariant value)
 {
 	m_nAtIndex = value.toDouble();
+	update();
+}
+
+void paintEvents::sltAtIndex1Changed(QVariant value)
+{
+	m_nAtIndex1 = value.toDouble();
 	update();
 }
 
@@ -105,10 +122,10 @@ void paintEvents::paintEvent(QPaintEvent * event)
 	//paintColorText2(&painter);
 
 	//艺术字体
-	//paintColorText3(&painter);
+	paintColorText3(&painter);
 
 	//
-	paintColorText4(&painter);
+	//paintColorText4(&painter);
 
 	//流光文字
 	//paintAnimationText(&painter);
@@ -280,10 +297,10 @@ void paintEvents::paintColorText3(QPainter * painter)
 	QStringList textList = getTextLinesByRectSize(painter->fontMetrics(), text, rect.size());
 	int fontHeight = painter->fontMetrics().height();
 	int lineHeight = painter->fontMetrics().lineSpacing();
+	QPen oldPen = painter->pen();
+	QPen strokePen = QPen(strokeColor, strokeWidth);
 	for (int i = 0; i < textList.count(); i++){
-		QPen oldPen = painter->pen();
-		QPen strokePen = QPen(strokeColor, strokeWidth);
-		if (i < m_nAtIndex) {
+		if (1 == m_nAtIndex1) {
 			strokePen = QPen(QColor(255, 20, 147), strokeWidth);
 			oldPen = QPen(Qt::green);
 		}

@@ -22,6 +22,7 @@ private:
 
 private slots:
 	void sltAtIndexChanged(QVariant value);
+	void sltAtIndex1Changed(QVariant value);
 	void sltValueChanged(QVariant value);
 
 private:
@@ -41,8 +42,11 @@ private:
     Ui::paintEventClass ui;
 	//颜色进度
 	double m_nAtIndex;
+	//颜色进度
+	double m_nAtIndex1;
 	//控制颜色进度动画
 	QVariantAnimation *m_vAnimation = Q_NULLPTR;
+	QVariantAnimation *m_vAnimation2 = Q_NULLPTR;
 	//透明度
 	int m_nAlpha;
 	//动画类
