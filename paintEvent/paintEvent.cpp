@@ -19,7 +19,7 @@ paintEvents::paintEvents(QWidget *parent)
 	if (m_vAnimation) {
 		m_vAnimation->setDuration(2000);
 		m_vAnimation->setStartValue(0);
-		m_vAnimation->setEndValue(3);
+		m_vAnimation->setEndValue(5);
 		m_vAnimation->setLoopCount(-1);
 		m_vAnimation->start();
 		connect(m_vAnimation, &QVariantAnimation::valueChanged, this, &paintEvents::sltAtIndexChanged);
@@ -66,10 +66,13 @@ void paintEvents::paintEvent(QPaintEvent * event)
 	//paintColorText(&painter);
 
 	//流光文字
-	paintAnimationText(&painter);
+	//paintAnimationText(&painter);
 
 	//文字闪烁
 	//paintAnimationText2(&painter);
+
+	//文字颜色渐变动画
+	paintAnimationText3(&painter);
 }
 
 void paintEvents::paintHeart(QPainter * painter)
@@ -184,7 +187,7 @@ void paintEvents::paintAnimationText(QPainter * painter)
 		auto color = Color_Value.value(i);
 		painter->setPen(QPen(color));
 		QString each = text[i];
-		painter->drawText(x, 150, each);
+		painter->drawText(QRect(x, 150, width(), height()), each);
 		x += 30;
 	}
 }
@@ -199,5 +202,28 @@ void paintEvents::paintAnimationText2(QPainter * painter)
 	font.setPixelSize(30);
 	painter->setFont(font);
 	painter->setPen(QPen(QColor(128, 0, 128, m_nAlpha)));
-	painter->drawText(150, 150,text);
+	painter->drawText(QRect(150, 150, width(), height()),text);
+}
+
+void paintEvents::paintAnimationText3(QPainter * painter)
+{
+	if (Q_NULLPTR == painter)
+		return;
+
+	auto text = QStringLiteral("十三先生");
+	QFont font(QStringLiteral("微软雅黑"));
+	font.setPixelSize(30);
+	painter->setFont(font);
+	int x = 150;
+	for (int i = 0; i < text.size(); i++) {
+		if (i < m_nAtIndex) {
+			painter->setPen(QPen(Qt::green));
+		}
+		else {
+			painter->setPen(QPen(Qt::white));
+		}
+		QString each = text[i];
+		painter->drawText(QRect(x, 150, width(), height()), each);
+		x += 30;
+	}
 }

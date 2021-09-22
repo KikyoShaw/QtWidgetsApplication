@@ -29,6 +29,8 @@ private:
 
 	void paintAnimationText2(QPainter *painter);
 
+	void paintAnimationText3(QPainter *painter);
+
 private:
     Ui::paintEventClass ui;
 	//ÑÕÉ«½ø¶È
