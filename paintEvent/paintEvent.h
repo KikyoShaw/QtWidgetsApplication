@@ -14,6 +14,12 @@ class paintEvents : public QWidget
 public:
 	paintEvents(QWidget *parent = Q_NULLPTR);
 
+private:
+	//根据宽度得到文字
+	QString getTextByWidth(const QFontMetrics& fm, const QString& text, int width);
+	//根据文字宽高等到文字段落
+	QStringList getTextLinesByRectSize(const QFontMetrics& fm, const QString& text, const QSize& size);
+
 private slots:
 	void sltAtIndexChanged(QVariant value);
 	void sltValueChanged(QVariant value);
@@ -24,9 +30,11 @@ private:
 	void paintHeart(QPainter *painter);
 	void paintColorText(QPainter *painter);
 	void paintColorText2(QPainter *painter);
+	void paintColorText3(QPainter *painter);
 	void paintAnimationText(QPainter *painter);
 	void paintAnimationText2(QPainter *painter);
 	void paintAnimationText3(QPainter *painter);
+	void paintAnimationText4(QPainter *painter);
 
 private:
     Ui::paintEventClass ui;

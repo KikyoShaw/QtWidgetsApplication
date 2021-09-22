@@ -45,6 +45,41 @@ void paintEvents::sltAtIndexChanged(QVariant value)
 	update();
 }
 
+QString paintEvents::getTextByWidth(const QFontMetrics & fm, const QString & text, int width)
+{
+	QString descText = QString();
+	if (width <= 0)
+		return descText;
+
+	int offset = 0;
+	do{
+		descText = text.mid(0, text.length() - offset++);
+	} while (!(fm.width(descText, width) <= width));
+
+	return descText;
+}
+
+QStringList paintEvents::getTextLinesByRectSize(const QFontMetrics & fm, const QString & text, const QSize & size)
+{
+	QStringList splitLines = text.split('\n');
+	QStringList result;
+	if (size.width() <= 120){
+		int ab = 0;
+		ab++;
+	}
+	for (int i = 0; i < splitLines.count(); i++)
+	{
+		QString splitLine = splitLines[i];
+		do{
+			QString splitLineElidedText = getTextByWidth(fm, splitLine, size.width());
+			if (!splitLineElidedText.isEmpty())
+				result.append(splitLineElidedText);
+			splitLine = splitLine.mid(splitLineElidedText.length(), splitLine.length() - splitLineElidedText.length());
+		} while (!splitLine.isEmpty());
+	}
+	return result;
+}
+
 void paintEvents::sltValueChanged(QVariant value)
 {
 	m_nAlpha = value.toInt();
@@ -66,7 +101,10 @@ void paintEvents::paintEvent(QPaintEvent * event)
 	//paintColorText(&painter);
 
 	//绘制文字光晕特效
-	paintColorText2(&painter);
+	//paintColorText2(&painter);
+
+	//艺术字体
+	paintColorText3(&painter);
 
 	//流光文字
 	//paintAnimationText(&painter);
@@ -220,6 +258,69 @@ void paintEvents::paintColorText2(QPainter * painter)
 	painter->end();
 }
 
+void paintEvents::paintColorText3(QPainter * painter)
+{
+	if (Q_NULLPTR == painter)
+		return;
+
+	auto text = QStringLiteral("忘川之畔，与君长相憩，烂泥之中，与君发相缠");
+	auto rect = this->rect();
+	int strokeWidth = 8;
+	QColor strokeColor(Qt::red);
+	auto option = QTextOption(Qt::AlignCenter);
+	QFont font(QStringLiteral("微软雅黑"));
+	font.setPixelSize(30);
+	font.setBold(true);
+	painter->save();
+	painter->setFont(font);
+	QPen oldPen = painter->pen();
+	QPen strokePen = QPen(strokeColor, strokeWidth);
+	QStringList textList = getTextLinesByRectSize(painter->fontMetrics(), text, rect.size());
+	int fontHeight = painter->fontMetrics().height();
+	int lineHeight = painter->fontMetrics().lineSpacing();
+	for (int i = 0; i < textList.count(); i++){
+		QString textLine = textList[i];
+		QRect textLineBoundingRect = painter->fontMetrics().boundingRect(rect, option.flags(), textLine);
+		QSize textLineSize = textLineBoundingRect.size();
+		int offsetX = 0;
+		int offsetY = i * lineHeight;
+		//offset x
+		if (option.alignment().testFlag(Qt::AlignLeft)){
+			offsetX = 0;
+		}
+		if (option.alignment().testFlag(Qt::AlignRight)){
+			offsetX = rect.width() - textLineBoundingRect.width();
+		}
+		if (option.alignment().testFlag(Qt::AlignHCenter)){
+			offsetX = (rect.width() - textLineBoundingRect.width()) / 2;
+		}
+		//offset y
+		if (option.alignment().testFlag(Qt::AlignTop)){
+			//offsetY = 0;
+		}
+		if (option.alignment().testFlag(Qt::AlignBottom)){
+
+			offsetY += rect.height() - textList.count() * lineHeight;
+		}
+		if (option.alignment().testFlag(Qt::AlignVCenter)){
+			offsetY += (rect.height() - textList.count() * lineHeight) / 2;
+		}
+		textLineBoundingRect.setLeft(rect.left() + offsetX);
+		textLineBoundingRect.setRight(textLineBoundingRect.left() + textLineSize.width());
+		textLineBoundingRect.setTop(rect.top() + offsetY);
+		textLineBoundingRect.setBottom(textLineBoundingRect.top() + textLineSize.height());
+		QPainterPath strokePath;
+		strokePath.addText(textLineBoundingRect.bottomLeft(), font, textLine);
+		painter->strokePath(strokePath, strokePen);
+		//painter->drawPath(strokePath);//debug
+		painter->fillPath(strokePath, QBrush(oldPen.color()));
+	}
+
+	//for .debug
+	//painter->drawText(rect, text, option);
+	painter->restore();
+}
+
 void paintEvents::paintAnimationText(QPainter * painter)
 {
 	if (Q_NULLPTR == painter)
@@ -273,4 +374,11 @@ void paintEvents::paintAnimationText3(QPainter * painter)
 		painter->drawText(QRect(x, 150, width(), height()), each);
 		x += 30;
 	}
+}
+
+void paintEvents::paintAnimationText4(QPainter * painter)
+{
+	if (Q_NULLPTR == painter)
+		return;
+
 }
