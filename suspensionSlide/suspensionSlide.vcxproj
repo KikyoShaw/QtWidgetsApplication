@@ -100,12 +100,12 @@
     <QtRcc Include="suspensionSlideTest.qrc" />
     <QtUic Include="suspensionSlideTest.ui" />
     <QtMoc Include="suspensionSlideTest.h" />
-    <ClCompile Include="suspensionSlide.cpp" />
+    <ClCompile Include="suspensionScrollBar.cpp" />
     <ClCompile Include="suspensionSlideTest.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="suspensionSlide.h" />
+    <QtMoc Include="suspensionScrollBar.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

@@ -1,25 +1,132 @@
-<UI version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>suspensionSlideTestClass</class>
- <widget class="QWidget" name="suspensionSlideTestClass" >
-  <property name="objectName" >
-   <string notr="true">suspensionSlideTestClass</string>
-  </property>
-  <property name="geometry" >
+ <widget class="QWidget" name="suspensionSlideTestClass">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>299</width>
+    <height>369</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>suspensionSlideTest</string>
-  </property>$centralwidget$
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QStackedWidget" name="stackedWidget">
+     <widget class="QWidget" name="page">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="ScrollBarScrollArea" name="scrollArea">
+         <property name="styleSheet">
+          <string notr="true">QScrollArea { border:none; background: transparent; }
+QScrollArea &gt; QWidget &gt; QWidget { background: transparent; }
+QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>380</width>
+            <height>800</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>380</width>
+            <height>800</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>380</width>
+            <height>800</height>
+           </size>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="styleSheet">
+              <string notr="true">border-image: url(:/image/qrc/image/1.jpg);</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_2"/>
+    </widget>
+   </item>
+  </layout>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>ScrollBarScrollArea</class>
+   <extends>QScrollArea</extends>
+   <header location="global">suspensionScrollBar.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
-   <include location="suspensionSlideTest.qrc"/>
+  <include location="suspensionSlideTest.qrc"/>
  </resources>
  <connections/>
-</UI>
+</ui>

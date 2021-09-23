@@ -3,4 +3,7 @@
         <file>qrc/qss/blackScrollbar.qss</file>
         <file>qrc/qss/whiteScrollbar.qss</file>
     </qresource>
+    <qresource prefix="/image">
+        <file>qrc/image/1.jpg</file>
+    </qresource>
 </RCC>
