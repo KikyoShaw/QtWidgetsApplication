@@ -60,6 +60,16 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\suspensionSlide\</OutDir>
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)suspensionSlide;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)suspensionSlide;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="Configuration">
     <ClCompile>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
@@ -90,8 +100,12 @@
     <QtRcc Include="suspensionSlideTest.qrc" />
     <QtUic Include="suspensionSlideTest.ui" />
     <QtMoc Include="suspensionSlideTest.h" />
+    <ClCompile Include="suspensionSlide.cpp" />
     <ClCompile Include="suspensionSlideTest.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="suspensionSlide.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
