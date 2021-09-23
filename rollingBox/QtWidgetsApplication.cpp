@@ -22,6 +22,12 @@ QtWidgetsApplication::QtWidgetsApplication(QWidget *parent)
 
 	connect(ui.pushButton_close, &QPushButton::clicked, this, &QtWidgetsApplication::close);
 	connect(ui.pushButton_sure, &QPushButton::clicked, this, &QtWidgetsApplication::sltGetDate);
+
+
+	//´¹Ö±»¬¶¯Æ÷
+	ui.widget_test->setRang(1, 120);
+	ui.widget_test->setValue(50);
+	ui.widget_test->setScrollType(ScrollType::E_HORIZONTAL);
 }
 
 QtWidgetsApplication::~QtWidgetsApplication()

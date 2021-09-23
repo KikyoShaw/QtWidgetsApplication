@@ -13,6 +13,12 @@ enum DateProperty
 	E_Property_Year = 3, //年份控件
 };
 
+enum ScrollType 
+{
+	E_VERTICAL = 1, //垂直显示
+	E_HORIZONTAL = 2, //水平显示
+};
+
 class RollingBox : public QWidget
 {
 	Q_OBJECT
@@ -30,9 +36,10 @@ public:
 	inline void setDevice(int nDevice) { m_nDevice = nDevice; }
 	//设置显示边界
 	void setRang(int nMin, int nMax);
-
 	//设置属性
-	void setPropertys(DateProperty date);
+	void setPropertys(DateProperty date) { m_dateProperty = date; };
+	//水平还是垂直滑动
+	void setScrollType(ScrollType types) { m_scrollType = types; };
 
 protected:
 	void wheelEvent(QWheelEvent* event);
@@ -66,4 +73,6 @@ private:
 	int m_nStep;
 	//属性
 	DateProperty m_dateProperty;
+	//水平/垂直滑动
+	ScrollType m_scrollType;
 };

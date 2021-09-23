@@ -9,6 +9,7 @@
 RollingBox::RollingBox(QWidget *parent)
 	: QWidget(parent), m_nCurrentValue(0), m_nOffSet(0), m_nMax(0)
 	, m_nMin(0), m_nDevice(5), m_nStep(1), m_dateProperty(E_Property_None)
+	, m_scrollType(E_VERTICAL)
 {
 
 }
@@ -30,32 +31,28 @@ void RollingBox::setRang(int nMin, int nMax)
 	//m_nCurrentValue = m_nCurrentValue < m_nMin ? m_nMin : m_nCurrentValue;
 }
 
-void RollingBox::setPropertys(DateProperty date)
-{
-	m_dateProperty = date;
-}
-
 void RollingBox::wheelEvent(QWheelEvent *event)
 {
 	//滚动的角度,*8就是鼠标滚动的距离
-	int nDegrees = event->delta() / 8;
+	auto nDegrees = event->delta() / 8;
 	//滚动的步数,*15就是鼠标滚动的角度
-	int nSteps = nDegrees / 15;
+	auto nSteps = nDegrees / 15;
+	auto nTarget = m_scrollType == ScrollType::E_VERTICAL ? this->height() : this->width();
 	if (0 != m_nDevice * nSteps) {
-		m_nOffSet = height() / m_nDevice * nSteps;
+		m_nOffSet = nTarget / m_nDevice * nSteps;
 	}
 	if (m_nMin == m_nMax) {
 		return;
 	}
 	//在绘制界面之前我们需要通过偏移量来计算当前值
-	if (m_nOffSet >= (height() / m_nDevice) && m_nCurrentValue > m_nMin)
+	if (m_nOffSet >= (nTarget / m_nDevice) && m_nCurrentValue > m_nMin)
 	{
-		m_nOffSet -= height() / m_nDevice;
+		m_nOffSet -= nTarget / m_nDevice;
 		setValue(m_nCurrentValue - m_nStep);
 	}
-	else if (m_nOffSet <= -height() / m_nDevice && m_nCurrentValue < m_nMax)
+	else if (m_nOffSet <= -nTarget / m_nDevice && m_nCurrentValue < m_nMax)
 	{
-		m_nOffSet += height() / m_nDevice;
+		m_nOffSet += nTarget / m_nDevice;
 		setValue(m_nCurrentValue + m_nStep);
 	}
 
@@ -80,14 +77,15 @@ void RollingBox::paintEvent(QPaintEvent *)
 	//绘制字体
 	paintText(&painter, m_nCurrentValue, m_nOffSet, nFontSize);
 	//绘制两边的字体
+	int nTarget = m_scrollType == ScrollType::E_VERTICAL ? this->height() : this->width();
 	//两边字体的偏移量是通过距离计算的
 	for (int i = 1; i <= m_nDevice / 2; ++i) {
 		nFontSize -= 2;
 		if (m_nCurrentValue - m_nStep * i >= m_nMin) {
-			paintText(&painter, m_nCurrentValue - m_nStep * i, m_nOffSet - height() / m_nDevice * i, nFontSize);
+			paintText(&painter, m_nCurrentValue - m_nStep * i, m_nOffSet - nTarget / m_nDevice * i, nFontSize);
 		}
 		if (m_nCurrentValue + m_nStep * i <= m_nMax) {
-			paintText(&painter, m_nCurrentValue + m_nStep * i, m_nOffSet + height() / m_nDevice * i, nFontSize);
+			paintText(&painter, m_nCurrentValue + m_nStep * i, m_nOffSet + nTarget / m_nDevice * i, nFontSize);
 		}
 	}
 }
@@ -98,9 +96,15 @@ void RollingBox::paintLine(QPainter *pPainter)
 	pPainter->setPen(Qt::NoPen);
 	auto posHeight = height() / m_nDevice;
 	int posY = posHeight * 2;
-	//画矩形
 	const qreal radius = 0;
 	QRectF r = QRect(0, posY, width(), posHeight);
+	if (m_scrollType == ScrollType::E_HORIZONTAL){
+		auto posW = width() / m_nDevice;
+		auto posX = width() - (posW * (m_nDevice / 2 + 1));
+		//qInfo() << "posW = " << posW << "posX = " << posX;
+		r = QRect(posX + 5, 0, posW, height());
+	}
+	//画矩形
 	QPainterPath path;
 	path.moveTo(r.bottomRight() - QPointF(0, radius));
 	path.lineTo(r.topRight() + QPointF(0, radius));
@@ -141,15 +145,23 @@ void RollingBox::paintText(QPainter *pPainter, int nValue, int nOffSet, int nFon
 
 	//拼接文字
 	auto _text = getTextByProperty(QString::number(nValue));
-	qInfo() << "nOffSet = " << nOffSet << "initY = " << initY << "_text" << _text;
-	if (E_Property_Year == m_dateProperty) {
-		pPainter->drawText(QRect(36, initY, width(), textHeight), Qt::AlignLeft, _text);
-	}
-	else if (E_Property_Day == m_dateProperty) {
-		pPainter->drawText(QRect(-36, initY, width(), textHeight), Qt::AlignRight, _text);
+	if (m_scrollType == ScrollType::E_HORIZONTAL)
+	{
+		int textWidth = pPainter->fontMetrics().width(nValue);
+		int initX = width() / 2 + nOffSet - textWidth / 2;
+		pPainter->drawText(QRect(initX, 0, 15, height()), Qt::AlignCenter, QString::number(nValue));
 	}
 	else {
-		pPainter->drawText(QRect(0, initY, width(), textHeight), Qt::AlignCenter, _text);
+		//qInfo() << "nOffSet = " << nOffSet << "initY = " << initY << "_text" << _text;
+		if (E_Property_Year == m_dateProperty) {
+			pPainter->drawText(QRect(36, initY, width(), textHeight), Qt::AlignLeft, _text);
+		}
+		else if (E_Property_Day == m_dateProperty) {
+			pPainter->drawText(QRect(-36, initY, width(), textHeight), Qt::AlignRight, _text);
+		}
+		else {
+			pPainter->drawText(QRect(0, initY, width(), textHeight), Qt::AlignCenter, _text);
+		}
 	}
 	pPainter->restore();
 }
@@ -185,7 +197,8 @@ QString RollingBox::getTextByProperty(const QString &text)
 
 QColor RollingBox::getTextStyle(int nOffSet)
 {
-	auto index = this->height() / m_nDevice;
+	auto nTarget = m_scrollType == ScrollType::E_VERTICAL ? this->height() : this->width();
+	auto index = nTarget / m_nDevice;
 	if (-index == nOffSet || index == nOffSet)
 		return QColor(255, 255, 255, 102);
 	else if (-(index * 2) == nOffSet || (index * 2) == nOffSet)
