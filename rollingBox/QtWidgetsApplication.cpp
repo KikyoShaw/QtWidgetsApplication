@@ -3,7 +3,7 @@
 #include <QDate>
 
 QtWidgetsApplication::QtWidgetsApplication(QWidget *parent)
-    : QWidget(parent), m_year(1989), m_month(6), m_day(1)
+    : QWidget(parent), m_year(1989), m_month(6), m_day(15)
 {
     ui.setupUi(this);
 
@@ -26,6 +26,36 @@ QtWidgetsApplication::QtWidgetsApplication(QWidget *parent)
 
 QtWidgetsApplication::~QtWidgetsApplication()
 {
+}
+
+void QtWidgetsApplication::sltCurrentValueChange(int nValue, DateProperty dateProperty)
+{
+	switch (dateProperty)
+	{
+	case E_Property_None:
+		break;
+	case E_Property_Day: {
+		m_day = nValue;
+		setAstro(m_month, m_day);
+		setAge(m_year, m_month, m_day);
+		break;
+	}
+	case E_Property_Month: {
+		m_month = nValue;
+		setDay(m_year, m_month);
+		setAstro(m_month, m_day);
+		setAge(m_year, m_month, m_day);
+		break;
+	}
+	case E_Property_Year: {
+		m_year = nValue;
+		setDay(m_year, m_month);
+		setAge(m_year, m_month, m_day);
+		break;
+	}
+	default:
+		break;
+	}
 }
 
 void QtWidgetsApplication::initAstroVec()
@@ -52,38 +82,30 @@ void QtWidgetsApplication::initAstroVec()
 
 void QtWidgetsApplication::initRollingBox()
 {
-	setAstro();
-	setLineEdit();
-	setAge();
-	//年
-	ui.widget_year->setRang(1979, 2002);
-	ui.widget_year->setValue(m_year);
-	connect(ui.widget_year, &RollingBox::sigCurrentValueChange, this, [=](int nYear) {
-		m_year = nYear;
-		setDay(m_year, m_month);
-		setAge();
-		setLineEdit();
-	});
+	//初始化滑动控件
+	//年,由于需求选择年到今年需要隔18年，因此需要特殊处理
+	//获取当前年份
+	QDate currentdate = QDate::currentDate();
+	auto currenYear = currentdate.year();
+	auto rollingBoxYear = currenYear - 18;
+	ui.widget_year->setRang(1979, rollingBoxYear);
+	ui.widget_year->setPropertys(E_Property_Year);
 	//月
-	//
 	ui.widget_month->setRang(1, 12);
-	ui.widget_month->setValue(m_month);
-	connect(ui.widget_month, &RollingBox::sigCurrentValueChange, this, [=](int nMonth) {
-		m_month = nMonth;
-		setDay(m_year, m_month);
-		setAstro();
-		setAge();
-		setLineEdit();
-	});
+	ui.widget_month->setPropertys(E_Property_Month);
 	//日
+	ui.widget_day->setPropertys(E_Property_Day);
 	setDay(m_year, m_month);
+	setAstro(m_month, m_day);
+	setLineEdit();
+	setAge(m_year, m_month, m_day);
+	ui.widget_year->setValue(m_year);
+	ui.widget_month->setValue(m_month);
 	ui.widget_day->setValue(m_day);
-	connect(ui.widget_day, &RollingBox::sigCurrentValueChange, this, [=](int nDay) {
-		m_day = nDay;
-		setAstro();
-		setAge();
-		setLineEdit();
-	});
+	//信号与槽
+	connect(ui.widget_year, &RollingBox::sigCurrentValueChange, this, &QtWidgetsApplication::sltCurrentValueChange);
+	connect(ui.widget_month, &RollingBox::sigCurrentValueChange, this, &QtWidgetsApplication::sltCurrentValueChange);
+	connect(ui.widget_day, &RollingBox::sigCurrentValueChange, this, &QtWidgetsApplication::sltCurrentValueChange);
 }
 
 QString QtWidgetsApplication::getAstro(int month, int day)
@@ -102,19 +124,19 @@ QString QtWidgetsApplication::getAstro(int month, int day)
 	return astro;
 }
 
-void QtWidgetsApplication::setAstro()
+void QtWidgetsApplication::setAstro(int month, int day)
 {
-	auto astro = getAstro(m_month, m_day);
+	auto astro = getAstro(month, day);
 	ui.label_constellation->setText(QStringLiteral("星座：%1").arg(astro));
 }
 
-void QtWidgetsApplication::setAge()
+void QtWidgetsApplication::setAge(int year, int month, int day)
 {
 	/*QDate birthday(m_year, m_month, m_day);
 	QDate today = QDate::currentDate();
 	int daysold = birthday.daysTo(today);
 	int age = daysold / 365;*/
-	int age = getAge(m_year, m_month, m_day);
+	int age = getAge(year, month, day);
 	ui.label_age->setText(QStringLiteral("年龄：%1").arg(QString::number(age)));
 }
 
@@ -200,7 +222,7 @@ int QtWidgetsApplication::getAge(int year, int month, int day)
 	//计算规则：比较年的同时确定月份在当前月份之前，如果在之后，代表加一岁
 	//月份相同，则需要计算天数，天数在之后，同样需要加一岁
 	int age = _year - year;
-	if (_month < month) {
+	if (_month > month) {
 		age += 1;
 	}
 	else if (_month == month) {
@@ -223,6 +245,6 @@ void QtWidgetsApplication::sltGetDate()
 	m_month = ui.lineEdit_month->text().toInt();
 	m_year = ui.lineEdit_year->text().toInt();
 
-	setAge();
-	setAstro();
+	setAge(m_year, m_month, m_day);
+	setAstro(m_month, m_day);
 }

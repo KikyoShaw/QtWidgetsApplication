@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>500</height>
+    <width>461</width>
+    <height>462</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -151,6 +151,18 @@ color: #01EEC3;</string>
       </item>
       <item>
        <widget class="QWidget" name="widget_main" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>300</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>300</height>
+         </size>
+        </property>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <property name="spacing">
           <number>0</number>
@@ -168,78 +180,13 @@ color: #01EEC3;</string>
           <number>0</number>
          </property>
          <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>147</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
+          <widget class="RollingBox" name="widget_year" native="true"/>
          </item>
          <item>
-          <widget class="RollingBox" name="widget_year" native="true">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>100</width>
-             <height>16777215</height>
-            </size>
-           </property>
-          </widget>
+          <widget class="RollingBox" name="widget_month" native="true"/>
          </item>
          <item>
-          <widget class="RollingBox" name="widget_month" native="true">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>100</width>
-             <height>16777215</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="RollingBox" name="widget_day" native="true">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>100</width>
-             <height>16777215</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>147</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
+          <widget class="RollingBox" name="widget_day" native="true"/>
          </item>
         </layout>
        </widget>

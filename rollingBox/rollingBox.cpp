@@ -1,10 +1,14 @@
 #include "rollingBox.h"
 #include <QPainter>
 #include <QWheelEvent>
+#include <QDebug>
+#include <QMouseEvent>
+#include <QColor>
 
-RollingBox::RollingBox(QWidget *parent) 
+
+RollingBox::RollingBox(QWidget *parent)
 	: QWidget(parent), m_nCurrentValue(0), m_nOffSet(0), m_nMax(0)
-	, m_nMin(0), m_nDevice(7), m_nStep(1)
+	, m_nMin(0), m_nDevice(5), m_nStep(1), m_dateProperty(E_Property_None)
 {
 
 }
@@ -26,6 +30,11 @@ void RollingBox::setRang(int nMin, int nMax)
 	//m_nCurrentValue = m_nCurrentValue < m_nMin ? m_nMin : m_nCurrentValue;
 }
 
+void RollingBox::setPropertys(DateProperty date)
+{
+	m_dateProperty = date;
+}
+
 void RollingBox::wheelEvent(QWheelEvent *event)
 {
 	//滚动的角度,*8就是鼠标滚动的距离
@@ -35,7 +44,7 @@ void RollingBox::wheelEvent(QWheelEvent *event)
 	if (0 != m_nDevice * nSteps) {
 		m_nOffSet = height() / m_nDevice * nSteps;
 	}
-	if (m_nMin == m_nMax){
+	if (m_nMin == m_nMax) {
 		return;
 	}
 	//在绘制界面之前我们需要通过偏移量来计算当前值
@@ -50,11 +59,11 @@ void RollingBox::wheelEvent(QWheelEvent *event)
 		setValue(m_nCurrentValue + m_nStep);
 	}
 
-	if (m_nCurrentValue == m_nMax || m_nCurrentValue == m_nMin){
+	if (m_nCurrentValue == m_nMax || m_nCurrentValue == m_nMin) {
 		m_nOffSet = 0;
 	}
 	//发送修改信号
-	emit sigCurrentValueChange(m_nCurrentValue);
+	emit sigCurrentValueChange(m_nCurrentValue, m_dateProperty);
 	update();
 }
 
@@ -72,12 +81,12 @@ void RollingBox::paintEvent(QPaintEvent *)
 	paintText(&painter, m_nCurrentValue, m_nOffSet, nFontSize);
 	//绘制两边的字体
 	//两边字体的偏移量是通过距离计算的
-	for (int i = 1; i <= m_nDevice / 2; ++i){
+	for (int i = 1; i <= m_nDevice / 2; ++i) {
 		nFontSize -= 2;
-		if (m_nCurrentValue - m_nStep * i >= m_nMin){
+		if (m_nCurrentValue - m_nStep * i >= m_nMin) {
 			paintText(&painter, m_nCurrentValue - m_nStep * i, m_nOffSet - height() / m_nDevice * i, nFontSize);
 		}
-		if (m_nCurrentValue + m_nStep * i <= m_nMax){
+		if (m_nCurrentValue + m_nStep * i <= m_nMax) {
 			paintText(&painter, m_nCurrentValue + m_nStep * i, m_nOffSet + height() / m_nDevice * i, nFontSize);
 		}
 	}
@@ -88,10 +97,10 @@ void RollingBox::paintLine(QPainter *pPainter)
 	pPainter->save();
 	pPainter->setPen(Qt::NoPen);
 	auto posHeight = height() / m_nDevice;
-	int posY = posHeight * 3;
+	int posY = posHeight * 2;
 	//画矩形
-	const qreal radius = 6;
-	QRectF r = QRect(10, posY, width() - 20, posHeight);
+	const qreal radius = 0;
+	QRectF r = QRect(0, posY, width(), posHeight);
 	QPainterPath path;
 	path.moveTo(r.bottomRight() - QPointF(0, radius));
 	path.lineTo(r.topRight() + QPointF(0, radius));
@@ -103,13 +112,14 @@ void RollingBox::paintLine(QPainter *pPainter)
 	path.lineTo(r.bottomLeft() + QPointF(radius, 0));
 	path.arcTo(QRectF(QPointF(r.bottomRight() - QPointF(radius * 2, radius * 2)), QSize(radius * 2, radius * 2)), 270, 90);
 	// 背景底色
-	QColor colorBrushFunLevel1 = QColor(255, 255, 255, 50);
-	QColor colorBrushFunLevel2 = QColor(255, 255, 255, 50);
+	QColor colorBrushFunLevel1 = QColor(234, 234, 234, 15);
+	QColor colorBrushFunLevel2 = QColor(234, 234, 234, 15);
 	QLinearGradient linearGradient(r.topLeft(), r.topRight());
 	linearGradient.setColorAt(0.0, colorBrushFunLevel2);
 	linearGradient.setColorAt(1, colorBrushFunLevel1);
 	pPainter->setBrush(QBrush(linearGradient));
 	pPainter->drawPath(path);
+	//pPainter->drawRect(0, 0, width(), height());
 	pPainter->restore();
 }
 
@@ -117,9 +127,10 @@ void RollingBox::paintText(QPainter *pPainter, int nValue, int nOffSet, int nFon
 {
 	pPainter->save();
 	QFont font(QStringLiteral("微软雅黑"));
-	int size = nOffSet == 0 ? 16 : 12;
-	font.setPixelSize(size);
-	QColor nColor = nOffSet == 0 ? QColor(1, 238, 195) : QColor(255,255,255,180);
+	//int size = nOffSet == 0 ? 16 : 12;
+	font.setPixelSize(12);
+	//QColor nColor = nOffSet == 0 ? QColor(1, 238, 195) : QColor(255,255,255,180);
+	QColor nColor = getTextStyle(nOffSet);
 	QPen pen = pPainter->pen();
 	pen.setColor(nColor);
 	pPainter->setPen(pen);
@@ -127,11 +138,57 @@ void RollingBox::paintText(QPainter *pPainter, int nValue, int nOffSet, int nFon
 	pPainter->setFont(font);
 	int textHeight = pPainter->fontMetrics().height();
 	int initY = height() / 2 + nOffSet - textHeight / 2 - 2;
+
 	//拼接文字
-	auto _text = QString::number(nValue);
-	if (nValue < 10) {
-		_text = QString("0%1").arg(_text);
+	auto _text = getTextByProperty(QString::number(nValue));
+	qInfo() << "nOffSet = " << nOffSet << "initY = " << initY << "_text" << _text;
+	if (E_Property_Year == m_dateProperty) {
+		pPainter->drawText(QRect(36, initY, width(), textHeight), Qt::AlignLeft, _text);
 	}
-	pPainter->drawText(QRect(0, initY, width(), textHeight), Qt::AlignCenter, _text);
+	else if (E_Property_Day == m_dateProperty) {
+		pPainter->drawText(QRect(-36, initY, width(), textHeight), Qt::AlignRight, _text);
+	}
+	else {
+		pPainter->drawText(QRect(0, initY, width(), textHeight), Qt::AlignCenter, _text);
+	}
 	pPainter->restore();
+}
+
+QString RollingBox::getTextByProperty(const QString &text)
+{
+	QString descText = text;
+	switch (m_dateProperty)
+	{
+	case E_Property_None:
+		break;
+	case E_Property_Day: {
+		int day = descText.toInt();
+		if (day < 10) {
+			descText = QString("0%1").arg(descText);
+		}
+		descText = QStringLiteral("%1日").arg(descText);
+		break;
+	}
+	case E_Property_Month: {
+		descText = QStringLiteral("%1月").arg(text);
+		break;
+	}
+	case E_Property_Year: {
+		descText = QStringLiteral("%1年").arg(text);
+		break;
+	}
+	default:
+		break;
+	}
+	return descText;
+}
+
+QColor RollingBox::getTextStyle(int nOffSet)
+{
+	auto index = this->height() / m_nDevice;
+	if (-index == nOffSet || index == nOffSet)
+		return QColor(255, 255, 255, 102);
+	else if (-(index * 2) == nOffSet || (index * 2) == nOffSet)
+		return QColor(255, 255, 255, 25);
+	return QColor(1, 238, 195);
 }

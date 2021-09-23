@@ -14,6 +14,9 @@ public:
 private slots:
 	void sltGetDate();
 
+	//滑动器选择日期信号与槽
+	void sltCurrentValueChange(int nValue, DateProperty dateProperty);
+
 private:
 	void initAstroVec();
 	void initRollingBox();
@@ -22,9 +25,9 @@ private:
 	//获取年龄
 	//int getAge(int year);
 	//设置星座
-	void setAstro();
+	void setAstro(int month, int day);
 	//设置年龄
-	void setAge();
+	void setAge(int year, int month, int day);
 	
 	void setLineEdit();
 

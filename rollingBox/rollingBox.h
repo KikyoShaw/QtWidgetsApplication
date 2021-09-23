@@ -1,10 +1,17 @@
 #pragma once
 
 #include <QWidget>
-#include <QMouseEvent>
-#include <QColor>
-#include<QPainter>
-#include<QTime>
+
+class QPainter;
+
+
+enum DateProperty
+{
+	E_Property_None, //通用
+	E_Property_Day = 1, //日期控件
+	E_Property_Month = 2, //月份控件
+	E_Property_Year = 3, //年份控件
+};
 
 class RollingBox : public QWidget
 {
@@ -16,13 +23,16 @@ public:
 	//获取中间值
 	inline int getValue() { return m_nCurrentValue; }
 	//设置中间值
-	inline void setValue(int nValue) { m_nCurrentValue = nValue;}
+	inline void setValue(int nValue) { m_nCurrentValue = nValue; }
 	//设置滚动的步长
 	inline void setStep(int nStep) { m_nStep = nStep; }
 	//设置显示个数
 	inline void setDevice(int nDevice) { m_nDevice = nDevice; }
 	//设置显示边界
 	void setRang(int nMin, int nMax);
+
+	//设置属性
+	void setPropertys(DateProperty date);
 
 protected:
 	void wheelEvent(QWheelEvent* event);
@@ -32,8 +42,14 @@ protected:
 	//绘制文字
 	void paintText(QPainter* pPainter, int nValue, int nOffSet, int nFontSize);
 
+	//获取文案
+	QString getTextByProperty(const QString &text);
+
+	//获取样式
+	QColor getTextStyle(int nOffSet);
+
 signals:
-	void sigCurrentValueChange(int nValue);
+	void sigCurrentValueChange(int nValue, DateProperty dateProperty);
 
 private:
 	//当前选中值
@@ -47,5 +63,7 @@ private:
 	//显示的数量
 	int m_nDevice;
 	//滚动的步长
-	int m_nStep; 
+	int m_nStep;
+	//属性
+	DateProperty m_dateProperty;
 };
