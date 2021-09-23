@@ -26,6 +26,7 @@ class RollingBox : public QWidget
 public:
 	explicit RollingBox(QWidget *parent = 0);
 	~RollingBox();
+
 	//获取中间值
 	inline int getValue() { return m_nCurrentValue; }
 	//设置中间值
@@ -40,18 +41,25 @@ public:
 	void setPropertys(DateProperty date) { m_dateProperty = date; };
 	//水平还是垂直滑动
 	void setScrollType(ScrollType types) { m_scrollType = types; };
+	//是否开启鼠标点击权限
+	void setMouseClicked(bool state) { m_mouseClickState = state; };
+
+private:
+	void getOffSetValue();
 
 protected:
-	void wheelEvent(QWheelEvent* event);
-	void paintEvent(QPaintEvent* event);
+	virtual void wheelEvent(QWheelEvent* event);
+	virtual void mousePressEvent(QMouseEvent* event);
+	virtual void mouseMoveEvent(QMouseEvent* event);
+	virtual void mouseReleaseEvent(QMouseEvent* event);
+	virtual void paintEvent(QPaintEvent* event);
+
 	//绘制中间选择
 	void paintLine(QPainter* pPainter);
 	//绘制文字
 	void paintText(QPainter* pPainter, int nValue, int nOffSet, int nFontSize);
-
 	//获取文案
 	QString getTextByProperty(const QString &text);
-
 	//获取样式
 	QColor getTextStyle(int nOffSet);
 
@@ -71,8 +79,12 @@ private:
 	int m_nDevice;
 	//滚动的步长
 	int m_nStep;
+	//鼠标点击位置
+	int m_nMousePos;
 	//属性
 	DateProperty m_dateProperty;
 	//水平/垂直滑动
 	ScrollType m_scrollType;
+	//是否开启鼠标点击滑动
+	bool m_mouseClickState;
 };

@@ -9,7 +9,7 @@
 RollingBox::RollingBox(QWidget *parent)
 	: QWidget(parent), m_nCurrentValue(0), m_nOffSet(0), m_nMax(0)
 	, m_nMin(0), m_nDevice(5), m_nStep(1), m_dateProperty(E_Property_None)
-	, m_scrollType(E_VERTICAL)
+	, m_scrollType(E_VERTICAL), m_nMousePos(0), m_mouseClickState(false)
 {
 
 }
@@ -31,6 +31,25 @@ void RollingBox::setRang(int nMin, int nMax)
 	//m_nCurrentValue = m_nCurrentValue < m_nMin ? m_nMin : m_nCurrentValue;
 }
 
+void RollingBox::getOffSetValue()
+{
+	auto nTarget = m_scrollType == ScrollType::E_VERTICAL ? this->height() : this->width();
+	//在绘制界面之前我们需要通过偏移量来计算当前值
+	if (m_nOffSet >= (nTarget / m_nDevice) && m_nCurrentValue > m_nMin)
+	{
+		m_nOffSet -= nTarget / m_nDevice;
+		setValue(m_nCurrentValue - m_nStep);
+	}
+	else if (m_nOffSet <= -nTarget / m_nDevice && m_nCurrentValue < m_nMax)
+	{
+		m_nOffSet += nTarget / m_nDevice;
+		setValue(m_nCurrentValue + m_nStep);
+	}
+	if (m_nCurrentValue == m_nMax || m_nCurrentValue == m_nMin) {
+		m_nOffSet = 0;
+	}
+}
+
 void RollingBox::wheelEvent(QWheelEvent *event)
 {
 	//滚动的角度,*8就是鼠标滚动的距离
@@ -44,23 +63,73 @@ void RollingBox::wheelEvent(QWheelEvent *event)
 	if (m_nMin == m_nMax) {
 		return;
 	}
-	//在绘制界面之前我们需要通过偏移量来计算当前值
-	if (m_nOffSet >= (nTarget / m_nDevice) && m_nCurrentValue > m_nMin)
-	{
-		m_nOffSet -= nTarget / m_nDevice;
-		setValue(m_nCurrentValue - m_nStep);
-	}
-	else if (m_nOffSet <= -nTarget / m_nDevice && m_nCurrentValue < m_nMax)
-	{
-		m_nOffSet += nTarget / m_nDevice;
-		setValue(m_nCurrentValue + m_nStep);
-	}
-
-	if (m_nCurrentValue == m_nMax || m_nCurrentValue == m_nMin) {
-		m_nOffSet = 0;
-	}
+	getOffSetValue();
 	//发送修改信号
 	emit sigCurrentValueChange(m_nCurrentValue, m_dateProperty);
+	update();
+}
+
+void RollingBox::mousePressEvent(QMouseEvent * event)
+{
+	if (!m_mouseClickState) {
+		return __super::mousePressEvent(event);
+	}
+	m_nMousePos = m_scrollType == ScrollType::E_VERTICAL ? event->pos().y() : event->pos().x();
+	getOffSetValue();
+	update();
+}
+
+void RollingBox::mouseMoveEvent(QMouseEvent * event)
+{
+	if (!m_mouseClickState) {
+		return __super::mouseMoveEvent(event);
+	}
+	int nMouserPos = m_scrollType == ScrollType::E_VERTICAL ? event->pos().y() : event->pos().x();
+	//判断当前值的大小，如果为范围的极限值则返回
+	if (m_nCurrentValue == m_nMin && nMouserPos >= m_nMousePos ||
+		m_nCurrentValue == m_nMax && nMouserPos <= m_nMousePos){
+		return;
+	}
+	int nTarget = m_scrollType == ScrollType::E_VERTICAL ? this->height() : this->width();
+	int nOffSet = nMouserPos - m_nMousePos;
+	//判断鼠标移动的距离是否大于最小偏移量 如果大于偏移量 则将偏移量置位最小偏移量 目的是避免界面出现跨越显示
+	if (nOffSet > (nTarget / m_nDevice))	//(nTarget / m_nDevice) 为一次偏移的最小值 也就是一个字体的显示的大小边界值
+	{
+		nOffSet = nTarget / m_nDevice;
+	}
+	else if (nOffSet < -nTarget / m_nDevice){
+		nOffSet = -nTarget / m_nDevice;
+	}
+	//nOffSet的正负代表偏移的方向
+	m_nOffSet = nOffSet;
+	getOffSetValue();
+	update();
+}
+
+void RollingBox::mouseReleaseEvent(QMouseEvent * event)
+{
+	if (!m_mouseClickState) {
+		return __super::mouseReleaseEvent(event);
+	}
+	int nTarget = m_scrollType == ScrollType::E_VERTICAL ? this->height() : this->width();
+	int nOffSet = m_nOffSet;
+	//计算鼠标的偏移量,根据显示字体的控件大小的一半来确定该偏移到那个值(正负表示偏移的方向)
+	int nJudge = nOffSet < 0 ? -(nTarget / (m_nDevice * 2)) : nTarget / (m_nDevice * 2);
+	if (nOffSet < 0){
+		if (nOffSet < nJudge){
+			m_nOffSet = 0;
+			goto UPDATE;
+		}
+		m_nOffSet = -nTarget / m_nDevice;
+		goto UPDATE;
+	}
+	if (nOffSet < nJudge){
+		m_nOffSet = 0;
+		goto UPDATE;
+	}
+	m_nOffSet = nTarget / m_nDevice;
+UPDATE:
+	getOffSetValue();
 	update();
 }
 
