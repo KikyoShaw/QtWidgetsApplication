@@ -5,7 +5,6 @@
 #include <QMouseEvent>
 #include <QColor>
 
-
 RollingBox::RollingBox(QWidget *parent)
 	: QWidget(parent), m_nCurrentValue(0), m_nOffSet(0), m_nMax(0)
 	, m_nMin(0), m_nDevice(5), m_nStep(1), m_dateProperty(E_Property_None)
@@ -16,7 +15,6 @@ RollingBox::RollingBox(QWidget *parent)
 
 RollingBox::~RollingBox()
 {
-
 }
 
 void RollingBox::setRang(int nMin, int nMax)
@@ -87,8 +85,8 @@ void RollingBox::mouseMoveEvent(QMouseEvent * event)
 	int nMouserPos = m_scrollType == ScrollType::E_VERTICAL ? event->pos().y() : event->pos().x();
 	//判断当前值的大小，如果为范围的极限值则返回
 	if (m_nCurrentValue == m_nMin && nMouserPos >= m_nMousePos ||
-		m_nCurrentValue == m_nMax && nMouserPos <= m_nMousePos){
-		return;
+		m_nCurrentValue == m_nMax && nMouserPos <= m_nMousePos) {
+		return __super::mouseMoveEvent(event);
 	}
 	int nTarget = m_scrollType == ScrollType::E_VERTICAL ? this->height() : this->width();
 	int nOffSet = nMouserPos - m_nMousePos;
@@ -97,7 +95,7 @@ void RollingBox::mouseMoveEvent(QMouseEvent * event)
 	{
 		nOffSet = nTarget / m_nDevice;
 	}
-	else if (nOffSet < -nTarget / m_nDevice){
+	else if (nOffSet < -nTarget / m_nDevice) {
 		nOffSet = -nTarget / m_nDevice;
 	}
 	//nOffSet的正负代表偏移的方向
