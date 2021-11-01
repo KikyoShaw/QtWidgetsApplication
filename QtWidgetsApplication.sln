@@ -37,11 +37,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pinyin", "pinyin\pinyin.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "paintEvent", "paintEvent\paintEvent.vcxproj", "{22D004C8-88BA-44F7-BEAC-D8CB343EB0F1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GraphicsEffect", "GraphicsEffect\GraphicsEffect.vcxproj", "{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chatBubbe", "chatBubbe\chatBubbe.vcxproj", "{D91A5C65-A1CE-4155-ACA4-8D545376BB2D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "suspensionSlide", "suspensionSlide\suspensionSlide.vcxproj", "{B0C92A54-AA30-47FA-B2BF-4A768F418F75}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GraphicsEffect", "GraphicsEffect\GraphicsEffect.vcxproj", "{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lrc", "Lrc\Lrc.vcxproj", "{95BC3437-5031-46F0-89FD-296D56E95807}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,14 +155,6 @@ Global
 		{22D004C8-88BA-44F7-BEAC-D8CB343EB0F1}.Release|x64.ActiveCfg = Release|Win32
 		{22D004C8-88BA-44F7-BEAC-D8CB343EB0F1}.Release|x86.ActiveCfg = Release|Win32
 		{22D004C8-88BA-44F7-BEAC-D8CB343EB0F1}.Release|x86.Build.0 = Release|Win32
-		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Debug|x64.ActiveCfg = Debug|x64
-		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Debug|x64.Build.0 = Debug|x64
-		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Debug|x86.ActiveCfg = Debug|Win32
-		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Debug|x86.Build.0 = Debug|Win32
-		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Release|x64.ActiveCfg = Release|x64
-		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Release|x64.Build.0 = Release|x64
-		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Release|x86.ActiveCfg = Release|Win32
-		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Release|x86.Build.0 = Release|Win32
 		{D91A5C65-A1CE-4155-ACA4-8D545376BB2D}.Debug|x64.ActiveCfg = Debug|Win32
 		{D91A5C65-A1CE-4155-ACA4-8D545376BB2D}.Debug|x86.ActiveCfg = Debug|Win32
 		{D91A5C65-A1CE-4155-ACA4-8D545376BB2D}.Debug|x86.Build.0 = Debug|Win32
@@ -173,12 +167,26 @@ Global
 		{B0C92A54-AA30-47FA-B2BF-4A768F418F75}.Release|x64.ActiveCfg = Release|Win32
 		{B0C92A54-AA30-47FA-B2BF-4A768F418F75}.Release|x86.ActiveCfg = Release|Win32
 		{B0C92A54-AA30-47FA-B2BF-4A768F418F75}.Release|x86.Build.0 = Release|Win32
+		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Debug|x64.ActiveCfg = Debug|x64
+		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Debug|x64.Build.0 = Debug|x64
+		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Debug|x86.ActiveCfg = Debug|Win32
+		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Debug|x86.Build.0 = Debug|Win32
+		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Release|x64.ActiveCfg = Release|x64
+		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Release|x64.Build.0 = Release|x64
+		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Release|x86.ActiveCfg = Release|Win32
+		{8BFF04DA-CAC5-4B90-AB3F-83D9B5CC5E58}.Release|x86.Build.0 = Release|Win32
+		{95BC3437-5031-46F0-89FD-296D56E95807}.Debug|x64.ActiveCfg = Debug|Win32
+		{95BC3437-5031-46F0-89FD-296D56E95807}.Debug|x86.ActiveCfg = Debug|Win32
+		{95BC3437-5031-46F0-89FD-296D56E95807}.Debug|x86.Build.0 = Debug|Win32
+		{95BC3437-5031-46F0-89FD-296D56E95807}.Release|x64.ActiveCfg = Release|Win32
+		{95BC3437-5031-46F0-89FD-296D56E95807}.Release|x86.ActiveCfg = Release|Win32
+		{95BC3437-5031-46F0-89FD-296D56E95807}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D077F900-B94B-4D5C-9360-A98DC186CE5D}
 		Qt5Version = Qt5.12.11_msvc2017_32
+		SolutionGuid = {D077F900-B94B-4D5C-9360-A98DC186CE5D}
 	EndGlobalSection
 EndGlobal
