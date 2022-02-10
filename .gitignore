@@ -43,5 +43,6 @@
 /suspensionSlide/Release
 /Lrc/Debug
 /Lrc/Release
-
-
+/Clock/Debug
+/Clock/Release
+/DockWin/x64

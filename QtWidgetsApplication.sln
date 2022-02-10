@@ -45,6 +45,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pinyin", "pinyin\pinyin.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "paintEvent", "paintEvent\paintEvent.vcxproj", "{22D004C8-88BA-44F7-BEAC-D8CB343EB0F1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Clock", "Clock\Clock.vcxproj", "{AC6D1BA1-FF66-460D-9528-7124BE67C1C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -215,12 +217,18 @@ Global
 		{22D004C8-88BA-44F7-BEAC-D8CB343EB0F1}.Release|x64.Build.0 = Release|x64
 		{22D004C8-88BA-44F7-BEAC-D8CB343EB0F1}.Release|x86.ActiveCfg = Release|Win32
 		{22D004C8-88BA-44F7-BEAC-D8CB343EB0F1}.Release|x86.Build.0 = Release|Win32
+		{AC6D1BA1-FF66-460D-9528-7124BE67C1C0}.Debug|x64.ActiveCfg = Debug|Win32
+		{AC6D1BA1-FF66-460D-9528-7124BE67C1C0}.Debug|x86.ActiveCfg = Debug|Win32
+		{AC6D1BA1-FF66-460D-9528-7124BE67C1C0}.Debug|x86.Build.0 = Debug|Win32
+		{AC6D1BA1-FF66-460D-9528-7124BE67C1C0}.Release|x64.ActiveCfg = Release|Win32
+		{AC6D1BA1-FF66-460D-9528-7124BE67C1C0}.Release|x86.ActiveCfg = Release|Win32
+		{AC6D1BA1-FF66-460D-9528-7124BE67C1C0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		Qt5Version = Qt5.12.11_msvc2017_32
 		SolutionGuid = {D077F900-B94B-4D5C-9360-A98DC186CE5D}
+		Qt5Version = Qt5.12.11_msvc2017_32
 	EndGlobalSection
 EndGlobal
