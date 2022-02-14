@@ -24,7 +24,7 @@ class QBannerWidget : public QWidget
 
   public:
     void addImage(const QString &image);
-	void setImageSize(int w, int h);
+	void setImageSize(QSize size);
 
   public slots:
     void sltNext();

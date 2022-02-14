@@ -41,9 +41,9 @@ void QBannerWidget::addImage(const QString &image)
     x_imageList.append(image);
 }
 
-void QBannerWidget::setImageSize(int w, int h)
+void QBannerWidget::setImageSize(QSize size)
 {
-	resize(w, h);
+	resize(size);
 }
 
 void QBannerWidget::sltNext()
@@ -162,7 +162,7 @@ void QBannerWidget::drawCenter(QPainter *painter)
 {
     painter->save();
     if (!x_isAnimation) {
-        painter->drawImage(QRect(115, 0, 540, 200), QImage(x_imageList.at(x_index)));
+        painter->drawImage(QRect(115, 0, 540, 210), QImage(x_imageList.at(x_index)));
     } else {
         if (x_animationType == Next) {
             int _centerIndex = (x_index + 8 + 1) % 8;

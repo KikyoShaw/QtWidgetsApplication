@@ -12,7 +12,7 @@ bannerTest::bannerTest(QWidget *parent)
 
 	//轮播组件
 	m_QBannerWidget = new QBannerWidget(ui.frame_banner);
-	m_QBannerWidget->setImageSize(770, 200);
+	m_QBannerWidget->setImageSize(ui.frame_banner->size());
 	m_QBannerWidget->addImage(":/banner/Resources/1.png");
 	m_QBannerWidget->addImage(":/banner/Resources/2.png");
 	m_QBannerWidget->addImage(":/banner/Resources/3.png");
@@ -44,7 +44,7 @@ bannerTest::bannerTest(QWidget *parent)
 	//定时器
 	m_bannerTimer = new QTimer(this);
 	m_bannerTimer->setInterval(5000);
-	connect(m_bannerTimer, SIGNAL(timeout()), m_QBannerWidget, SLOT(sltNext()));
+	connect(m_bannerTimer, SIGNAL(timeout()), m_QBannerWidget, SLOT(sltPrev()));
 	m_bannerTimer->start();
 }
 
