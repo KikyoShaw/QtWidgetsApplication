@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/banner">
+        <file>Resources/1.png</file>
+        <file>Resources/2.png</file>
+        <file>Resources/3.png</file>
+        <file>Resources/4.png</file>
+        <file>Resources/5.png</file>
+        <file>Resources/6.png</file>
+        <file>Resources/7.png</file>
+        <file>Resources/8.png</file>
+        <file>Resources/left.png</file>
+        <file>Resources/right.png</file>
+        <file>Resources/lefthover.png</file>
+        <file>Resources/righthover.png</file>
+    </qresource>
+</RCC>

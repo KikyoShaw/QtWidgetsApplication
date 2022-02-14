@@ -43,3 +43,5 @@ suspensionSlide | 悬浮滑动条
 Lrc | 歌词渐变特效
 
 Clock | 时钟桌面
+
+banner | banner轮播图
