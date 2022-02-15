@@ -26,19 +26,21 @@ bannerTest::bannerTest(QWidget *parent)
 	//左按钮
 	m_leftButton = new QPushButton(ui.frame_banner);
 	m_leftButton->setFixedSize(50, 50);
-	m_leftButton->setStyleSheet("border-image: url(:/banner/Resources/right.png);");
-	m_leftButton->move(700, 75);
+	m_leftButton->setStyleSheet("border-image: url(:/banner/Resources/left.png);");
+	int right_x = ui.frame_banner->width() - 20 - 50;
+	int posY = (ui.frame->height() - 50) / 2;
+	m_leftButton->move(20, posY);
 	m_leftButton->setCursor(Qt::PointingHandCursor);
-	connect(m_leftButton, SIGNAL(clicked()), this, SLOT(sltBannerPrev()));
+	connect(m_leftButton, SIGNAL(clicked()), this, SLOT(sltBannerNext()));
 	m_leftButton->hide();
 
 	//右按钮
 	m_rightButton = new QPushButton(ui.frame_banner);
 	m_rightButton->setFixedSize(50, 50);
-	m_rightButton->setStyleSheet("border-image: url(:/banner/Resources/left.png);");
-	m_rightButton->move(20, 75);
+	m_rightButton->setStyleSheet("border-image: url(:/banner/Resources/right.png);");
+	m_rightButton->move(right_x, posY);
 	m_rightButton->setCursor(Qt::PointingHandCursor);
-	connect(m_rightButton, SIGNAL(clicked()), this, SLOT(sltBannerNext()));
+	connect(m_rightButton, SIGNAL(clicked()), this, SLOT(sltBannerPrev()));
 	m_rightButton->hide();
 
 	//定时器
