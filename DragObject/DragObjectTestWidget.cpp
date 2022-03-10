@@ -27,13 +27,13 @@ DragObjectTestWidget::DragObjectTestWidget(QWidget *parent)
 		d4->setWidget(ui.lcdNumber);
 	}
 
-	connect(ui.pushButton, &QPushButton::clicked, this, [=]() {
+	/*connect(ui.pushButton, &QPushButton::clicked, this, [=]() {
 
 		QTimer::singleShot(1000, [=]() {
 			close();
 		});
 
-	});
+	});*/
 
 }
 
