@@ -47,3 +47,7 @@ Clock | 时钟桌面
 banner | banner轮播图
 
 Verification | 字母+数字随机验证码
+
+IconPanel | 图标面板控件
+
+
