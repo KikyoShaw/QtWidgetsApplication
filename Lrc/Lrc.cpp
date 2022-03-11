@@ -40,7 +40,7 @@ Lrc::Lrc(QWidget *parent)
 		connect(m_timer, &QTimer::timeout, this, &Lrc::sltTimerOut);
 	}
 
-	startLrcMask(5000, QStringLiteral("在此区域中，你可以使子元素通过锚点的形式进行排列。"));
+	startLrcMask(6000, QStringLiteral("情字何解 怎落笔都不对 而我独缺 你一生的了解"));
 }
 
 Lrc::~Lrc()
