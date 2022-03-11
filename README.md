@@ -50,4 +50,6 @@ Verification | 字母+数字随机验证码
 
 IconPanel | 图标面板控件
 
+slidepuzzlewidget | 滑块验证
+
 

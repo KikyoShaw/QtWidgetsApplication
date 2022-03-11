@@ -53,6 +53,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Verification", "Verificatio
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IconPanel", "IconPanel\IconPanel.vcxproj", "{35FE6754-C1E4-4D1E-B068-A4FBD96B76A8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "slidepuzzlewidget", "slidepuzzlewidget\slidepuzzlewidget.vcxproj", "{56B52DAF-2B10-3D3E-987E-B25F41359795}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -247,12 +249,18 @@ Global
 		{35FE6754-C1E4-4D1E-B068-A4FBD96B76A8}.Release|x64.ActiveCfg = Release|Win32
 		{35FE6754-C1E4-4D1E-B068-A4FBD96B76A8}.Release|x86.ActiveCfg = Release|Win32
 		{35FE6754-C1E4-4D1E-B068-A4FBD96B76A8}.Release|x86.Build.0 = Release|Win32
+		{56B52DAF-2B10-3D3E-987E-B25F41359795}.Debug|x64.ActiveCfg = Debug|Win32
+		{56B52DAF-2B10-3D3E-987E-B25F41359795}.Debug|x86.ActiveCfg = Debug|Win32
+		{56B52DAF-2B10-3D3E-987E-B25F41359795}.Debug|x86.Build.0 = Debug|Win32
+		{56B52DAF-2B10-3D3E-987E-B25F41359795}.Release|x64.ActiveCfg = Release|Win32
+		{56B52DAF-2B10-3D3E-987E-B25F41359795}.Release|x86.ActiveCfg = Release|Win32
+		{56B52DAF-2B10-3D3E-987E-B25F41359795}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		Qt5Version = Qt5.12.11_msvc2017_32
 		SolutionGuid = {D077F900-B94B-4D5C-9360-A98DC186CE5D}
+		Qt5Version = Qt5.12.11_msvc2017_32
 	EndGlobalSection
 EndGlobal
