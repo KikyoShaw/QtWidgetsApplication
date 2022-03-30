@@ -55,7 +55,7 @@ void UserInfoWidget::sltOpenGameInfoWidget()
 		auto isShow = m_gameInfoWidget->isVisible();
 		if (!isShow) {
 			int posX = 104;
-			int posY = 157;
+			int posY = 240 - m_gameInfoWidget->width();
 			m_gameInfoWidget->move(mapToGlobal(QPoint(posX, posY)));
 			ui.label_gameIcon->setStyleSheet("border-image: url(:/changeUserInfo/qrc/icon_sq.png);");
 		}

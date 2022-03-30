@@ -69,6 +69,7 @@ void Verification::paintEvent(QPaintEvent * event)
 		painter.drawText(25 * i, 0, 25, 30, Qt::AlignCenter, QString(m_verificationCode[i]));
 	}
 
+	//ªÊ÷∆‘Îµ„
 	if (m_bstyle == BackgroundStyle::E_DOT)
 		paintDot(&painter);
 }
