@@ -9,7 +9,6 @@ enum PercentStyle_Type
 	PercentStyle_Rect = 0,  //æÿ–Œ
 	PercentStyle_Circle,    //‘≤
 	PercentStyle_Ellipse,   //Õ÷‘≤
-
 };
 
 class vWaterProgressBar : public QWidget

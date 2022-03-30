@@ -17,6 +17,7 @@ progressTest::progressTest(QWidget *parent)
 		ui.widget_water_2->setValue(num);
 		ui.widget_battery->setValue(num);
 		ui.progressBar_pk->setValue(num);
+		ui.widget_R->setValue(num);
 	});
 
 	connect(ui.pushButton_2, &QPushButton::clicked, this, [=]() {
@@ -67,6 +68,14 @@ progressTest::progressTest(QWidget *parent)
 	ui.widget_battery->setValue(value);
 	connect(ui.horizontalSlider, &QSlider::valueChanged, ui.widget_battery, QOverload<int>::of(&BatteryProgressBar::setValue));
 
+	ui.widget_R->setBarStyle(RoundProgressBar::BarStyle::StylePie);
+	ui.widget_R->setRange(0, 100);
+	ui.widget_R->setValue(value);
+	ui.widget_R->setStyleSheet("background-color: rgb(0, 0, 0);");
+	QGradientStops grandientPoints;
+	grandientPoints << QGradientStop(0, QColor(255, 66, 213)) << QGradientStop(1, QColor(255, 66, 213));
+	ui.widget_R->setDataColors(grandientPoints);
+	connect(ui.horizontalSlider, &QSlider::valueChanged, ui.widget_R, QOverload<int>::of(&RoundProgressBar::setValue));
 }
 
 progressTest::~progressTest()

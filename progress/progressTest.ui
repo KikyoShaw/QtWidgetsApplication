@@ -43,8 +43,8 @@ color: #212426;
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>470</y>
+     <x>20</x>
+     <y>550</y>
      <width>75</width>
      <height>41</height>
     </rect>
@@ -56,8 +56,8 @@ color: #212426;
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>470</y>
+     <x>120</x>
+     <y>550</y>
      <width>75</width>
      <height>41</height>
     </rect>
@@ -91,6 +91,9 @@ color: #212426;
    <property name="maximum">
     <number>100</number>
    </property>
+   <property name="value">
+    <number>50</number>
+   </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
@@ -112,7 +115,7 @@ color: #212426;
    <property name="geometry">
     <rect>
      <x>430</x>
-     <y>240</y>
+     <y>230</y>
      <width>171</width>
      <height>141</height>
     </rect>
@@ -148,7 +151,7 @@ color: #212426;
    <property name="geometry">
     <rect>
      <x>230</x>
-     <y>240</y>
+     <y>230</y>
      <width>171</width>
      <height>141</height>
     </rect>
@@ -158,7 +161,7 @@ color: #212426;
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>240</y>
+     <y>230</y>
      <width>171</width>
      <height>141</height>
     </rect>
@@ -185,6 +188,19 @@ color: #212426;
    </property>
    <property name="value">
     <number>24</number>
+   </property>
+  </widget>
+  <widget class="RoundProgressBar" name="widget_R" native="true">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>390</y>
+     <width>150</width>
+     <height>150</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
   </widget>
  </widget>
@@ -232,6 +248,12 @@ color: #212426;
    <class>vpkProgressBar</class>
    <extends>QProgressBar</extends>
    <header location="global">vpkprogressbar.h</header>
+  </customwidget>
+  <customwidget>
+   <class>RoundProgressBar</class>
+   <extends>QWidget</extends>
+   <header location="global">roundprogressbar.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

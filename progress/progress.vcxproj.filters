@@ -64,6 +64,9 @@
     <ClCompile Include="vpkProgressBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="roundprogressbar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="vProgressBar.h">
@@ -88,6 +91,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="vpkProgressBar.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="roundprogressbar.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
