@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/LineEdit">
+        <file>qrc/ico_gb_wxz.png</file>
+        <file>qrc/ico_gb_xz.png</file>
+    </qresource>
+</RCC>
