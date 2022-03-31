@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/GalleryWidget">
+        <file>qrc/1.jpg</file>
+        <file>qrc/2.jpg</file>
+        <file>qrc/3.jpg</file>
+        <file>qrc/4.jpg</file>
+        <file>qrc/5.jpg</file>
+        <file>qrc/6.jpg</file>
+        <file>qrc/7.jpg</file>
+        <file>qrc/8.jpg</file>
+        <file>qrc/9.jpg</file>
+        <file>qrc/10.jpg</file>
+        <file>qrc/11.jpg</file>
+    </qresource>
+</RCC>
