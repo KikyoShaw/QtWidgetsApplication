@@ -37,18 +37,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\test\QWidgetDemo\ui\iconhelper\panelwidget.cpp">
+    <ClCompile Include="iconhelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="iconhelper.cpp">
+    <ClCompile Include="panelwidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="..\..\..\test\QWidgetDemo\ui\iconhelper\panelwidget.h">
+    <QtMoc Include="iconhelper.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="iconhelper.h">
+    <QtMoc Include="panelwidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

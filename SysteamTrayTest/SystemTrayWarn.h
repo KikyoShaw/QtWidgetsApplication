@@ -5,7 +5,7 @@
 #include "ui_SystemTrayWarn.h"
 
 //ÅäÖÃÎÄ¼şÃû³Æ
-constexpr char* Common_Setting_FileName = "common.ini";
+const QString Common_Setting_FileName = "common.ini";
 
 enum ExitStatus
 {

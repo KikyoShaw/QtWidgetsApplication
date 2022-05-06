@@ -6,14 +6,14 @@
 #include "SystemTrayWarn.h"
 #include <QDebug>
 
-constexpr char* Property_timerId = "timerId";
+const char* Property_timerId = "timerId";
 
 SysteamTrayTest::SysteamTrayTest(QWidget *parent)
     : QWidget(parent),m_point(QPoint()), m_isMove(false)
 {
     ui.setupUi(this);
 
-	setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+	setWindowFlags(Qt::FramelessWindowHint /*| Qt::Tool*/);
 	setAttribute(Qt::WA_TranslucentBackground);
 
 	//初始化托盘信息

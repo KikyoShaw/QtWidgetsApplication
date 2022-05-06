@@ -91,21 +91,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="panelwidget.cpp" />
     <QtRcc Include="IconPanel.qrc" />
     <QtMoc Include="IconPanelTest.h" />
-    <ClCompile Include="..\..\..\test\QWidgetDemo\ui\iconhelper\panelwidget.cpp" />
     <ClCompile Include="iconhelper.cpp" />
     <ClCompile Include="IconPanelTest.cpp" />
     <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="..\..\..\test\QWidgetDemo\ui\iconhelper\panelwidget.h" />
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="IconPanelTest.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="iconhelper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="panelwidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
