@@ -27,27 +27,34 @@ SysteamTrayTest | 系统托盘(窗口交互) | 窗口关闭提示(记录配置�
 
 DragObject | 窗口中通用控件移动类
 
-progress | 画笔绘制进度条 | 进度条动效 | 圆形进度条 | 多彩进度条 | 水波纹进度条
+#### progress - 多态进度条
+![image](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/6.gif)
 
-changeUserInfo | UI交互美化示例
+#### changeUserInfo - 模仿qq修改个人资料
+![image](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/4.gif)
 
-animation | 爆开特效 | 旋转动效 | 窗口关闭特效 | 移动特效 | 阴影特效 | 闪烁特效
+#### animation - 动画合集
+![image](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/7.gif)
 
 pinyin | 获取中文首字母和字母
 
-GraphicsEffect | 透明度 | 模糊度 | 上色 | 阴影
+#### GraphicsEffect - 透明度 | 模糊度 | 上色 | 阴影
+![image](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/2.gif)
 
 chatBubbe | 气泡
 
 suspensionSlide | 悬浮滑动条
 
-Lrc | 歌词渐变特效
+#### Lrc - 歌词渐变特效
+![image](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/1.gif)
 
 Clock | 时钟桌面
 
-banner | banner轮播图
+#### banner - banner轮播图
+![image](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/5.gif)
 
-Verification | 字母+数字随机验证码
+#### Verification - 字母/数字随机验证码
+![image](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/3.gif)
 
 IconPanel | 图标面板控件
 
