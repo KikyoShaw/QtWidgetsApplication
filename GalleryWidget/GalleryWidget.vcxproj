@@ -86,7 +86,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="mainwindow.cpp" />
+    <ClCompile Include="galleryMainWidget.cpp" />
     <ClCompile Include="waterzoombutton.cpp" />
     <QtRcc Include="GalleryWidget.qrc" />
     <ClCompile Include="galleryphotowidget.cpp" />
@@ -104,12 +104,10 @@
     <QtMoc Include="interactivebuttonbase.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="mainwindow.h" />
+    <QtUic Include="galleryMainWidget.ui" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="mainwindow.ui" />
-  </ItemGroup>
-  <ItemGroup>
+    <QtMoc Include="galleryMainWidget.h" />
     <ClInclude Include="waterzoombutton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

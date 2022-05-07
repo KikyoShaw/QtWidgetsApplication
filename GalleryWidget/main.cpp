@@ -1,11 +1,10 @@
-#include "mainwindow.h"
-
 #include <QApplication>
+#include "galleryMainWidget.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+    GalleryMainWidget w;
     w.show();
     return a.exec();
 }

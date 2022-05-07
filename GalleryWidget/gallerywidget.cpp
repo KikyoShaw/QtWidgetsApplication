@@ -6,6 +6,7 @@ int GalleryWidget::item_spacing_v = 10;
 GalleryWidget::GalleryWidget(QWidget *parent) : QScrollArea(parent)
 {
     center_widget = new QWidget(this);
+
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setWidget(center_widget);
 }

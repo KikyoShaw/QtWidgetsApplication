@@ -40,10 +40,10 @@
     <ClCompile Include="interactivebuttonbase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mainwindow.cpp">
+    <ClCompile Include="waterzoombutton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="waterzoombutton.cpp">
+    <ClCompile Include="galleryMainWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -57,12 +57,12 @@
     <QtMoc Include="interactivebuttonbase.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="mainwindow.h">
+    <QtMoc Include="galleryMainWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="mainwindow.ui">
+    <QtUic Include="galleryMainWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
