@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>GalleryWidget</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -48,7 +48,13 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="GalleryWidget" name="widget" native="true"/>
+       <widget class="GalleryWidget" name="widget" native="true">
+        <property name="styleSheet">
+         <string notr="true">QScrollArea { border:none; background: transparent; }
+QScrollArea &gt; QWidget &gt; QWidget { background: transparent; }
+QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -63,6 +69,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="GalleryWidget.qrc"/>
+ </resources>
  <connections/>
 </ui>

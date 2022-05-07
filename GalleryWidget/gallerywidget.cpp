@@ -5,10 +5,18 @@ int GalleryWidget::item_spacing_v = 10;
 
 GalleryWidget::GalleryWidget(QWidget *parent) : QScrollArea(parent)
 {
-    center_widget = new QWidget(this);
+	//默认样式
+	auto path = ":/GalleryWidget/qrc/qss/whiteScrollbar.qss";
+	QFile QSS(path);
+	if (QSS.open(QFile::ReadOnly)) {
+		QString style(QSS.readAll());
+		this->verticalScrollBar()->setStyleSheet(style);
+	}
 
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setWidget(center_widget);
+	center_widget = new QWidget(this);
+	center_widget->setStyleSheet("background: transparent;");
+	setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+	setWidget(center_widget);
 }
 
 /**

@@ -11,5 +11,6 @@
         <file>qrc/9.jpg</file>
         <file>qrc/10.jpg</file>
         <file>qrc/11.jpg</file>
+        <file>qrc/qss/whiteScrollbar.qss</file>
     </qresource>
 </RCC>

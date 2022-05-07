@@ -13,9 +13,10 @@ GalleryPhotoWidget::GalleryPhotoWidget(GalleryPhotoData data, QWidget *parent) :
 {
     setObjectName("GalleryPhotoWidget");
     setNormalColor(Qt::white);
-    setHoverColor(Qt::white);
+    setHoverColor(QColor(245, 245, 245));
     setChoking(10);
     setRadius(5, 10);
+	setCursor(Qt::PointingHandCursor);
 
     this->pixmap = data.pixmap;
     this->title = data.title;
@@ -65,9 +66,9 @@ void GalleryPhotoWidget::paintEvent(QPaintEvent *event)
     int line_height = fm.lineSpacing();
 
     painter.setPen(title_color);
-    painter.drawText(QPoint(rect.left(), rect.bottom()+line_height), title);
+    painter.drawText(QPoint(rect.left(), rect.bottom() + line_height), title);
 
     painter.setPen(subTitle_color);
-    QRect f_rect = fm.boundingRect(QRect(rect.left(),rect.bottom()+line_height*1.5,rect.width(),0),Qt::TextWordWrap,subTitle);
+    QRect f_rect = fm.boundingRect(QRect(rect.left(),rect.bottom()+ line_height*1.5, rect.width(),0), Qt::TextWordWrap, subTitle);
     painter.drawText(f_rect, Qt::TextWordWrap, subTitle);
 }
