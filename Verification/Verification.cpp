@@ -13,7 +13,7 @@ Verification::Verification(QWidget *parent)
 	//m_updateTimer = new QTimer(this);
 	//if (m_updateTimer) {
 	//	connect(m_updateTimer, &QTimer::timeout, this, &Verification::sltTimerOut);
-	//	m_updateTimer->start(1000);
+	//	m_updateTimer->start(100);
 	//}
 }
 

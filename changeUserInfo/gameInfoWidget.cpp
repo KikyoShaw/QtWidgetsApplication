@@ -5,7 +5,7 @@
 #include "vGameButton.h"
 #include <QFile>
 
-constexpr char* Property_GameName = "gameName";
+const char* Property_GameName = "gameName";
 
 GameInfoWidget::GameInfoWidget(QWidget *parent)
 	:QWidget(parent), m_gameList(QStringList())

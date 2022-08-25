@@ -3,7 +3,7 @@
 #include "emotionWidget.h"
 #include "birthInfoWidget.h"
 
-constexpr char* Property_sex = "SEX";
+const char* Property_sex = "SEX";
 
 //Çé¸ÐÃüÃû
 QMap<EmotionValue, QString> EmotionTitles = {

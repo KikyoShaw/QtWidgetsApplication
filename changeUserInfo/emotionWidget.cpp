@@ -2,7 +2,7 @@
 #include <QButtonGroup>
 #include <QAbstractButton>
 
-constexpr char* Property_Emotion = "EmotionValue";
+const char* Property_Emotion = "EmotionValue";
 
 EmotionWidget::EmotionWidget(QWidget *parent)
 	:QWidget(parent)
