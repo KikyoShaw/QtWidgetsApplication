@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/qss">
+        <file>qrc/qss/blackScrollbar.qss</file>
+        <file>qrc/qss/whiteScrollbar.qss</file>
+    </qresource>
+</RCC>

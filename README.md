@@ -80,3 +80,7 @@
 
 #### GalleryWidget - item长廊管理控件
 ![image](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/8.gif)
+
+
+#### SmoothScrollBarTest - 滑动条平滑效果
+![image](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/27.gif)
