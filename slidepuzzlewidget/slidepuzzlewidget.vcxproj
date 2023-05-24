@@ -14,13 +14,13 @@
     <ProjectGuid>{56B52DAF-2B10-3D3E-987E-B25F41359795}</ProjectGuid>
     <RootNamespace>slidepuzzlewidget</RootNamespace>
     <Keyword>QtVS_v304</Keyword>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformMinVersion>10.0.19041.0</WindowsTargetPlatformMinVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <OutputDirectory>..\bin\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
     <CharacterSet>NotSet</CharacterSet>
@@ -29,7 +29,7 @@
     <PrimaryOutput>slidepuzzlewidget</PrimaryOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <OutputDirectory>..\bin\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
     <CharacterSet>NotSet</CharacterSet>
