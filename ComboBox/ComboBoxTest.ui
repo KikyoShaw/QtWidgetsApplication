@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ComboBoxTestClass</class>
+ <widget class="QWidget" name="ComboBoxTestClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>722</width>
+    <height>429</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ComboBoxTest</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#frame
+{
+	background: #212426;
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true">QLabel
+{
+	font-family: 微软雅黑;
+	font-size: 14px;
+	color: #FFFFFF;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="2" column="0">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="0">
+       <widget class="vComboBox" name="comboBox_userName">
+        <property name="minimumSize">
+         <size>
+          <width>360</width>
+          <height>56</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>360</width>
+          <height>56</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#comboBox_userName
+{
+	font-family: 微软雅黑;
+	font-size: 14px;
+	color: #FFFFFF;
+	border-radius:28px;
+	background: #32343A;
+	padding-left:24px;
+	padding-right:24px;
+}
+
+#comboBox_userName QAbstractItemView
+{
+	border:none;
+}
+
+#comboBox_userName::drop-down
+{
+    right: 24px;
+	border: none;
+}
+
+#comboBox_userName::down-arrow:on
+{
+	width:12px;
+	height:12px;
+	border-image: url(:/ComboBoxTest/qrc/ico_sl.png);
+}
+
+#comboBox_userName::down-arrow
+{
+	width:12px;
+	height:12px;
+	border-image: url(:/ComboBoxTest/qrc/ico_xia.png);
+}</string>
+        </property>
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>vComboBox</class>
+   <extends>QComboBox</extends>
+   <header location="global">vComboBox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="ComboBoxTest.qrc"/>
+ </resources>
+ <connections/>
+</ui>

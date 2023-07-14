@@ -1,0 +1,147 @@
+QScrollBar:vertical
+{
+	width:4px;
+	background:rgba(255,255,255,0%);
+	margin:0px,0px,0px,0px;
+	padding-top:0px;
+	padding-bottom:0px;
+}
+
+QScrollBar[single="3"]:vertical
+{
+	width:6px;
+	background:rgba(255,255,255,0%);
+	margin:0px,0px,0px,0px;
+	padding-top:0px;
+	padding-right:2px;
+	padding-bottom:0px;
+}
+
+QScrollBar[single="1"]:vertical
+{
+	width:4px;
+	background:rgba(255,255,255,0%);
+	margin:0px,0px,0px,0px;
+	padding-top:8px;
+	padding-bottom:6px;
+}
+
+QScrollBar[single="2"]:vertical
+{
+	width:4px;
+	background:rgba(255,255,255,0%);
+	margin:0px,0px,0px,0px;
+	padding-top:0px;
+	padding-bottom:10px;
+}
+
+QScrollBar::handle:vertical
+{
+	width:4px;
+	background:rgba(255,255,255,40%);
+	border-radius:2px;
+	min-height:40;
+}
+
+QScrollBar::handle:vertical:hover
+{
+	width:4px;
+	background:rgba(255,255,255,60%);
+	border-radius:2px;
+	min-height:40;
+}
+
+QScrollBar::add-line:vertical
+{
+	height:0px;width:0px;
+	border-image:url("ui/images/ScrollBar/3.png");
+	subcontrol-position:bottom;
+}
+
+QScrollBar::sub-line:vertical
+{
+	height:0px;width:0px;
+	border-image:url("ui/images/ScrollBar/1.png");
+	subcontrol-position:top;
+}
+
+QScrollBar::add-line:vertical:hover
+{
+	height:0px;width:0px;
+	border-image:url("ui/images/ScrollBar/4.png");
+	subcontrol-position:bottom;
+}
+
+QScrollBar::sub-line:vertical:hover
+{
+	height:0px;width:0px;
+	border-image:url("ui/images/ScrollBar/2.png");
+	subcontrol-position:top;
+}
+
+QScrollBar::add-page:vertical
+{
+	background:rgba(0,0,0,0%);
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+
+QScrollBar::sub-page:vertical
+{
+	background:rgba(0,0,0,0%);
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+
+QScrollBar:horizontal
+{
+	height:4px;
+	background:rgba(0,0,0,0%);
+	margin:0px,0px,0px,0px;
+	padding-left:1px;
+	padding-right:1px;
+}
+QScrollBar::handle:horizontal
+{
+	height:4px;
+	background:rgba(0,0,0,25%);
+	border-radius:2px;
+	min-width:20;
+}
+QScrollBar::handle:horizontal:hover
+{
+	height:4px;
+	background:rgba(0,0,0,50%);
+	border-radius:2px;
+	min-width:20;
+}
+QScrollBar::add-line:horizontal
+{
+	width:0px;height:0px;
+	border-image:url("ui/images/ScrollBar/h_3.png");
+	subcontrol-position:right;
+}
+QScrollBar::sub-line:horizontal
+{
+	width:0px;height:0px;
+	border-image:url("ui/images/ScrollBar/h_1.png");
+	subcontrol-position:left;
+}
+QScrollBar::add-line:horizontal:hover
+{
+	width:0px;height:0px;
+	border-image:url("ui/images/ScrollBar/h_4.png");
+	subcontrol-position:right;
+}
+QScrollBar::sub-line:horizontal:hover
+{
+	width:0px;height:0px;
+	border-image:url("ui/images/ScrollBar/h_2.png");
+	subcontrol-position:left;
+}
+QScrollBar::add-page:horizontal,QScrollBar::sub-page:horizontal
+{
+	background:rgba(0,0,0,0);
+	border-radius:2px;
+}

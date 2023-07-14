@@ -84,3 +84,7 @@
 
 #### SmoothScrollBarTest - 滑动条平滑效果
 ![image](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/27.gif)
+
+
+#### ComboBox - QComboBox样式美化
+![image](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/28.gif)

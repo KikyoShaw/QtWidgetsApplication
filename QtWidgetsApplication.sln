@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1525
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chatBubbe", "chatBubbe\chatBubbe.vcxproj", "{D91A5C65-A1CE-4155-ACA4-8D545376BB2D}"
 EndProject
@@ -62,6 +62,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageAnimation", "ImageAnimation\ImageAnimation.vcxproj", "{5AD60447-35E2-44A9-AEC3-7F4CC97C0490}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SmoothScrollBarTest", "SmoothScrollBarTest\SmoothScrollBarTest.vcxproj", "{DAC337D2-A3CA-4C55-8F0A-4F45268E71C0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ComboBox", "ComboBox\ComboBox.vcxproj", "{1CA27220-B646-40B9-84DA-4097BCBD819F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -287,12 +289,20 @@ Global
 		{DAC337D2-A3CA-4C55-8F0A-4F45268E71C0}.Release|x64.ActiveCfg = Release|Win32
 		{DAC337D2-A3CA-4C55-8F0A-4F45268E71C0}.Release|x86.ActiveCfg = Release|Win32
 		{DAC337D2-A3CA-4C55-8F0A-4F45268E71C0}.Release|x86.Build.0 = Release|Win32
+		{1CA27220-B646-40B9-84DA-4097BCBD819F}.Debug|x64.ActiveCfg = Debug|Win32
+		{1CA27220-B646-40B9-84DA-4097BCBD819F}.Debug|x64.Build.0 = Debug|Win32
+		{1CA27220-B646-40B9-84DA-4097BCBD819F}.Debug|x86.ActiveCfg = Debug|Win32
+		{1CA27220-B646-40B9-84DA-4097BCBD819F}.Debug|x86.Build.0 = Debug|Win32
+		{1CA27220-B646-40B9-84DA-4097BCBD819F}.Release|x64.ActiveCfg = Release|Win32
+		{1CA27220-B646-40B9-84DA-4097BCBD819F}.Release|x64.Build.0 = Release|Win32
+		{1CA27220-B646-40B9-84DA-4097BCBD819F}.Release|x86.ActiveCfg = Release|Win32
+		{1CA27220-B646-40B9-84DA-4097BCBD819F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		Qt5Version = Qt5.12.11_msvc2017_32
 		SolutionGuid = {D077F900-B94B-4D5C-9360-A98DC186CE5D}
+		Qt5Version = Qt5.12.11_msvc2017_32
 	EndGlobalSection
 EndGlobal
