@@ -1,5 +1,6 @@
 ﻿#include "animationprocessbar.h"
 #include <QPainter>
+#include <QPainterPath>
 #include <QPropertyAnimation>
 #include <QPaintEvent>
 #include "qmath.h"

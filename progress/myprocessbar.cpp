@@ -1,5 +1,6 @@
 ﻿#include "myprocessbar.h"
 #include <QPainter>
+#include <QPainterPath>
 #include <QTimer>
 #include <QPaintEvent>
 #include "qmath.h"
