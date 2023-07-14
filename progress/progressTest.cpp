@@ -32,6 +32,7 @@ progressTest::progressTest(QWidget *parent)
 		ui.widget_water_2->setValue(num);
 		ui.widget_battery->setValue(num);
 		ui.progressBar_pk->setValue(num);
+		ui.widget_R->setValue(num);
 	});
 
 	auto value = ui.horizontalSlider->value();
