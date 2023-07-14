@@ -3,6 +3,7 @@
 #include <QAbstractItemView>
 #include <QFile>
 #include <QScrollBar>
+#include <QDebug>
 #include "accountitem.h"
 
 ComboBoxTest::ComboBoxTest(QWidget *parent)
@@ -22,10 +23,6 @@ ComboBoxTest::ComboBoxTest(QWidget *parent)
         ui.comboBox_userName->setItemData(i, Qt::AlignCenter, Qt::TextAlignmentRole);
     }*/
 
-    //下拉框设置圆角样式后，边角会存在阴影问题，这是Popup问题导致的，解决办法可以通过解决Popup来解决，也可以通过设置QComboBox本身属性。
-    ui.comboBox_userName->view()->window()->setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint);
-    ui.comboBox_userName->view()->window()->setAttribute(Qt::WA_TranslucentBackground);
-
     ui.comboBox_userName->lineEdit()->setPlaceholderText(QStringLiteral("请输入账号"));
 
     //限制
@@ -34,12 +31,8 @@ ComboBoxTest::ComboBoxTest(QWidget *parent)
 
 	// 设置代理;
 	QListWidget listWidget;
-	m_AccountList = new QListWidget();
-	ui.comboBox_userName->setModel(m_AccountList->model());
-	ui.comboBox_userName->setView(m_AccountList);
-	ui.comboBox_userName->setMaxVisibleItems(3);
-	ui.comboBox_userName->view()->window()->setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint);
-	ui.comboBox_userName->view()->window()->setAttribute(Qt::WA_TranslucentBackground);
+	m_AccountList = new QListWidget(this);
+
 	QString QSS1path = ":/qss/qrc/qss/listWidget.qss";
 	QFile QSS1(QSS1path);
 	if (QSS1.open(QIODevice::ReadOnly)) {
@@ -57,8 +50,14 @@ ComboBoxTest::ComboBoxTest(QWidget *parent)
 	}
 	m_AccountList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+	ui.comboBox_userName->setModel(m_AccountList->model());
+	ui.comboBox_userName->setView(m_AccountList);
+	ui.comboBox_userName->setMaxVisibleItems(3);
+	//下拉框设置圆角样式后，边角会存在阴影问题，这是Popup问题导致的，解决办法可以通过解决Popup来解决，也可以通过设置QComboBox本身属性。
+	ui.comboBox_userName->view()->window()->setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint);
+	ui.comboBox_userName->view()->window()->setAttribute(Qt::WA_TranslucentBackground);
+
 	//构造数据
-	ui.comboBox_userName->setEditText("100101");
 	for (int i = 0; i < 13; i++)
 	{
 		AccountItem* account_item = new AccountItem();
@@ -74,6 +73,8 @@ ComboBoxTest::ComboBoxTest(QWidget *parent)
 		m_AccountList->setItemWidget(list_item, account_item);
 	}
 
+	ui.comboBox_userName->setCurrentIndex(0);
+	ui.comboBox_userName->setCurrentText("100101");
 	/*connect(ui.comboBox_userName, &vComboBox::sigPopup, this, [=]() {
 		m_AccountList->setCurrentRow(3);
 	});*/
@@ -87,8 +88,16 @@ ComboBoxTest::~ComboBoxTest()
 
 void ComboBoxTest::sltShowAccountInfo(int index, const QString& accountUserId)
 {
-	ui.comboBox_userName->setEditText(accountUserId);
-	m_AccountList->setCurrentRow(index);
+	/*for (int row = 0; row < m_AccountList->count(); row++)
+	{
+		AccountItem* itemWidget = (AccountItem*)m_AccountList->itemWidget(m_AccountList->item(row));
+		if (itemWidget != NULL && itemWidget->getItemWidgetIndex() == index)
+		{
+			ui.comboBox_userName->setCurrentIndex(row);
+			break;
+		}
+	}*/
+	ui.comboBox_userName->setCurrentText(accountUserId);
 	ui.comboBox_userName->hidePopup();
 }
 
@@ -99,6 +108,9 @@ void ComboBoxTest::sltRemoveAccount(int index, const QString& accountUserId)
 		AccountItem* itemWidget = (AccountItem*)m_AccountList->itemWidget(m_AccountList->item(row));
 		if (itemWidget != NULL && itemWidget->getItemWidgetIndex() == index)
 		{
+			qDebug() << "index: " << index << "row: " << row << "Com: " << ui.comboBox_userName->currentIndex();
+			/*if (row == ui.comboBox_userName->currentIndex())
+				ui.comboBox_userName->lineEdit()->clear();*/
 			m_AccountList->takeItem(row);
 			itemWidget->deleteLater();
 		}

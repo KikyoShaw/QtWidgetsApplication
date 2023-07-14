@@ -25,8 +25,7 @@ AccountItem::AccountItem(QWidget *parent)
 	mainLayout->addWidget(m_accountNumber);
 	mainLayout->addStretch();
 	mainLayout->addWidget(m_deleteButton);
-	mainLayout->setContentsMargins(24, 8, 20, 8);
-	mainLayout->setSpacing(20);
+	mainLayout->setContentsMargins(20, 10, 20, 10);
 	this->setLayout(mainLayout);
 
 	this->setCursor(Qt::PointingHandCursor);
