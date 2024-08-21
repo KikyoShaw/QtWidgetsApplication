@@ -88,3 +88,7 @@
 
 #### ComboBox - QComboBox样式美化
 ![image](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/28.gif)
+
+
+#### notify - 系统消息通知队列
+![image](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/29.gif)

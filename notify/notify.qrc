@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/notify">
+        <file>image/1.jpg</file>
+        <file>image/2.jpg</file>
+        <file>image/3.jpg</file>
+        <file>image/4.jpg</file>
+        <file>image/5.jpg</file>
+        <file>image/6.jpg</file>
+        <file>image/7.jpg</file>
+        <file>image/8.jpg</file>
+        <file>image/9.jpg</file>
+        <file>image/10.jpg</file>
+        <file>image/11.jpg</file>
+        <file>image/12.jpg</file>
+        <file>image/message.png</file>
+        <file>image/0.jpg</file>
+        <file>image/ico_yyf_14_gb.png</file>
+    </qresource>
+</RCC>

@@ -65,6 +65,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SmoothScrollBarTest", "Smoo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ComboBox", "ComboBox\ComboBox.vcxproj", "{1CA27220-B646-40B9-84DA-4097BCBD819F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "notify", "notify\notify.vcxproj", "{D9C03339-035A-48E6-8848-EB03395B86ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -297,12 +299,20 @@ Global
 		{1CA27220-B646-40B9-84DA-4097BCBD819F}.Release|x64.Build.0 = Release|Win32
 		{1CA27220-B646-40B9-84DA-4097BCBD819F}.Release|x86.ActiveCfg = Release|Win32
 		{1CA27220-B646-40B9-84DA-4097BCBD819F}.Release|x86.Build.0 = Release|Win32
+		{D9C03339-035A-48E6-8848-EB03395B86ED}.Debug|x64.ActiveCfg = Debug|Win32
+		{D9C03339-035A-48E6-8848-EB03395B86ED}.Debug|x64.Build.0 = Debug|Win32
+		{D9C03339-035A-48E6-8848-EB03395B86ED}.Debug|x86.ActiveCfg = Debug|Win32
+		{D9C03339-035A-48E6-8848-EB03395B86ED}.Debug|x86.Build.0 = Debug|Win32
+		{D9C03339-035A-48E6-8848-EB03395B86ED}.Release|x64.ActiveCfg = Release|Win32
+		{D9C03339-035A-48E6-8848-EB03395B86ED}.Release|x64.Build.0 = Release|Win32
+		{D9C03339-035A-48E6-8848-EB03395B86ED}.Release|x86.ActiveCfg = Release|Win32
+		{D9C03339-035A-48E6-8848-EB03395B86ED}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D077F900-B94B-4D5C-9360-A98DC186CE5D}
 		Qt5Version = Qt5.12.11_msvc2017_32
+		SolutionGuid = {D077F900-B94B-4D5C-9360-A98DC186CE5D}
 	EndGlobalSection
 EndGlobal
