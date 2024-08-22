@@ -67,6 +67,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ComboBox", "ComboBox\ComboB
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "notify", "notify\notify.vcxproj", "{D9C03339-035A-48E6-8848-EB03395B86ED}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ButtonBase", "ButtonBase\ButtonBase.vcxproj", "{60437E75-2125-4AA7-8AB9-10190C7E819D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -307,12 +309,20 @@ Global
 		{D9C03339-035A-48E6-8848-EB03395B86ED}.Release|x64.Build.0 = Release|Win32
 		{D9C03339-035A-48E6-8848-EB03395B86ED}.Release|x86.ActiveCfg = Release|Win32
 		{D9C03339-035A-48E6-8848-EB03395B86ED}.Release|x86.Build.0 = Release|Win32
+		{60437E75-2125-4AA7-8AB9-10190C7E819D}.Debug|x64.ActiveCfg = Debug|Win32
+		{60437E75-2125-4AA7-8AB9-10190C7E819D}.Debug|x64.Build.0 = Debug|Win32
+		{60437E75-2125-4AA7-8AB9-10190C7E819D}.Debug|x86.ActiveCfg = Debug|Win32
+		{60437E75-2125-4AA7-8AB9-10190C7E819D}.Debug|x86.Build.0 = Debug|Win32
+		{60437E75-2125-4AA7-8AB9-10190C7E819D}.Release|x64.ActiveCfg = Release|Win32
+		{60437E75-2125-4AA7-8AB9-10190C7E819D}.Release|x64.Build.0 = Release|Win32
+		{60437E75-2125-4AA7-8AB9-10190C7E819D}.Release|x86.ActiveCfg = Release|Win32
+		{60437E75-2125-4AA7-8AB9-10190C7E819D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		Qt5Version = Qt5.12.11_msvc2017_32
 		SolutionGuid = {D077F900-B94B-4D5C-9360-A98DC186CE5D}
+		Qt5Version = Qt5.12.11_msvc2017_32
 	EndGlobalSection
 EndGlobal
