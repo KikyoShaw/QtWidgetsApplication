@@ -61,6 +61,7 @@ void chatMessageWidget::creatChatItem(const userDataInfo &info)
 		item = new QListWidgetItem(ui.listWidget);
 		item->setData(Qt::UserRole, info.userId);
 		ui.listWidget->setItemWidget(item, widget);
+		//ui.listWidget->setSpacing(10);
 		ui.listWidget->addItem(item);
 		m_mapChatItem[info.userId] = item;
 	}

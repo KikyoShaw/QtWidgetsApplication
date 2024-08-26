@@ -110,17 +110,25 @@
 	outline:0px;
 }
 
-QListWidget::item {
+QListWidget::item 
+{
 	height:64px;
 	background:transparent;
 }
 
-QListWidget::item::selected {
-	background-color:rgba(0,0,0,0.2);
+QListWidget::item::selected 
+{
+	background-color:rgba(30,144,255,0.2);
 }
 
-QListWidget::item:hover{
-    background-color:rgba(0,0,0,0.2);
+QListWidget::item:selected:hover
+{
+	background-color:rgba(30,144,255,0.2);
+}
+
+QListWidget::item:hover
+{
+    background-color:rgba(0,0,0,0.1);
 }</string>
            </property>
           </widget>
