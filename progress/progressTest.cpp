@@ -8,30 +8,13 @@ progressTest::progressTest(QWidget *parent)
 	connect(ui.pushButton, &QPushButton::clicked, this, [=]() {
 		auto num = ui.progressBar->value();
 		num = qMin(num + 1, 100);
-		ui.progressBar->setValue(num);
-		ui.progressBar_radius->setValue(num);
-		ui.progressBar_new->setValue(num);
-		ui.progressBar_animation->setValue(num);
-		ui.widget->setValue(num);
-		ui.widget_water->setValue(num);
-		ui.widget_water_2->setValue(num);
-		ui.widget_battery->setValue(num);
-		ui.progressBar_pk->setValue(num);
-		ui.widget_R->setValue(num);
+		ui.horizontalSlider->setValue(num);
 	});
 
 	connect(ui.pushButton_2, &QPushButton::clicked, this, [=]() {
 		auto num = ui.progressBar->value();
 		num = qMax(num - 1, 0);
-		ui.progressBar->setValue(num);
-		ui.progressBar_radius->setValue(num);
-		ui.progressBar_new->setValue(num);
-		ui.progressBar_animation->setValue(num);
-		ui.widget->setValue(num);
-		ui.widget_water->setValue(num);
-		ui.widget_water_2->setValue(num);
-		ui.widget_battery->setValue(num);
-		ui.progressBar_pk->setValue(num);
+		ui.horizontalSlider->setValue(num);
 	});
 
 	auto value = ui.horizontalSlider->value();
