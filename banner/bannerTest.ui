@@ -47,7 +47,6 @@
       <string notr="true">#frame
 {
 	background: #152034;
-	border-radius: 6px;
 }</string>
      </property>
      <property name="frameShape">

@@ -7,8 +7,8 @@ bannerTest::bannerTest(QWidget *parent)
 {
     ui.setupUi(this);
 
-	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint);
-	setAttribute(Qt::WA_TranslucentBackground);
+	/*setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint);
+	setAttribute(Qt::WA_TranslucentBackground);*/
 
 	//ÂÖ²¥×é¼þ
 	m_QBannerWidget = new QBannerWidget(ui.frame_banner);
