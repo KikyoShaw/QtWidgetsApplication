@@ -59,8 +59,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LineEdit", "LineEdit\LineEd
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GalleryWidget", "GalleryWidget\GalleryWidget.vcxproj", "{C893015C-031D-41F3-91D6-68B8C49E8913}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageAnimation", "ImageAnimation\ImageAnimation.vcxproj", "{5AD60447-35E2-44A9-AEC3-7F4CC97C0490}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SmoothScrollBarTest", "SmoothScrollBarTest\SmoothScrollBarTest.vcxproj", "{DAC337D2-A3CA-4C55-8F0A-4F45268E71C0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ComboBox", "ComboBox\ComboBox.vcxproj", "{1CA27220-B646-40B9-84DA-4097BCBD819F}"
@@ -281,12 +279,6 @@ Global
 		{C893015C-031D-41F3-91D6-68B8C49E8913}.Release|x64.ActiveCfg = Release|Win32
 		{C893015C-031D-41F3-91D6-68B8C49E8913}.Release|x86.ActiveCfg = Release|Win32
 		{C893015C-031D-41F3-91D6-68B8C49E8913}.Release|x86.Build.0 = Release|Win32
-		{5AD60447-35E2-44A9-AEC3-7F4CC97C0490}.Debug|x64.ActiveCfg = Debug|Win32
-		{5AD60447-35E2-44A9-AEC3-7F4CC97C0490}.Debug|x86.ActiveCfg = Debug|Win32
-		{5AD60447-35E2-44A9-AEC3-7F4CC97C0490}.Debug|x86.Build.0 = Debug|Win32
-		{5AD60447-35E2-44A9-AEC3-7F4CC97C0490}.Release|x64.ActiveCfg = Release|Win32
-		{5AD60447-35E2-44A9-AEC3-7F4CC97C0490}.Release|x86.ActiveCfg = Release|Win32
-		{5AD60447-35E2-44A9-AEC3-7F4CC97C0490}.Release|x86.Build.0 = Release|Win32
 		{DAC337D2-A3CA-4C55-8F0A-4F45268E71C0}.Debug|x64.ActiveCfg = Debug|Win32
 		{DAC337D2-A3CA-4C55-8F0A-4F45268E71C0}.Debug|x86.ActiveCfg = Debug|Win32
 		{DAC337D2-A3CA-4C55-8F0A-4F45268E71C0}.Debug|x86.Build.0 = Debug|Win32
@@ -322,7 +314,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D077F900-B94B-4D5C-9360-A98DC186CE5D}
 		Qt5Version = Qt5.12.11_msvc2017_32
+		SolutionGuid = {D077F900-B94B-4D5C-9360-A98DC186CE5D}
 	EndGlobalSection
 EndGlobal
