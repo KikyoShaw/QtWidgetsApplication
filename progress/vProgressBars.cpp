@@ -1,5 +1,6 @@
 #include "vProgressBars.h"
 #include <QPainter>
+#include <QPainterPath>
 #include "qmath.h"
 #include <QDebug>
 #include <QVariantAnimation>

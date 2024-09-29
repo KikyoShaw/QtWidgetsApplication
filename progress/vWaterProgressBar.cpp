@@ -1,5 +1,6 @@
 #include "vWaterProgressBar.h"
 #include <QPainter>
+#include <QPainterPath>
 #include <QPaintEvent>
 #include <QTimerEvent>
 #include <QLinearGradient>

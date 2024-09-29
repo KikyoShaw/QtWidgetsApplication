@@ -1,5 +1,6 @@
 #include "roundprogressbar.h"
 #include <QPainter>
+#include <QPainterPath>
 #include <QTransform>
 
 RoundProgressBar::RoundProgressBar(QWidget *parent) :
