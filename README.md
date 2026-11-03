@@ -88,7 +88,7 @@
 | 基础 Qt 模块 | Core、Gui、Widgets |
 | 网页示例模块 | `JsWithCpp` 还使用 Network、WebEngine、WebEngineWidgets、WebChannel |
 | 建议起始配置 | 解决方案选择 `Debug / x86`，项目平台对应 `Win32` |
-| Windows SDK | 不同项目与配置记录了 `10.0`、`10.0.17763.0`、`10.0.19041.0`、`10.0.22000.0`，需按目标工程安装或重定向 |
+| Windows SDK | 不同项目与配置记录了 `10.0`、`10.0.17763.0`、`10.0.19041.0`；`10.0` 自动选择本机已安装的最新 SDK，固定版本需安装或重定向 |
 
 Qt 安装项名称中的 `msvc2017` 与工程的 `v143` 是两个不同的配置字段，配置本机环境时需要分别核对。解决方案虽提供 x64 选项，但部分项目映射到 Win32，部分 x64 配置仍引用上述 32 位 Qt 套件，使用 64 位构建前需要先整理对应配置。
 
@@ -331,19 +331,6 @@ Qt 动画合集，包含位置移动、弹出、淡出、旋转、阴影、透�
 - [GIF/](GIF/)：README 使用的效果图。
 - [QtWidgetsApplication.sln](QtWidgetsApplication.sln)：全部 32 个示例的 Visual Studio 入口。
 - [sqlite/](sqlite/)：未接入解决方案的 SQLite 账号存储参考代码。当前缺少 `WADefine.h`、`vfileoperation.h` 等依赖，没有独立示例入口；复用前需要补全依赖和梳理实现。
-
-## 后续优化方向
-
-以下事项来自源码与工程配置分析，**尚未实施修复，也未进行运行复现**。优先整理构建和资源加载，可减少下载后运行示例时的环境问题；随后处理计算与交互边界。
-
-| 方向 | 当前位置与影响 | 建议 |
-| --- | --- | --- |
-| 统一构建配置 | [解决方案](QtWidgetsApplication.sln) 中存在 x64 映射 Win32、部分 x64 工程仍选择 32 位 Qt 的情况；Windows SDK 版本也分散 | 统一 Qt 套件、架构映射和公共配置，再考虑增加统一构建入口 |
-| 消除工作目录依赖 | [JsWithCpp 页面加载](JsWithCpp/JsWithCpp.cpp) 在复制脚本失败时提前返回；[游戏配置加载](changeUserInfo/likeGameConfig.cpp) 从相对路径读取数据，启动目录变化会影响功能 | 网页直接使用已打包的 Qt 资源；游戏表加入 `.qrc` 或明确外置数据的部署路径，并处理读取失败 |
-| 修正日期结果 | [rollingBox 的 getAge](rollingBox/QtWidgetsApplication.cpp) 与 [资料页的 getAge](changeUserInfo/birthInfoWidget.cpp) 存在周岁计算错误；[Clock 的 getMaxDate](Clock/Clock.cpp) 将一月与二月归到同一分支 | 使用 QDate 处理日期有效性与月份天数，统一周岁计算，减少重复实现 |
-| 修正滚动边界与同步 | [SmoothScrollBar::scroll](SmoothScrollBarTest/SmoothScrollBar.cpp) 未限制累计目标值，边界处反向滚动需先抵消越界量；[悬浮滚动条](suspensionSlide/suspensionScrollBar.cpp) 的两个列表封装存在横纵交叉绑定，三个封装的横条宽度均使用了容器高度 | 将目标值限制在滚动范围内，按同方向同步滚动条，并用有效宽度计算横向几何尺寸 |
-| 修正输入模式 | [LineEdit::sltNoLimitToggled](LineEdit/LineEdit.cpp) 在切回“无限制”时仍安装仅匹配单个汉字的校验器，与界面含义不符 | “无限制”模式使用 `setValidator(nullptr)` 移除字符类型校验 |
-| 改进多屏缩放 | [FramelessWidget](frameLessScale/framelesswidget.cpp) 及同目录的 MainWindow、Dialog 实现直接用 `LOWORD` / `HIWORD` 提取屏幕坐标，主屏左侧或上方副屏的负坐标会被误读 | 统一使用 `GET_X_LPARAM` / `GET_Y_LPARAM` 等有符号坐标提取方式，再验证负坐标屏幕下的拖动与缩放 |
 
 ## 许可证
 
