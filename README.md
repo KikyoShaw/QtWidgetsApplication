@@ -1,6 +1,6 @@
 # QtWidgetsApplication
 
-平时练手的 Qt 小功能控件合集，包含 **32 个独立示例工程**，涵盖自定义控件、窗口交互、绘制动画、聊天界面、轮播与滚动等内容，适合学习 Qt Widgets 和参考控件实现。
+平时练手的 Qt 小功能控件合集，包含 **33 个独立示例工程**，涵盖自定义控件、窗口交互、绘制动画、聊天界面、轮播与滚动等内容，适合学习 Qt Widgets 和参考控件实现。
 
 每个示例都有独立的 `main.cpp`，可以在 Visual Studio 解决方案中选择需要的项目运行。下方保留了原有的 **30 张 GIF 效果图**，并补充了功能索引、构建说明和组件复用入口。
 
@@ -12,6 +12,7 @@
 
 | 示例源码 | 主要功能 | 预览 |
 | --- | --- | --- |
+| [ColorPicker](ColorPicker/) | 自绘 SV 色板、色相与透明度调节，HEX/RGBA 联动、颜色复制与最近颜色 | [效果](#colorpicker) |
 | [ButtonBase](ButtonBase/) | 三种自绘开关按钮，支持指示器滑动动画与颜色配置 | [说明](#buttonbase)，暂无 GIF |
 | [LineEdit](LineEdit/) | 输入校验、长度限制、输入法开关、密码显示和账号补全 | [效果](#lineedit) |
 | [ComboBox](ComboBox/) | 可编辑账号下拉框，自定义头像、昵称、选择及删除交互 | [效果](#combobox) |
@@ -306,6 +307,16 @@ Qt 动画合集，包含位置移动、弹出、淡出、旋转、阴影、透�
 
 ![notify 桌面通知队列与补位动画效果](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/29.gif)
 
+### ColorPicker
+
+自绘取色器，提供二维饱和度/明度色板、色相条、透明度条和棋盘格颜色预览，支持鼠标拖动及方向键微调，按住 `Shift` 可加快调整。
+
+HEX 与 RGBA 数值双向联动，HEX 格式为 `#RRGGBB` 或 `#RRGGBBAA`（透明度在末尾），提供六位和含透明度的八位复制按钮。内置预置颜色与最近 8 个颜色，最近记录仅保存在当前实例中。
+
+在 Visual Studio 中将 `ColorPicker` 设为启动项目，选择 `Debug / x86` 后生成运行。控件仅依赖 Qt Core、Gui、Widgets，无外部图片或工作目录要求。复用入口为 [ColorPickerWidget.h](ColorPicker/ColorPickerWidget.h)。
+
+![ColorPicker 自绘取色器与 HEX/RGBA 联动界面](GIF/30.png)
+
 ### ButtonBase
 
 三种自绘开关按钮，基于可选中的 QToolButton，通过属性动画移动指示圆点，并提供颜色配置。当前未收录独立 GIF，可查看 [SwitchButtonBase](ButtonBase/SwitchButtonBase.h) 和 [SwitchButton](ButtonBase/SwitchButton.h) 的实现。
@@ -320,6 +331,7 @@ Qt 动画合集，包含位置移动、弹出、淡出、旋转、阴影、透�
 
 | 参考入口 | 可复用内容 |
 | --- | --- |
+| [ColorPickerWidget](ColorPicker/ColorPickerWidget.h) | 自绘取色器，提供 `selectedColor()`、`setSelectedColor()` 及 `colorChanged` 信号 |
 | [DragObject](DragObject/DragObject.h) | 通过事件过滤器为 QWidget 增加拖动能力 |
 | [SwitchButtonBase](ButtonBase/SwitchButtonBase.h)、[SwitchButton](ButtonBase/SwitchButton.h) | 开关按钮绘制及指示器动画 |
 | [SmoothScrollBar](SmoothScrollBarTest/SmoothScrollBar.h) | 滚动条缓动动画与滚轮目标值处理 |
@@ -329,7 +341,7 @@ Qt 动画合集，包含位置移动、弹出、淡出、旋转、阴影、透�
 其他目录与文件：
 
 - [GIF/](GIF/)：README 使用的效果图。
-- [QtWidgetsApplication.sln](QtWidgetsApplication.sln)：全部 32 个示例的 Visual Studio 入口。
+- [QtWidgetsApplication.sln](QtWidgetsApplication.sln)：全部 33 个示例的 Visual Studio 入口。
 - [sqlite/](sqlite/)：未接入解决方案的 SQLite 账号存储参考代码。当前缺少 `WADefine.h`、`vfileoperation.h` 等依赖，没有独立示例入口；复用前需要补全依赖和梳理实现。
 
 ## 许可证
