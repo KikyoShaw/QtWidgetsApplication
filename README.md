@@ -2,7 +2,7 @@
 
 平时练手的 Qt 小功能控件合集，包含 **35 个独立示例工程**，涵盖自定义控件、窗口交互、绘制动画、聊天界面、轮播与滚动等内容，适合学习 Qt Widgets 和参考控件实现。
 
-另外还有五个独立的 Qt 集成与应用项目：[QCefBrowser](https://github.com/KikyoShaw/QCefBrowser)（CEF 浏览器集成）、[vlcPlayer](https://github.com/KikyoShaw/vlcPlayer)（VLC 播放器集成）、[MuPDF-Qt](https://github.com/KikyoShaw/MuPDF-Qt)（PDF 阅读器）、[OFDEditor](https://github.com/KikyoShaw/OFDEditor)（OFD 阅读器）和 [QtNotepadPlusPlus](https://github.com/KikyoShaw/QtNotepadPlusPlus)（文本编辑器），欢迎按需参考。
+另外还有六个独立的 Qt 集成与应用项目：[QCefBrowser](https://github.com/KikyoShaw/QCefBrowser)（CEF 浏览器集成）、[vlcPlayer](https://github.com/KikyoShaw/vlcPlayer)（VLC 播放器集成）、[MuPDF-Qt](https://github.com/KikyoShaw/MuPDF-Qt)（PDF 阅读器）、[OFDEditor](https://github.com/KikyoShaw/OFDEditor)（OFD 阅读器）、[QtNotepadPlusPlus](https://github.com/KikyoShaw/QtNotepadPlusPlus)（文本编辑器）和 [QRcode-Qt](https://github.com/KikyoShaw/QRcode-Qt)（二维码生成），欢迎按需参考。
 
 每个示例都有独立的 `main.cpp`，可以在 Visual Studio 解决方案中选择需要的项目运行。下方保留了原有的 **30 张 GIF 效果图**，并补充了功能索引、构建说明和组件复用入口。
 
@@ -383,6 +383,7 @@ HEX 与 RGBA 数值双向联动，HEX 格式为 `#RRGGBB` 或 `#RRGGBBAA`（透�
 | [MuPDF-Qt](https://github.com/KikyoShaw/MuPDF-Qt) | Qt 实现 PDF 阅读器 |
 | [OFDEditor](https://github.com/KikyoShaw/OFDEditor) | Qt 实现 OFD 阅读器 |
 | [QtNotepadPlusPlus](https://github.com/KikyoShaw/QtNotepadPlusPlus) | Qt 文本编辑器 |
+| [QRcode-Qt](https://github.com/KikyoShaw/QRcode-Qt) | Qt 二维码生成示例 |
 
 ## 许可证
 
