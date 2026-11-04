@@ -2,6 +2,8 @@
 
 平时练手的 Qt 小功能控件合集，包含 **35 个独立示例工程**，涵盖自定义控件、窗口交互、绘制动画、聊天界面、轮播与滚动等内容，适合学习 Qt Widgets 和参考控件实现。
 
+另外还有四个独立的 Qt 集成与应用项目：[QCefBrowser](https://github.com/KikyoShaw/QCefBrowser)（CEF 浏览器集成）、[vlcPlayer](https://github.com/KikyoShaw/vlcPlayer)（VLC 播放器集成）、[MuPDF-Qt](https://github.com/KikyoShaw/MuPDF-Qt)（PDF 阅读器）和 [OFDEditor](https://github.com/KikyoShaw/OFDEditor)（OFD 阅读器），欢迎按需参考。
+
 每个示例都有独立的 `main.cpp`，可以在 Visual Studio 解决方案中选择需要的项目运行。下方保留了原有的 **30 张 GIF 效果图**，并补充了功能索引、构建说明和组件复用入口。
 
 [功能索引](#功能索引) · [构建与运行](#构建与运行) · [效果展示](#效果展示) · [组件复用与目录说明](#组件复用与目录说明) · [相关项目](#相关项目) · [许可证](#许可证)
