@@ -13,7 +13,7 @@
 | 示例源码 | 主要功能 | 预览 |
 | --- | --- | --- |
 | [ColorPicker](ColorPicker/) | 自绘 SV 色板、色相与透明度调节，HEX/RGBA 联动、颜色复制与最近颜色 | [效果](#colorpicker) |
-| [ButtonBase](ButtonBase/) | 三种自绘开关按钮，支持指示器滑动动画与颜色配置 | [说明](#buttonbase)，暂无 GIF |
+| [ButtonBase](ButtonBase/) | 三种自绘开关按钮，支持指示器滑动动画与颜色配置 | [说明](#buttonbase) |
 | [LineEdit](LineEdit/) | 输入校验、长度限制、输入法开关、密码显示和账号补全 | [效果](#lineedit) |
 | [ComboBox](ComboBox/) | 可编辑账号下拉框，自定义头像、昵称、选择及删除交互 | [效果](#combobox) |
 | [rollingBox](rollingBox/) | 年月日滚动选择、月份天数联动、年龄与星座显示，以及横向数值滚动 | [效果](#rollingbox) |
@@ -38,7 +38,7 @@
 | 示例源码 | 主要功能 | 预览 |
 | --- | --- | --- |
 | [chatMessageWidget](chatMessageWidget/) | 多会话切换、头像、左右消息气泡、时间分隔和本地消息回显 | [效果](#chatmessagewidget) |
-| [chatBubbe](chatBubbe/) | 利用 QTextBrowser、图片与 QSS 展示聊天气泡样式 | [说明](#chatbubbe)，暂无 GIF |
+| [chatBubbe](chatBubbe/) | 利用 QTextBrowser、图片与 QSS 展示聊天气泡样式 | [说明](#chatbubbe) |
 | [changeUserInfo](changeUserInfo/) | 个人资料编辑界面，包含生日、情感状态、游戏偏好及本地图片选择 | [效果](#changeuserinfo) |
 
 ### 绘制、动画与视觉效果
