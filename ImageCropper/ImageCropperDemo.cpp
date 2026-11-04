@@ -23,6 +23,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QPaintEvent>
+#include <QPointer>
 #include <QPolygonF>
 #include <QPushButton>
 #include <QSaveFile>
@@ -35,12 +36,14 @@
 #include <QStringList>
 #include <QUrl>
 #include <QVBoxLayout>
+#include <QtMath>
 #include <initializer_list>
 
 class ImageCropperPreview final : public QWidget
 {
 public:
-    explicit ImageCropperPreview(QWidget *parent) : QWidget(parent)
+    explicit ImageCropperPreview(ImageCropperWidget *cropper, QWidget *parent)
+        : QWidget(parent), m_cropper(cropper)
     {
         setMinimumWidth(200);
         setFixedHeight(240);
@@ -48,9 +51,9 @@ public:
         setAccessibleName(QStringLiteral("裁剪结果预览，棋盘格表示透明区域"));
     }
 
-    void setImage(const QImage &image)
+    void refresh()
     {
-        m_image = image;
+        m_image = QImage();
         update();
     }
 
@@ -72,13 +75,28 @@ protected:
                     painter.fillRect(QRect(x, y, tile, tile), QColor(QStringLiteral("#E2E8F0")));
             }
         }
+        const QRectF bounds = QRectF(rect()).adjusted(8, 8, -8, -8);
+        const QSize cropSize = m_cropper ? m_cropper->cropRect().size() : QSize();
+        const qreal dpr = devicePixelRatioF();
+        if (!cropSize.isEmpty() && !bounds.isEmpty()) {
+            const QSizeF size = QSizeF(cropSize).scaled(bounds.size(), Qt::KeepAspectRatio);
+            // 布局使用逻辑尺寸，预览按当前屏幕的物理像素生成。
+            const QSize pixelSize(qMax(1, qCeil(size.width() * dpr)),
+                                  qMax(1, qCeil(size.height() * dpr)));
+            if (m_image.isNull() || m_pixelSize != pixelSize || m_image.devicePixelRatio() != dpr) {
+                m_image = m_cropper->preview(pixelSize);
+                m_image.setDevicePixelRatio(dpr);
+                m_pixelSize = pixelSize;
+            }
+        } else {
+            m_image = QImage();
+        }
         if (!m_image.isNull()) {
-            const QRect bounds = rect().adjusted(8, 8, -8, -8);
-            const QSize size = m_image.size().scaled(bounds.size(), Qt::KeepAspectRatio);
-            QRect target(QPoint(0, 0), size);
+            QRectF target(QPointF(0, 0), QSizeF(m_image.size()) / dpr);
             target.moveCenter(bounds.center());
-            painter.setRenderHint(QPainter::SmoothPixmapTransform);
-            painter.drawImage(target, m_image, m_image.rect());
+            const QPointF position(qRound(target.x() * dpr) / dpr,
+                                   qRound(target.y() * dpr) / dpr);
+            painter.drawImage(position, m_image);
         } else {
             painter.setPen(QColor(QStringLiteral("#64748B")));
             painter.drawText(rect(), Qt::AlignCenter, QStringLiteral("暂无预览"));
@@ -90,7 +108,9 @@ protected:
     }
 
 private:
+    QPointer<ImageCropperWidget> m_cropper;
     QImage m_image;
+    QSize m_pixelSize;
 };
 
 namespace {
@@ -316,7 +336,7 @@ ImageCropperDemo::ImageCropperDemo(QWidget *parent) : QWidget(parent)
     auto *previewTitle = new QLabel(QStringLiteral("裁剪预览"), sidebar);
     previewTitle->setObjectName(QStringLiteral("SideTitle"));
     sideLayout->addWidget(previewTitle);
-    m_preview = new ImageCropperPreview(sidebar);
+    m_preview = new ImageCropperPreview(m_cropper, sidebar);
     sideLayout->addWidget(m_preview);
     auto *previewHint = new QLabel(
         QStringLiteral("棋盘格表示透明区域。圆形头像导出为 PNG；JPEG 使用白色背景。"), sidebar);
@@ -457,7 +477,7 @@ void ImageCropperDemo::updateCropUi()
     m_cropLabel->setText(crop.isEmpty() ? QStringLiteral("—")
         : QStringLiteral("位置：x %1，y %2\n尺寸：w %3，h %4")
             .arg(crop.x()).arg(crop.y()).arg(crop.width()).arg(crop.height()));
-    m_preview->setImage(m_cropper->preview(QSize(240, 240)));
+    m_preview->refresh();
 }
 
 void ImageCropperDemo::updateAspectUi()
