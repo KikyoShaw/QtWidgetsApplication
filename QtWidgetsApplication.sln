@@ -69,6 +69,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ButtonBase", "ButtonBase\Bu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ColorPicker", "ColorPicker\ColorPicker.vcxproj", "{CA81E503-74A8-461B-B91E-FD309FA7E624}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageCropper", "ImageCropper\ImageCropper.vcxproj", "{61D40A97-9337-43B2-90CC-C6872DB768FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -319,6 +321,14 @@ Global
 		{CA81E503-74A8-461B-B91E-FD309FA7E624}.Release|x64.Build.0 = Release|Win32
 		{CA81E503-74A8-461B-B91E-FD309FA7E624}.Release|x86.ActiveCfg = Release|Win32
 		{CA81E503-74A8-461B-B91E-FD309FA7E624}.Release|x86.Build.0 = Release|Win32
+		{61D40A97-9337-43B2-90CC-C6872DB768FA}.Debug|x64.ActiveCfg = Debug|Win32
+		{61D40A97-9337-43B2-90CC-C6872DB768FA}.Debug|x64.Build.0 = Debug|Win32
+		{61D40A97-9337-43B2-90CC-C6872DB768FA}.Debug|x86.ActiveCfg = Debug|Win32
+		{61D40A97-9337-43B2-90CC-C6872DB768FA}.Debug|x86.Build.0 = Debug|Win32
+		{61D40A97-9337-43B2-90CC-C6872DB768FA}.Release|x64.ActiveCfg = Release|Win32
+		{61D40A97-9337-43B2-90CC-C6872DB768FA}.Release|x64.Build.0 = Release|Win32
+		{61D40A97-9337-43B2-90CC-C6872DB768FA}.Release|x86.ActiveCfg = Release|Win32
+		{61D40A97-9337-43B2-90CC-C6872DB768FA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
