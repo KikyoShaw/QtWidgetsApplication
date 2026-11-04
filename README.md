@@ -1,6 +1,6 @@
 # QtWidgetsApplication
 
-平时练手的 Qt 小功能控件合集，包含 **34 个独立示例工程**，涵盖自定义控件、窗口交互、绘制动画、聊天界面、轮播与滚动等内容，适合学习 Qt Widgets 和参考控件实现。
+平时练手的 Qt 小功能控件合集，包含 **35 个独立示例工程**，涵盖自定义控件、窗口交互、绘制动画、聊天界面、轮播与滚动等内容，适合学习 Qt Widgets 和参考控件实现。
 
 每个示例都有独立的 `main.cpp`，可以在 Visual Studio 解决方案中选择需要的项目运行。下方保留了原有的 **30 张 GIF 效果图**，并补充了功能索引、构建说明和组件复用入口。
 
@@ -61,6 +61,7 @@
 | [banner](banner/) | Banner 自动轮播、左右切换与悬停显示按钮 | [效果](#banner) |
 | [suspensionSlide](suspensionSlide/) | 覆盖在内容上的横纵滚动条，包含滚动区域和列表封装 | [效果](#suspensionslide) |
 | [SmoothScrollBarTest](SmoothScrollBarTest/) | 使用缓动动画实现纵向滚轮平滑滚动 | [效果](#smoothscrollbartest) |
+| [NodeEditor](NodeEditor/) | 节点拖动、多选、端口连线、画布缩放平移，以及 JSON 保存加载 | [效果](#nodeeditor) |
 | [ImageCropper](ImageCropper/) | 图片缩放平移、八方向裁剪框、固定比例与圆形预览，以及原图像素导出 | [效果](#imagecropper) |
 | [GalleryWidget](GalleryWidget/) | 图片卡片长廊，自动分列、动画重排、悬停缩放与点击水波 | [效果](#gallerywidget) |
 | [IconPanel](IconPanel/) | 四组内置图标字体的网格面板、码点提示与悬停样式 | [效果](#iconpanel) |
@@ -308,6 +309,18 @@ Qt 动画合集，包含位置移动、弹出、淡出、旋转、阴影、透�
 
 ![notify 桌面通知队列与补位动画效果](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/29.gif)
 
+### NodeEditor
+
+基于 QGraphicsView/QGraphicsScene 的节点编辑示例，提供输入、处理、输出三类节点，启动时显示“两输入→处理→输出”的四节点图。支持添加、拖动、框选、Ctrl 多选、双击重命名，以及删除节点和连线；节点移动时连接曲线自动跟随。
+
+可从输入或输出端口拖动连线，最终连接方向为输出到输入。每个输入端口最多连接一条线，输出允许分支；无效方向、自连、重复或占用的连接会提示并保留现有图。滚轮围绕鼠标位置缩放，中键或空格加左键平移，提供适应内容、100% 缩放和 Esc 取消交互。
+
+图结构支持 JSON 保存和加载，保存节点类型、标题、位置、稳定 ID 与端口连接；加载完整校验后才替换画布，失败保留当前图。此示例提供可视化图编辑，不执行节点业务算法。
+
+在 Visual Studio 中将 `NodeEditor` 设为启动项目，选择 `Debug / x86` 后生成运行。控件仅依赖 Qt Core、Gui、Widgets，无外部图片或工作目录要求。复用入口为 [NodeEditorWidget.h](NodeEditor/NodeEditorWidget.h)。
+
+![NodeEditor 节点编辑与端口连线界面](GIF/32.png)
+
 ### ImageCropper
 
 独立图片裁剪示例，支持打开或拖入本地图片，滚轮围绕鼠标位置缩放，中键或按住空格加左键平移。可移动裁剪框并通过四边与四角调整大小，提供自由比例、1:1、4:3、16:9 和圆形头像模式，配有裁剪外遮罩、三分辅助线和实时预览。
@@ -342,6 +355,7 @@ HEX 与 RGBA 数值双向联动，HEX 格式为 `#RRGGBB` 或 `#RRGGBBAA`（透�
 
 | 参考入口 | 可复用内容 |
 | --- | --- |
+| [NodeEditorWidget](NodeEditor/NodeEditorWidget.h) | 节点图编辑，提供 `addNode()`、`deleteSelected()`、`fitToGraph()`、`toJson()` 与 `fromJson()` |
 | [ImageCropperWidget](ImageCropper/ImageCropperWidget.h) | 原图像素裁剪，提供 `setImage()`、`setAspectMode()`、`cropRect()`、`preview()` 与 `croppedImage()` |
 | [ColorPickerWidget](ColorPicker/ColorPickerWidget.h) | 自绘取色器，提供 `selectedColor()`、`setSelectedColor()` 及 `colorChanged` 信号 |
 | [DragObject](DragObject/DragObject.h) | 通过事件过滤器为 QWidget 增加拖动能力 |
@@ -353,7 +367,7 @@ HEX 与 RGBA 数值双向联动，HEX 格式为 `#RRGGBB` 或 `#RRGGBBAA`（透�
 其他目录与文件：
 
 - [GIF/](GIF/)：README 使用的效果图。
-- [QtWidgetsApplication.sln](QtWidgetsApplication.sln)：全部 34 个示例的 Visual Studio 入口。
+- [QtWidgetsApplication.sln](QtWidgetsApplication.sln)：全部 35 个示例的 Visual Studio 入口。
 - [sqlite/](sqlite/)：未接入解决方案的 SQLite 账号存储参考代码。当前缺少 `WADefine.h`、`vfileoperation.h` 等依赖，没有独立示例入口；复用前需要补全依赖和梳理实现。
 
 ## 许可证
