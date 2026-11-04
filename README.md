@@ -4,7 +4,7 @@
 
 每个示例都有独立的 `main.cpp`，可以在 Visual Studio 解决方案中选择需要的项目运行。下方保留了原有的 **30 张 GIF 效果图**，并补充了功能索引、构建说明和组件复用入口。
 
-[功能索引](#功能索引) · [构建与运行](#构建与运行) · [效果展示](#效果展示) · [组件复用与目录说明](#组件复用与目录说明) · [许可证](#许可证)
+[功能索引](#功能索引) · [构建与运行](#构建与运行) · [效果展示](#效果展示) · [组件复用与目录说明](#组件复用与目录说明) · [相关项目](#相关项目) · [许可证](#许可证)
 
 ## 功能索引
 
@@ -369,6 +369,17 @@ HEX 与 RGBA 数值双向联动，HEX 格式为 `#RRGGBB` 或 `#RRGGBBAA`（透�
 - [GIF/](GIF/)：README 使用的效果图。
 - [QtWidgetsApplication.sln](QtWidgetsApplication.sln)：全部 35 个示例的 Visual Studio 入口。
 - [sqlite/](sqlite/)：未接入解决方案的 SQLite 账号存储参考代码。当前缺少 `WADefine.h`、`vfileoperation.h` 等依赖，没有独立示例入口；复用前需要补全依赖和梳理实现。
+
+## 相关项目
+
+更多 Qt 集成与应用示例：
+
+| 项目 | 说明 |
+| --- | --- |
+| [QCefBrowser](https://github.com/KikyoShaw/QCefBrowser) | Qt 集成 CEF 浏览器 |
+| [vlcPlayer](https://github.com/KikyoShaw/vlcPlayer) | Qt 集成 VLC 播放器 |
+| [MuPDF-Qt](https://github.com/KikyoShaw/MuPDF-Qt) | Qt 实现 PDF 阅读器 |
+| [OFDEditor](https://github.com/KikyoShaw/OFDEditor) | Qt 实现 OFD 阅读器 |
 
 ## 许可证
 
