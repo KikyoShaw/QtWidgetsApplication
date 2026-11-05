@@ -2,7 +2,7 @@
 
 平时练手的 Qt 小功能控件合集，包含 **36 个独立示例工程**，涵盖自定义控件、窗口交互、绘制动画、聊天界面、轮播与滚动等内容，适合学习 Qt Widgets 和参考控件实现。
 
-另外还有六个独立的 Qt 集成与应用项目：[QCefBrowser](https://github.com/KikyoShaw/QCefBrowser)（CEF 浏览器集成）、[vlcPlayer](https://github.com/KikyoShaw/vlcPlayer)（VLC 播放器集成）、[MuPDF-Qt](https://github.com/KikyoShaw/MuPDF-Qt)（PDF 阅读器）、[OFDEditor](https://github.com/KikyoShaw/OFDEditor)（OFD 阅读器）、[QtNotepadPlusPlus](https://github.com/KikyoShaw/QtNotepadPlusPlus)（文本编辑器）和 [QRcode-Qt](https://github.com/KikyoShaw/QRcode-Qt)（二维码生成），欢迎按需参考。
+另外还有七个独立的 Qt 集成与应用项目：[QCefBrowser](https://github.com/KikyoShaw/QCefBrowser)（CEF 浏览器集成）、[vlcPlayer](https://github.com/KikyoShaw/vlcPlayer)（VLC 播放器集成）、[ffmpegPlayer](https://github.com/KikyoShaw/ffmpegPlayer)（FFmpeg 播放器）、[MuPDF-Qt](https://github.com/KikyoShaw/MuPDF-Qt)（PDF 阅读器）、[OFDEditor](https://github.com/KikyoShaw/OFDEditor)（OFD 阅读器）、[QtNotepadPlusPlus](https://github.com/KikyoShaw/QtNotepadPlusPlus)（文本编辑器）和 [QRcode-Qt](https://github.com/KikyoShaw/QRcode-Qt)（二维码生成），欢迎按需参考。
 
 每个示例都有独立的 `main.cpp`，可以在 Visual Studio 解决方案中选择需要的项目运行。下方保留了原有的 **30 张 GIF 效果图**，并补充了功能索引、构建说明和组件复用入口。
 
@@ -394,6 +394,7 @@ HEX 与 RGBA 数值双向联动，HEX 格式为 `#RRGGBB` 或 `#RRGGBBAA`（透�
 | --- | --- |
 | [QCefBrowser](https://github.com/KikyoShaw/QCefBrowser) | Qt 集成 CEF 浏览器 |
 | [vlcPlayer](https://github.com/KikyoShaw/vlcPlayer) | Qt 集成 VLC 播放器 |
+| [ffmpegPlayer](https://github.com/KikyoShaw/ffmpegPlayer) | Qt FFmpeg 播放器 |
 | [MuPDF-Qt](https://github.com/KikyoShaw/MuPDF-Qt) | Qt 实现 PDF 阅读器 |
 | [OFDEditor](https://github.com/KikyoShaw/OFDEditor) | Qt 实现 OFD 阅读器 |
 | [QtNotepadPlusPlus](https://github.com/KikyoShaw/QtNotepadPlusPlus) | Qt 文本编辑器 |
