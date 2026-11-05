@@ -75,6 +75,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NodeEditor", "NodeEditor\No
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ScreenCapture", "ScreenCapture\ScreenCapture.vcxproj", "{81A6D2C9-63D4-4D76-9788-C09B3D8A6F21}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Danmaku", "Danmaku\Danmaku.vcxproj", "{D862BA3E-1B90-4DD2-8E7A-3ED1DBCA7496}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -349,6 +351,14 @@ Global
 		{81A6D2C9-63D4-4D76-9788-C09B3D8A6F21}.Release|x64.Build.0 = Release|Win32
 		{81A6D2C9-63D4-4D76-9788-C09B3D8A6F21}.Release|x86.ActiveCfg = Release|Win32
 		{81A6D2C9-63D4-4D76-9788-C09B3D8A6F21}.Release|x86.Build.0 = Release|Win32
+		{D862BA3E-1B90-4DD2-8E7A-3ED1DBCA7496}.Debug|x64.ActiveCfg = Debug|Win32
+		{D862BA3E-1B90-4DD2-8E7A-3ED1DBCA7496}.Debug|x64.Build.0 = Debug|Win32
+		{D862BA3E-1B90-4DD2-8E7A-3ED1DBCA7496}.Debug|x86.ActiveCfg = Debug|Win32
+		{D862BA3E-1B90-4DD2-8E7A-3ED1DBCA7496}.Debug|x86.Build.0 = Debug|Win32
+		{D862BA3E-1B90-4DD2-8E7A-3ED1DBCA7496}.Release|x64.ActiveCfg = Release|Win32
+		{D862BA3E-1B90-4DD2-8E7A-3ED1DBCA7496}.Release|x64.Build.0 = Release|Win32
+		{D862BA3E-1B90-4DD2-8E7A-3ED1DBCA7496}.Release|x86.ActiveCfg = Release|Win32
+		{D862BA3E-1B90-4DD2-8E7A-3ED1DBCA7496}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

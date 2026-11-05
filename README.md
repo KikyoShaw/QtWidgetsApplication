@@ -1,6 +1,6 @@
 # QtWidgetsApplication
 
-平时练手的 Qt 小功能控件合集，包含 **36 个独立示例工程**，涵盖自定义控件、窗口交互、绘制动画、聊天界面、轮播与滚动等内容，适合学习 Qt Widgets 和参考控件实现。
+平时练手的 Qt 小功能控件合集，包含 **37 个独立示例工程**，涵盖自定义控件、窗口交互、绘制动画、聊天界面、轮播与滚动等内容，适合学习 Qt Widgets 和参考控件实现。
 
 另外还有七个独立的 Qt 集成与应用项目：[QCefBrowser](https://github.com/KikyoShaw/QCefBrowser)（CEF 浏览器集成）、[vlcPlayer](https://github.com/KikyoShaw/vlcPlayer)（VLC 播放器集成）、[ffmpegPlayer](https://github.com/KikyoShaw/ffmpegPlayer)（FFmpeg 播放器）、[MuPDF-Qt](https://github.com/KikyoShaw/MuPDF-Qt)（PDF 阅读器）、[OFDEditor](https://github.com/KikyoShaw/OFDEditor)（OFD 阅读器）、[QtNotepadPlusPlus](https://github.com/KikyoShaw/QtNotepadPlusPlus)（文本编辑器）和 [QRcode-Qt](https://github.com/KikyoShaw/QRcode-Qt)（二维码生成），欢迎按需参考。
 
@@ -59,6 +59,7 @@
 
 | 示例源码 | 主要功能 | 预览 |
 | --- | --- | --- |
+| [Danmaku](Danmaku/) | 多通道弹幕飘屏，实时调节字号、通道数、透明度和速度 | [说明](#danmaku) |
 | [marqueeLabel](marqueeLabel/) | 自绘富文本跑马灯，文字水平循环移动 | [效果](#marqueelabel) |
 | [carouselLabel](carouselLabel/) | 带说明文字的图片轮播，支持自动与按钮切换 | [效果](#carousellabel) |
 | [banner](banner/) | Banner 自动轮播、左右切换与悬停显示按钮 | [效果](#banner) |
@@ -312,6 +313,16 @@ Qt 动画合集，包含位置移动、弹出、淡出、旋转、阴影、透�
 
 ![notify 桌面通知队列与补位动画效果](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/29.gif)
 
+### Danmaku
+
+多通道弹幕飘屏示例，文字从右向左滚动，支持实时设置字号（16～48 逻辑像素）、请求通道数（1～12）与透明度（0～100%），另提供滚动速度、单条输入发送、预置或随机颜色、自动演示、暂停/继续及清空。
+
+同通道使用统一速度，并按文字实际宽度和间隔安排入场，避免后方弹幕追尾。有效通道数受字号和画面高度约束，界面同时显示请求值、有效值、在屏数量与排队数量。调整字号、通道数或窗口尺寸时会重新排布已有条目，必要时推迟到屏右等待；暂停、隐藏或没有有效通道时保留弹幕并停止推进。
+
+背景是程序绘制的静态演示画面，透明度仅影响弹幕文字与描边。该示例展示本地弹幕控件与调度，不包含视频解码、网络弹幕服务或富文本协议。
+
+在 Visual Studio 中将 `Danmaku` 设为启动项目，选择 `Debug / x86` 后生成运行。复用入口为 [DanmakuWidget.h](Danmaku/DanmakuWidget.h)，当前未收录独立截图。
+
 ### ScreenCapture
 
 独立屏幕截图示例，点击“开始截图”后隐藏演示窗口，冻结屏幕画面并进入框选。支持四方向选择、框内移动、八方向调整及最终像素尺寸提示，可在任意显示器开始选取，选区限定在起始屏幕内。
@@ -370,6 +381,7 @@ HEX 与 RGBA 数值双向联动，HEX 格式为 `#RRGGBB` 或 `#RRGGBBAA`（透�
 
 | 参考入口 | 可复用内容 |
 | --- | --- |
+| [DanmakuWidget](Danmaku/DanmakuWidget.h) | 多通道弹幕绘制与调度，提供 `sendText()`、字号/通道/透明度设置、暂停与清空 |
 | [ScreenCaptureController](ScreenCapture/ScreenCaptureController.h) | 屏幕区域截图会话，提供 `start()`、`cancel()` 及结果、取消和错误信号 |
 | [NodeEditorWidget](NodeEditor/NodeEditorWidget.h) | 节点图编辑，提供 `addNode()`、`deleteSelected()`、`fitToGraph()`、`toJson()` 与 `fromJson()` |
 | [ImageCropperWidget](ImageCropper/ImageCropperWidget.h) | 原图像素裁剪，提供 `setImage()`、`setAspectMode()`、`cropRect()`、`preview()` 与 `croppedImage()` |
@@ -383,7 +395,7 @@ HEX 与 RGBA 数值双向联动，HEX 格式为 `#RRGGBB` 或 `#RRGGBBAA`（透�
 其他目录与文件：
 
 - [GIF/](GIF/)：README 使用的效果图。
-- [QtWidgetsApplication.sln](QtWidgetsApplication.sln)：全部 36 个示例的 Visual Studio 入口。
+- [QtWidgetsApplication.sln](QtWidgetsApplication.sln)：全部 37 个示例的 Visual Studio 入口。
 - [sqlite/](sqlite/)：未接入解决方案的 SQLite 账号存储参考代码。当前缺少 `WADefine.h`、`vfileoperation.h` 等依赖，没有独立示例入口；复用前需要补全依赖和梳理实现。
 
 ## 相关项目
