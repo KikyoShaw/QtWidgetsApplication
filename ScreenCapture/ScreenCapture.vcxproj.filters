@@ -14,6 +14,9 @@
     <ClCompile Include="ScreenCaptureOverlay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ScreenCaptureAnnotation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="ScreenCaptureDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -25,6 +28,9 @@
     <QtMoc Include="ScreenCaptureOverlay.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <ClInclude Include="ScreenCaptureAnnotation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="ScreenCaptureDemo.h">
       <Filter>Header Files</Filter>
     </ClInclude>

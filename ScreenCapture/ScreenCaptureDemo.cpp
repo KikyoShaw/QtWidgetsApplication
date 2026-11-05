@@ -137,7 +137,7 @@ ScreenCaptureDemo::ScreenCaptureDemo(QWidget *parent) : QWidget(parent)
     layout->addWidget(title);
 
     auto *description = new QLabel(
-        QStringLiteral("点击开始后隐藏窗口，任意屏幕内框选；选区不跨屏。Enter复制/Ctrl+S保存/Esc取消"), this);
+        QStringLiteral("框选后可添加马赛克、文本和箭头；选区不跨屏。文字用 Ctrl+Enter 确认，Enter 换行。"), this);
     description->setObjectName(QStringLiteral("DemoDescription"));
     description->setWordWrap(true);
     layout->addWidget(description);
@@ -237,7 +237,7 @@ void ScreenCaptureDemo::startCapture()
         return;
 
     updateCaptureUi(true);
-    setStatus(QStringLiteral("正在截图：拖动框选，Enter 复制，Ctrl+S 保存，Esc 取消。"));
+    setStatus(QStringLiteral("正在截图：框选后可加马赛克、文本和箭头；文字 Ctrl+Enter 确认，Esc 优先取消当前标注。"));
     if (!m_controller->start(this))
         updateCaptureUi(false);
 }

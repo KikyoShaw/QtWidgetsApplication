@@ -94,11 +94,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ScreenCaptureController.cpp" />
     <ClCompile Include="ScreenCaptureOverlay.cpp" />
+    <ClCompile Include="ScreenCaptureAnnotation.cpp" />
     <ClCompile Include="ScreenCaptureDemo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ScreenCaptureController.h" />
     <QtMoc Include="ScreenCaptureOverlay.h" />
+    <ClInclude Include="ScreenCaptureAnnotation.h" />
     <ClInclude Include="ScreenCaptureDemo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

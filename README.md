@@ -26,7 +26,7 @@
 
 | 示例源码 | 主要功能 | 预览 |
 | --- | --- | --- |
-| [ScreenCapture](ScreenCapture/) | 屏幕区域框选、选区移动缩放、原始像素复制与 PNG 保存 | [说明](#screencapture) |
+| [ScreenCapture](ScreenCapture/) | 区域截图、马赛克/文本/箭头标注、撤销清空，以及原始像素复制与 PNG 保存 | [说明](#screencapture) |
 | [frameLessScale](frameLessScale/) | 无边框窗口拖动、八方向缩放与 QSplitter 布局 | [效果](#framelessscale) |
 | [DockWin](DockWin/) | QDockWidget 面板停靠、浮动拆分与标签合并 | [效果](#dockwin) |
 | [floatingWin](floatingWin/) | 无边框窗口拖动、贴近屏幕上边缘后的自动隐藏与展开 | [效果](#floatingwin) |
@@ -316,9 +316,11 @@ Qt 动画合集，包含位置移动、弹出、淡出、旋转、阴影、透�
 
 独立屏幕截图示例，点击“开始截图”后隐藏演示窗口，冻结屏幕画面并进入框选。支持四方向选择、框内移动、八方向调整及最终像素尺寸提示，可在任意显示器开始选取，选区限定在起始屏幕内。
 
-浮动工具条提供重选、复制、保存 PNG 和取消，支持 `Enter` 复制、`Ctrl+S` 保存、`Esc` 取消。截图结束后恢复演示窗口并预览结果，保存取消或失败时保留结果供重试。复制与保存使用原始截图设备像素，界面逻辑坐标与图像像素按实际尺寸映射。
+框选后可切换选择、马赛克、文本和箭头工具：拖动矩形打马赛克，点击添加中文或多行文本，拖动绘制指向箭头；可调整常用颜色、字号、线宽和马赛克块大小，并支持撤销上一条、清空全部标注。选择工具保留选区移动与缩放，已有标注固定在原图位置；重选会清除标注。
 
-在 Visual Studio 中将 `ScreenCapture` 设为启动项目，选择 `Debug / x86` 后生成运行。仅在用户主动点击时截图，无全局快捷键或后台常驻；当前不包含跨屏拼接、标注、OCR 或长截图。复用入口为 [ScreenCaptureController.h](ScreenCapture/ScreenCaptureController.h)，当前未收录独立截图。
+文字编辑时 `Enter` 换行、`Ctrl+Enter` 确认，`Esc` 优先取消当前未完成标注。非文字编辑状态下 `Enter` 复制，`Ctrl+S` 保存。预览、复制和保存使用同一份原始像素合成结果，不包含编辑框、光标或工具条。截图结束后恢复演示窗口并预览结果，保存取消或失败时保留结果供重试。
+
+在 Visual Studio 中将 `ScreenCapture` 设为启动项目，选择 `Debug / x86` 后生成运行。仅在用户主动点击时截图，无全局快捷键或后台常驻；当前不包含跨屏拼接、OCR 或长截图。复用入口为 [ScreenCaptureController.h](ScreenCapture/ScreenCaptureController.h)，当前未收录独立截图。
 
 ### NodeEditor
 
