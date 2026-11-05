@@ -26,7 +26,7 @@
 
 | 示例源码 | 主要功能 | 预览 |
 | --- | --- | --- |
-| [ScreenCapture](ScreenCapture/) | 区域截图、马赛克/文本/箭头标注、撤销清空，以及原始像素复制与 PNG 保存 | [说明](#screencapture) |
+| [ScreenCapture](ScreenCapture/) | 区域截图、马赛克/文本/箭头标注、撤销清空，以及原始像素复制与 PNG 保存 | [效果](#screencapture) |
 | [frameLessScale](frameLessScale/) | 无边框窗口拖动、八方向缩放与 QSplitter 布局 | [效果](#framelessscale) |
 | [DockWin](DockWin/) | QDockWidget 面板停靠、浮动拆分与标签合并 | [效果](#dockwin) |
 | [floatingWin](floatingWin/) | 无边框窗口拖动、贴近屏幕上边缘后的自动隐藏与展开 | [效果](#floatingwin) |
@@ -320,7 +320,9 @@ Qt 动画合集，包含位置移动、弹出、淡出、旋转、阴影、透�
 
 文字编辑时 `Enter` 换行、`Ctrl+Enter` 确认，`Esc` 优先取消当前未完成标注。非文字编辑状态下 `Enter` 复制，`Ctrl+S` 保存。预览、复制和保存使用同一份原始像素合成结果，不包含编辑框、光标或工具条。截图结束后恢复演示窗口并预览结果，保存取消或失败时保留结果供重试。
 
-在 Visual Studio 中将 `ScreenCapture` 设为启动项目，选择 `Debug / x86` 后生成运行。仅在用户主动点击时截图，无全局快捷键或后台常驻；当前不包含跨屏拼接、OCR 或长截图。复用入口为 [ScreenCaptureController.h](ScreenCapture/ScreenCaptureController.h)，当前未收录独立截图。
+在 Visual Studio 中将 `ScreenCapture` 设为启动项目，选择 `Debug / x86` 后生成运行。仅在用户主动点击时截图，无全局快捷键或后台常驻；当前不包含跨屏拼接、OCR 或长截图。复用入口为 [ScreenCaptureController.h](ScreenCapture/ScreenCaptureController.h)。
+
+![ScreenCapture 区域截图与马赛克、文本、箭头标注效果](GIF/33.png)
 
 ### NodeEditor
 
