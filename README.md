@@ -1,6 +1,6 @@
 # QtWidgetsApplication
 
-平时练手的 Qt 小功能控件合集，包含 **35 个独立示例工程**，涵盖自定义控件、窗口交互、绘制动画、聊天界面、轮播与滚动等内容，适合学习 Qt Widgets 和参考控件实现。
+平时练手的 Qt 小功能控件合集，包含 **36 个独立示例工程**，涵盖自定义控件、窗口交互、绘制动画、聊天界面、轮播与滚动等内容，适合学习 Qt Widgets 和参考控件实现。
 
 另外还有六个独立的 Qt 集成与应用项目：[QCefBrowser](https://github.com/KikyoShaw/QCefBrowser)（CEF 浏览器集成）、[vlcPlayer](https://github.com/KikyoShaw/vlcPlayer)（VLC 播放器集成）、[MuPDF-Qt](https://github.com/KikyoShaw/MuPDF-Qt)（PDF 阅读器）、[OFDEditor](https://github.com/KikyoShaw/OFDEditor)（OFD 阅读器）、[QtNotepadPlusPlus](https://github.com/KikyoShaw/QtNotepadPlusPlus)（文本编辑器）和 [QRcode-Qt](https://github.com/KikyoShaw/QRcode-Qt)（二维码生成），欢迎按需参考。
 
@@ -26,6 +26,7 @@
 
 | 示例源码 | 主要功能 | 预览 |
 | --- | --- | --- |
+| [ScreenCapture](ScreenCapture/) | 屏幕区域框选、选区移动缩放、原始像素复制与 PNG 保存 | [说明](#screencapture) |
 | [frameLessScale](frameLessScale/) | 无边框窗口拖动、八方向缩放与 QSplitter 布局 | [效果](#framelessscale) |
 | [DockWin](DockWin/) | QDockWidget 面板停靠、浮动拆分与标签合并 | [效果](#dockwin) |
 | [floatingWin](floatingWin/) | 无边框窗口拖动、贴近屏幕上边缘后的自动隐藏与展开 | [效果](#floatingwin) |
@@ -311,6 +312,14 @@ Qt 动画合集，包含位置移动、弹出、淡出、旋转、阴影、透�
 
 ![notify 桌面通知队列与补位动画效果](https://github.com/KikyoShaw/QtWidgetsApplication/blob/master/GIF/29.gif)
 
+### ScreenCapture
+
+独立屏幕截图示例，点击“开始截图”后隐藏演示窗口，冻结屏幕画面并进入框选。支持四方向选择、框内移动、八方向调整及最终像素尺寸提示，可在任意显示器开始选取，选区限定在起始屏幕内。
+
+浮动工具条提供重选、复制、保存 PNG 和取消，支持 `Enter` 复制、`Ctrl+S` 保存、`Esc` 取消。截图结束后恢复演示窗口并预览结果，保存取消或失败时保留结果供重试。复制与保存使用原始截图设备像素，界面逻辑坐标与图像像素按实际尺寸映射。
+
+在 Visual Studio 中将 `ScreenCapture` 设为启动项目，选择 `Debug / x86` 后生成运行。仅在用户主动点击时截图，无全局快捷键或后台常驻；当前不包含跨屏拼接、标注、OCR 或长截图。复用入口为 [ScreenCaptureController.h](ScreenCapture/ScreenCaptureController.h)，当前未收录独立截图。
+
 ### NodeEditor
 
 基于 QGraphicsView/QGraphicsScene 的节点编辑示例，提供输入、处理、输出三类节点，启动时显示“两输入→处理→输出”的四节点图。支持添加、拖动、框选、Ctrl 多选、双击重命名，以及删除节点和连线；节点移动时连接曲线自动跟随。
@@ -357,6 +366,7 @@ HEX 与 RGBA 数值双向联动，HEX 格式为 `#RRGGBB` 或 `#RRGGBBAA`（透�
 
 | 参考入口 | 可复用内容 |
 | --- | --- |
+| [ScreenCaptureController](ScreenCapture/ScreenCaptureController.h) | 屏幕区域截图会话，提供 `start()`、`cancel()` 及结果、取消和错误信号 |
 | [NodeEditorWidget](NodeEditor/NodeEditorWidget.h) | 节点图编辑，提供 `addNode()`、`deleteSelected()`、`fitToGraph()`、`toJson()` 与 `fromJson()` |
 | [ImageCropperWidget](ImageCropper/ImageCropperWidget.h) | 原图像素裁剪，提供 `setImage()`、`setAspectMode()`、`cropRect()`、`preview()` 与 `croppedImage()` |
 | [ColorPickerWidget](ColorPicker/ColorPickerWidget.h) | 自绘取色器，提供 `selectedColor()`、`setSelectedColor()` 及 `colorChanged` 信号 |
@@ -369,7 +379,7 @@ HEX 与 RGBA 数值双向联动，HEX 格式为 `#RRGGBB` 或 `#RRGGBBAA`（透�
 其他目录与文件：
 
 - [GIF/](GIF/)：README 使用的效果图。
-- [QtWidgetsApplication.sln](QtWidgetsApplication.sln)：全部 35 个示例的 Visual Studio 入口。
+- [QtWidgetsApplication.sln](QtWidgetsApplication.sln)：全部 36 个示例的 Visual Studio 入口。
 - [sqlite/](sqlite/)：未接入解决方案的 SQLite 账号存储参考代码。当前缺少 `WADefine.h`、`vfileoperation.h` 等依赖，没有独立示例入口；复用前需要补全依赖和梳理实现。
 
 ## 相关项目
