@@ -59,7 +59,7 @@
 
 | 示例源码 | 主要功能 | 预览 |
 | --- | --- | --- |
-| [Danmaku](Danmaku/) | 多通道弹幕飘屏，实时调节字号、通道数、透明度和速度 | [说明](#danmaku) |
+| [Danmaku](Danmaku/) | 多通道弹幕飘屏，实时调节字号、通道数、透明度和速度 | [效果](#danmaku) |
 | [marqueeLabel](marqueeLabel/) | 自绘富文本跑马灯，文字水平循环移动 | [效果](#marqueelabel) |
 | [carouselLabel](carouselLabel/) | 带说明文字的图片轮播，支持自动与按钮切换 | [效果](#carousellabel) |
 | [banner](banner/) | Banner 自动轮播、左右切换与悬停显示按钮 | [效果](#banner) |
@@ -321,7 +321,9 @@ Qt 动画合集，包含位置移动、弹出、淡出、旋转、阴影、透�
 
 背景是程序绘制的静态演示画面，透明度仅影响弹幕文字与描边。该示例展示本地弹幕控件与调度，不包含视频解码、网络弹幕服务或富文本协议。
 
-在 Visual Studio 中将 `Danmaku` 设为启动项目，选择 `Debug / x86` 后生成运行。复用入口为 [DanmakuWidget.h](Danmaku/DanmakuWidget.h)，当前未收录独立截图。
+在 Visual Studio 中将 `Danmaku` 设为启动项目，选择 `Debug / x86` 后生成运行。复用入口为 [DanmakuWidget.h](Danmaku/DanmakuWidget.h)。
+
+![Danmaku 多通道弹幕飘屏与字号、通道数、透明度设置效果](GIF/34.png)
 
 ### ScreenCapture
 
