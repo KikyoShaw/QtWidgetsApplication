@@ -2,6 +2,7 @@
 
 #include <QBrush>
 #include <QElapsedTimer>
+#include <QEvent>
 #include <QFont>
 #include <QFontMetricsF>
 #include <QHideEvent>
@@ -9,6 +10,7 @@
 #include <QPainterPath>
 #include <QPainterPathStroker>
 #include <QPaintEvent>
+#include <QPixmap>
 #include <QPointer>
 #include <QRectF>
 #include <QResizeEvent>
@@ -41,7 +43,7 @@ void incrementCount(int &count)
 }
 }
 
-class DanmakuWidget::Private
+class DanmakuWidget::Private : public QObject
 {
 public:
     struct Item
@@ -51,6 +53,10 @@ public:
         quint64 sequence = 0;
         QPainterPath textPath;
         QPainterPath outlinePath;
+        QPixmap cachedPixmap;
+        QPointF pixmapOffset;
+        QColor pixmapColor;
+        qreal pixmapDpr = 0.0;
         qreal width = 0.0;
         qreal height = 0.0;
         qreal x = 0.0;
@@ -76,11 +82,23 @@ public:
     };
 
     explicit Private(DanmakuWidget *widget)
-        : q(widget), timer(new QTimer(widget))
+        : QObject(widget), q(widget), timer(new QTimer(widget))
     {
         timer->setInterval(FrameInterval);
         timer->setTimerType(Qt::PreciseTimer);
         rebuildFont();
+    }
+
+    bool eventFilter(QObject *watched, QEvent *event) override
+    {
+        if (watched == q && event->type() == QEvent::FontChange)
+        {
+            QPointer<DanmakuWidget> owner(q);
+            rebuildFont();
+            finish(true);
+            return owner.isNull();
+        }
+        return false;
     }
 
     QRectF contentRect() const
@@ -88,6 +106,46 @@ public:
         const QRect rect = q->contentsRect();
         return QRectF(rect.x(), rect.y(), (std::max)(0, rect.width()),
                       (std::max)(0, rect.height()));
+    }
+
+    void rebuildPixmap(Item &item, qreal dpr)
+    {
+        item.cachedPixmap = QPixmap();
+        // Remember failed attempts too, so allocation failure keeps the vector fallback.
+        item.pixmapDpr = dpr;
+        item.pixmapColor = item.color;
+        if (!(dpr > 0.0) || !std::isfinite(static_cast<double>(dpr))
+            || item.textPath.isEmpty())
+            return;
+
+        // Geometry already includes the outline; allow two device pixels for AA and filtering.
+        const qreal padding = 2.0 / dpr;
+        const qreal pixelWidth = std::ceil((item.width + 2.0 * padding) * dpr);
+        const qreal pixelHeight = std::ceil((item.height + 2.0 * padding) * dpr);
+        const qreal maximum = static_cast<qreal>((std::numeric_limits<int>::max)());
+        if (!std::isfinite(static_cast<double>(pixelWidth))
+            || !std::isfinite(static_cast<double>(pixelHeight))
+            || pixelWidth <= 0.0 || pixelHeight <= 0.0
+            || pixelWidth > maximum || pixelHeight > maximum)
+            return;
+
+        QPixmap pixmap(static_cast<int>(pixelWidth), static_cast<int>(pixelHeight));
+        if (pixmap.isNull())
+            return;
+        pixmap.setDevicePixelRatio(dpr);
+        pixmap.fill(Qt::transparent);
+        {
+            QPainter painter(&pixmap);
+            if (!painter.isActive())
+                return;
+            painter.setRenderHint(QPainter::Antialiasing);
+            painter.setRenderHint(QPainter::TextAntialiasing);
+            painter.translate(padding, padding);
+            painter.fillPath(item.outlinePath, QBrush(Qt::black));
+            painter.fillPath(item.textPath, QBrush(item.color));
+        }
+        item.pixmapOffset = QPointF(-padding, -padding);
+        item.cachedPixmap = std::move(pixmap);
     }
 
     void buildGeometry(Item &item)
@@ -109,6 +167,7 @@ public:
         item.width = (std::max)(qreal(1.0), bounds.width());
         item.height = (std::max)(qreal(0.0), bounds.height());
         item.geometryReady = true;
+        rebuildPixmap(item, q->devicePixelRatioF());
     }
 
     void rebuildFont()
@@ -391,6 +450,7 @@ DanmakuWidget::DanmakuWidget(QWidget *parent)
 {
     setAutoFillBackground(false);
     setAttribute(Qt::WA_TranslucentBackground);
+    installEventFilter(d.get());
     connect(d->timer, &QTimer::timeout, this, [this]() { d->tick(); });
     d->finish(true);
 }
@@ -526,17 +586,29 @@ void DanmakuWidget::paintEvent(QPaintEvent *event)
     painter.setClipRect(rect);
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setRenderHint(QPainter::TextAntialiasing);
+    painter.setRenderHint(QPainter::SmoothPixmapTransform);
     painter.setOpacity(d->textOpacity);
+    const qreal dpr = devicePixelRatioF();
     const QBrush outlineBrush(Qt::black);
-    for (const Private::Item &item : d->active)
+    for (Private::Item &item : d->active)
     {
         if (!d->intersectsViewport(item, rect))
             continue;
-        painter.save();
-        painter.translate(item.x, d->itemTop(item, rect));
-        painter.fillPath(item.outlinePath, outlineBrush);
-        painter.fillPath(item.textPath, QBrush(item.color));
-        painter.restore();
+        if (item.pixmapDpr != dpr || item.pixmapColor != item.color)
+            d->rebuildPixmap(item, dpr);
+        const QPointF origin(item.x, d->itemTop(item, rect));
+        if (!item.cachedPixmap.isNull())
+        {
+            painter.drawPixmap(origin + item.pixmapOffset, item.cachedPixmap);
+        }
+        else
+        {
+            painter.save();
+            painter.translate(origin);
+            painter.fillPath(item.outlinePath, outlineBrush);
+            painter.fillPath(item.textPath, QBrush(item.color));
+            painter.restore();
+        }
     }
     painter.restore();
 }

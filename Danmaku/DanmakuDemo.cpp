@@ -13,6 +13,7 @@
 #include <QLinearGradient>
 #include <QPainter>
 #include <QPainterPath>
+#include <QPixmap>
 #include <QPushButton>
 #include <QRandomGenerator>
 #include <QRadialGradient>
@@ -42,7 +43,43 @@ public:
 protected:
     void paintEvent(QPaintEvent *) override
     {
+        const QSize logicalSize = size();
+        const qreal dpr = devicePixelRatioF();
+        if (m_cache.isNull() || m_cachedSize != logicalSize || m_cachedDpr != dpr) {
+            m_cache = QPixmap();
+            if (!logicalSize.isEmpty()) {
+                QPixmap cache(qCeil(logicalSize.width() * dpr),
+                              qCeil(logicalSize.height() * dpr));
+                if (!cache.isNull()) {
+                    cache.setDevicePixelRatio(dpr);
+                    // Cover the fractional edge pixels introduced by rounding up.
+                    cache.fill(QColor(QStringLiteral("#192D49")));
+                    QPainter cachePainter(&cache);
+                    if (cachePainter.isActive()) {
+                        paintBackdrop(cachePainter);
+                        cachePainter.end();
+                        m_cache = cache;
+                    }
+                }
+            }
+            m_cachedSize = logicalSize;
+            m_cachedDpr = dpr;
+        }
+
         QPainter painter(this);
+        if (!m_cache.isNull())
+            painter.drawPixmap(QPointF(0, 0), m_cache);
+        else
+            paintBackdrop(painter);
+    }
+
+private:
+    void paintBackdrop(QPainter &painter) const
+    {
+        painter.fillRect(rect(), QColor(QStringLiteral("#192D49")));
+        if (size().isEmpty())
+            return;
+
         painter.setRenderHint(QPainter::Antialiasing);
         painter.scale(width() / 1000.0, height() / 650.0);
         painter.setPen(Qt::NoPen);
@@ -120,6 +157,10 @@ protected:
         foreground.closeSubpath();
         painter.fillPath(foreground, QColor(QStringLiteral("#172E42")));
     }
+
+    QPixmap m_cache;
+    QSize m_cachedSize;
+    qreal m_cachedDpr = 0.0;
 };
 
 const QStringList &sampleTexts()
