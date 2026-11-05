@@ -28,6 +28,8 @@ protected:
     void changeEvent(QEvent *event) override;
 
 private:
+    void requestFontSize(int fontSize);
+    void applyPendingFontSize();
     void syncSettings();
     void syncStatistics();
     void updateSampleTimer();
@@ -50,7 +52,10 @@ private:
     QLabel *m_laneHint = nullptr;
     QLineEdit *m_input = nullptr;
     QComboBox *m_colorCombo = nullptr;
+    QTimer *m_fontTimer = nullptr;
     QTimer *m_sampleTimer = nullptr;
+    int m_pendingFontSize = 24;
+    bool m_fontSizePending = false;
     bool m_displayed = false;
     bool m_seeded = false;
 };

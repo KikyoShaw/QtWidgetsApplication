@@ -15,6 +15,7 @@
 #include <QRectF>
 #include <QResizeEvent>
 #include <QShowEvent>
+#include <QSizeF>
 #include <QTimer>
 
 #include <algorithm>
@@ -57,6 +58,10 @@ public:
         QPointF pixmapOffset;
         QColor pixmapColor;
         qreal pixmapDpr = 0.0;
+        QSizeF pixmapLayoutSize;
+        QSizeF pathLayoutSize;
+        QPointF textOffset;
+        bool rasterDirty = true;
         qreal width = 0.0;
         qreal height = 0.0;
         qreal x = 0.0;
@@ -82,10 +87,12 @@ public:
     };
 
     explicit Private(DanmakuWidget *widget)
-        : QObject(widget), q(widget), timer(new QTimer(widget))
+        : QObject(widget), q(widget), timer(new QTimer(widget)), rasterTimer(new QTimer(widget))
     {
         timer->setInterval(FrameInterval);
         timer->setTimerType(Qt::PreciseTimer);
+        rasterTimer->setSingleShot(true);
+        rasterTimer->setInterval(8);
         rebuildFont();
     }
 
@@ -110,15 +117,25 @@ public:
 
     void rebuildPixmap(Item &item, qreal dpr)
     {
+        // 字形和描边也延后准备，字号切换只同步更新碰撞尺寸。
+        QPainterPath textPath;
+        textPath.addText(item.textOffset, textFont, item.text);
+        QPainterPathStroker stroker;
+        stroker.setWidth(OutlineWidth);
+        stroker.setCapStyle(Qt::RoundCap);
+        stroker.setJoinStyle(Qt::RoundJoin);
+        item.outlinePath = stroker.createStroke(textPath);
+        item.textPath = std::move(textPath);
+        item.pathLayoutSize = QSizeF(item.width, item.height);
         item.cachedPixmap = QPixmap();
-        // Remember failed attempts too, so allocation failure keeps the vector fallback.
+        item.rasterDirty = false;
+        // 失败也记录当前键，避免每帧重复尝试分配。
         item.pixmapDpr = dpr;
         item.pixmapColor = item.color;
         if (!(dpr > 0.0) || !std::isfinite(static_cast<double>(dpr))
             || item.textPath.isEmpty())
             return;
 
-        // Geometry already includes the outline; allow two device pixels for AA and filtering.
         const qreal padding = 2.0 / dpr;
         const qreal pixelWidth = std::ceil((item.width + 2.0 * padding) * dpr);
         const qreal pixelHeight = std::ceil((item.height + 2.0 * padding) * dpr);
@@ -145,29 +162,77 @@ public:
             painter.fillPath(item.textPath, QBrush(item.color));
         }
         item.pixmapOffset = QPointF(-padding, -padding);
+        item.pixmapLayoutSize = QSizeF(item.width, item.height);
         item.cachedPixmap = std::move(pixmap);
     }
 
     void buildGeometry(Item &item)
     {
-        QPainterPath textPath;
-        textPath.addText(QPointF(0.0, 0.0), textFont, item.text);
-
-        QPainterPathStroker stroker;
-        stroker.setWidth(OutlineWidth);
-        stroker.setCapStyle(Qt::RoundCap);
-        stroker.setJoinStyle(Qt::RoundJoin);
-        QPainterPath outlinePath = stroker.createStroke(textPath);
-        const QRectF bounds = textPath.boundingRect().united(outlinePath.boundingRect());
-
-        textPath.translate(-bounds.left(), -bounds.top());
-        outlinePath.translate(-bounds.left(), -bounds.top());
-        item.textPath = std::move(textPath);
-        item.outlinePath = std::move(outlinePath);
+        const QFontMetricsF metrics(textFont, q);
+        const QRectF line(0.0, -metrics.ascent(), metrics.horizontalAdvance(item.text), metrics.height());
+        const QRectF bounds = metrics.boundingRect(item.text).united(line)
+                                  .adjusted(-OutlineWidth, -OutlineWidth, OutlineWidth, OutlineWidth);
+        item.textOffset = -bounds.topLeft();
         item.width = (std::max)(qreal(1.0), bounds.width());
-        item.height = (std::max)(qreal(0.0), bounds.height());
+        item.height = (std::max)(qreal(1.0), bounds.height());
         item.geometryReady = true;
-        rebuildPixmap(item, q->devicePixelRatioF());
+        item.rasterDirty = true;
+    }
+
+    bool needsRaster(const Item &item, qreal dpr) const
+    {
+        return item.rasterDirty || item.pixmapDpr != dpr || item.pixmapColor != item.color;
+    }
+
+    bool shouldPrepareRaster(const Item &item, const QRectF &rect, bool visibleOnly) const
+    {
+        if (item.lane < 0 || item.lane >= effectiveLanes || rect.isEmpty())
+            return false;
+        if (visibleOnly)
+            return intersectsViewport(item, rect);
+        return item.x + item.width > rect.left() && item.x < rect.right() + speed * 0.25;
+    }
+
+    void scheduleRaster()
+    {
+        if (!displayed || effectiveLanes == 0 || active.empty()) {
+            rasterTimer->stop();
+            return;
+        }
+        const QRectF rect = contentRect();
+        const qreal dpr = q->devicePixelRatioF();
+        const bool needed = std::any_of(active.begin(), active.end(), [&](const Item &item) {
+            return shouldPrepareRaster(item, rect, false) && needsRaster(item, dpr);
+        });
+        if (!needed)
+            rasterTimer->stop();
+        else if (!rasterTimer->isActive())
+            rasterTimer->start();
+    }
+
+    void prepareRasterBatch()
+    {
+        if (!displayed || effectiveLanes == 0)
+            return;
+        QElapsedTimer budget;
+        budget.start();
+        const QRectF rect = contentRect();
+        const qreal dpr = q->devicePixelRatioF();
+        int prepared = 0;
+        // 只处理当前条目，不跨事件保存元素指针；先可见，再准备即将入场的条目。
+        for (int pass = 0; pass < 2 && prepared < 2 && budget.nsecsElapsed() < 2000000; ++pass) {
+            for (Item &item : active) {
+                if (prepared >= 2 || budget.nsecsElapsed() >= 2000000)
+                    break;
+                if (shouldPrepareRaster(item, rect, pass == 0) && needsRaster(item, dpr)) {
+                    rebuildPixmap(item, dpr);
+                    ++prepared;
+                }
+            }
+        }
+        if (prepared > 0)
+            q->update();
+        scheduleRaster();
     }
 
     void rebuildFont()
@@ -400,6 +465,7 @@ public:
             updateLayout(false);
         dispatchQueued();
         updateTimer();
+        scheduleRaster();
         updateStatistics();
         q->update();
         notifyChanges();
@@ -421,6 +487,7 @@ public:
 
     DanmakuWidget *q;
     QTimer *timer;
+    QTimer *rasterTimer;
     QElapsedTimer clock;
     qint64 lastFrameNsecs = 0;
     QFont textFont;
@@ -452,13 +519,16 @@ DanmakuWidget::DanmakuWidget(QWidget *parent)
     setAttribute(Qt::WA_TranslucentBackground);
     installEventFilter(d.get());
     connect(d->timer, &QTimer::timeout, this, [this]() { d->tick(); });
+    connect(d->rasterTimer, &QTimer::timeout, this, [this]() { d->prepareRasterBatch(); });
     d->finish(true);
 }
 
 DanmakuWidget::~DanmakuWidget()
 {
     d->timer->stop();
+    d->rasterTimer->stop();
     QObject::disconnect(d->timer, nullptr, this, nullptr);
+    QObject::disconnect(d->rasterTimer, nullptr, this, nullptr);
     d->clock.invalidate();
 }
 
@@ -588,29 +658,42 @@ void DanmakuWidget::paintEvent(QPaintEvent *event)
     painter.setRenderHint(QPainter::TextAntialiasing);
     painter.setRenderHint(QPainter::SmoothPixmapTransform);
     painter.setOpacity(d->textOpacity);
-    const qreal dpr = devicePixelRatioF();
     const QBrush outlineBrush(Qt::black);
     for (Private::Item &item : d->active)
     {
         if (!d->intersectsViewport(item, rect))
             continue;
-        if (item.pixmapDpr != dpr || item.pixmapColor != item.color)
-            d->rebuildPixmap(item, dpr);
         const QPointF origin(item.x, d->itemTop(item, rect));
-        if (!item.cachedPixmap.isNull())
+        painter.save();
+        painter.translate(origin);
+        if (!item.cachedPixmap.isNull() && !item.pixmapLayoutSize.isEmpty())
         {
-            painter.drawPixmap(origin + item.pixmapOffset, item.cachedPixmap);
+            // 新字号的缓存尚未就绪时，暂按新碰撞尺寸显示旧图，避免文字整批消失。
+            painter.scale(item.width / item.pixmapLayoutSize.width(),
+                          item.height / item.pixmapLayoutSize.height());
+            painter.drawPixmap(item.pixmapOffset, item.cachedPixmap);
+        }
+        else if (!item.textPath.isEmpty() && !item.pathLayoutSize.isEmpty())
+        {
+            painter.scale(item.width / item.pathLayoutSize.width(),
+                          item.height / item.pathLayoutSize.height());
+            painter.fillPath(item.outlinePath, outlineBrush);
+            painter.fillPath(item.textPath, QBrush(item.color));
         }
         else
         {
-            painter.save();
-            painter.translate(origin);
-            painter.fillPath(item.outlinePath, outlineBrush);
-            painter.fillPath(item.textPath, QBrush(item.color));
-            painter.restore();
+            painter.setFont(d->textFont);
+            painter.setPen(Qt::black);
+            const QPointF offsets[] = { QPointF(-1, 0), QPointF(1, 0), QPointF(0, -1), QPointF(0, 1) };
+            for (const QPointF &offset : offsets)
+                painter.drawText(item.textOffset + offset, item.text);
+            painter.setPen(item.color);
+            painter.drawText(item.textOffset, item.text);
         }
+        painter.restore();
     }
     painter.restore();
+    d->scheduleRaster();
 }
 
 void DanmakuWidget::resizeEvent(QResizeEvent *event)

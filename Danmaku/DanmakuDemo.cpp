@@ -309,6 +309,7 @@ DanmakuDemo::DanmakuDemo(QWidget *parent) : QWidget(parent)
     m_fontSpin = new QSpinBox(fontSetting);
     m_fontSpin->setObjectName(QStringLiteral("FontSizeSpin"));
     m_fontSpin->setRange(16, 48);
+    m_fontSpin->setKeyboardTracking(false);
     m_fontSpin->setSuffix(QStringLiteral(" px"));
     m_fontSpin->setFixedWidth(100);
     m_fontSpin->setAccessibleName(QStringLiteral("弹幕字号，16 到 48 像素"));
@@ -317,6 +318,8 @@ DanmakuDemo::DanmakuDemo(QWidget *parent) : QWidget(parent)
     fontLayout->addLayout(fontRow);
     m_fontSlider = new QSlider(Qt::Horizontal, fontSetting);
     m_fontSlider->setRange(16, 48);
+    m_fontSlider->setTracking(false);
+    m_fontSlider->setToolTip(QStringLiteral("拖动预览数值，松开应用字号"));
     m_fontSlider->setAccessibleName(QStringLiteral("弹幕字号滑条"));
     fontLayout->addWidget(m_fontSlider);
     panelLayout->addWidget(fontSetting);
@@ -411,14 +414,24 @@ DanmakuDemo::DanmakuDemo(QWidget *parent) : QWidget(parent)
     inputLayout->addWidget(sendButton);
     layout->addWidget(inputCard);
 
+    m_fontTimer = new QTimer(this);
+    m_fontTimer->setSingleShot(true);
+    m_fontTimer->setInterval(120);
+    connect(m_fontTimer, &QTimer::timeout, this, &DanmakuDemo::applyPendingFontSize);
     m_sampleTimer = new QTimer(this);
     m_sampleTimer->setInterval(1200);
     connect(m_sampleTimer, &QTimer::timeout, this, &DanmakuDemo::sendSample);
     connect(m_danmaku, &DanmakuWidget::settingsChanged, this, &DanmakuDemo::syncSettings);
     connect(m_danmaku, &DanmakuWidget::statisticsChanged, this, &DanmakuDemo::syncStatistics);
-    connect(m_fontSlider, &QSlider::valueChanged, m_danmaku, &DanmakuWidget::setFontSize);
+    connect(m_fontSlider, &QSlider::sliderMoved, this, &DanmakuDemo::requestFontSize);
+    connect(m_fontSlider, &QSlider::valueChanged, this, &DanmakuDemo::requestFontSize);
+    connect(m_fontSlider, &QSlider::sliderReleased, this, [this]() {
+        requestFontSize(m_fontSlider->sliderPosition());
+        applyPendingFontSize();
+    });
     connect(m_fontSpin, QOverload<int>::of(&QSpinBox::valueChanged),
-            m_danmaku, &DanmakuWidget::setFontSize);
+            this, &DanmakuDemo::requestFontSize);
+    connect(m_fontSpin, &QSpinBox::editingFinished, this, &DanmakuDemo::applyPendingFontSize);
     connect(m_laneSpin, QOverload<int>::of(&QSpinBox::valueChanged),
             m_danmaku, &DanmakuWidget::setLaneCount);
     connect(m_opacitySlider, &QSlider::valueChanged, this, [this](int value) {
@@ -440,6 +453,8 @@ DanmakuDemo::DanmakuDemo(QWidget *parent) : QWidget(parent)
 
 DanmakuDemo::~DanmakuDemo()
 {
+    m_fontTimer->stop();
+    disconnect(m_fontTimer, &QTimer::timeout, this, &DanmakuDemo::applyPendingFontSize);
     m_sampleTimer->stop();
     disconnect(m_sampleTimer, &QTimer::timeout, this, &DanmakuDemo::sendSample);
     m_displayed = false;
@@ -451,12 +466,15 @@ void DanmakuDemo::showEvent(QShowEvent *event)
 {
     m_displayed = true;
     QWidget::showEvent(event);
+    applyPendingFontSize();
     updateSampleTimer();
 }
 
 void DanmakuDemo::hideEvent(QHideEvent *event)
 {
     m_displayed = false;
+    m_fontTimer->stop();
+    applyPendingFontSize();
     updateSampleTimer();
     QWidget::hideEvent(event);
 }
@@ -468,6 +486,33 @@ void DanmakuDemo::changeEvent(QEvent *event)
         updateSampleTimer();
 }
 
+void DanmakuDemo::requestFontSize(int fontSize)
+{
+    m_pendingFontSize = qBound(16, fontSize, 48);
+    m_fontSizePending = m_pendingFontSize != m_danmaku->fontSize();
+    const QSignalBlocker sliderBlocker(m_fontSlider);
+    const QSignalBlocker spinBlocker(m_fontSpin);
+    if (!m_fontSlider->isSliderDown())
+        m_fontSlider->setValue(m_pendingFontSize);
+    m_fontSpin->setValue(m_pendingFontSize);
+
+    if (!m_fontSizePending || m_fontSlider->isSliderDown() || !m_displayed)
+        m_fontTimer->stop();
+    else
+        m_fontTimer->start();
+}
+
+void DanmakuDemo::applyPendingFontSize()
+{
+    m_fontTimer->stop();
+    if (!m_fontSizePending)
+        return;
+    const int fontSize = m_pendingFontSize;
+    m_fontSizePending = false;
+    m_danmaku->setFontSize(fontSize);
+    syncSettings();
+}
+
 void DanmakuDemo::syncSettings()
 {
     const QSignalBlocker fontSliderBlocker(m_fontSlider);
@@ -477,8 +522,11 @@ void DanmakuDemo::syncSettings()
     const QSignalBlocker speedSliderBlocker(m_speedSlider);
     const QSignalBlocker speedSpinBlocker(m_speedSpin);
     const QSignalBlocker pauseBlocker(m_pauseButton);
-    m_fontSlider->setValue(m_danmaku->fontSize());
-    m_fontSpin->setValue(m_danmaku->fontSize());
+    if (!m_fontSizePending && !m_fontSlider->isSliderDown()) {
+        m_pendingFontSize = m_danmaku->fontSize();
+        m_fontSlider->setValue(m_pendingFontSize);
+        m_fontSpin->setValue(m_pendingFontSize);
+    }
     m_laneSpin->setValue(m_danmaku->laneCount());
     const int opacityPercent = qRound(m_danmaku->opacity() * 100);
     m_opacitySlider->setValue(opacityPercent);
